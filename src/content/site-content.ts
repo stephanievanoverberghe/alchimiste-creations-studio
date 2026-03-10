@@ -3,6 +3,7 @@ import {
   BriefcaseBusiness,
   Send,
   Gem,
+  House,
   Instagram,
   Linkedin,
   Mail,
@@ -28,10 +29,10 @@ export const siteContent = {
   valueProposition:
     'Studio web indépendant : branding digital, sites Next.js et optimisation conversion pour les marques qui veulent un site utile, rapide et mémorable.',
   nav: [
-    { href: '/', label: 'Accueil', icon: Gem },
+    { href: '/', label: 'Accueil', icon: House },
     { href: '/portfolio', label: 'Portfolio', icon: BriefcaseBusiness },
     { href: '/services', label: 'Services', icon: Sparkles },
-    { href: '/a-propos', label: 'À propos', icon: ShieldCheck },
+    { href: '/a-propos', label: 'À propos', icon: Gem },
   ] satisfies SiteNavItem[],
   ctaPrimary: {
     href: '/contact',

@@ -107,7 +107,7 @@ export function MobileBottomNav() {
             aria-current={ctaActive ? 'page' : undefined}
             className="focus-ring -mt-6 flex flex-col items-center justify-center gap-1 rounded-xl"
           >
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_10px_26px_rgba(122,84,255,0.42)] transition-all duration-(--motion-fast) ease-(--ease-standard) hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(122,84,255,0.5)]">
+            <span className="inline-flex h-15 w-15 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_10px_26px_rgba(122,84,255,0.42)] transition-all duration-(--motion-fast) ease-(--ease-standard) hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(122,84,255,0.5)]">
               {CtaIcon ? <CtaIcon className="h-5 w-5" /> : null}
             </span>
 
