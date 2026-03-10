@@ -1,6 +1,5 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
 
 const REQUIRED_PATHS = [
     'src/app',
@@ -17,12 +16,14 @@ const REQUIRED_PATHS = [
     'src/types',
 ];
 
-test('architecture folders exist', () => {
-    for (const path of REQUIRED_PATHS) {
-        assert.equal(existsSync(path), true, `Missing required path: ${path}`);
-    }
-});
+describe('architecture', () => {
+    it('keeps required folders', () => {
+        for (const path of REQUIRED_PATHS) {
+            expect(existsSync(path), `Missing required path: ${path}`).toBe(true);
+        }
+    });
 
-test('source-of-truth product spec exists', () => {
-    assert.equal(existsSync('docs/alchimiste-creations-product-spec.md'), true);
+    it('keeps the product spec source-of-truth document', () => {
+        expect(existsSync('docs/alchimiste-creations-product-spec.md')).toBe(true);
+    });
 });

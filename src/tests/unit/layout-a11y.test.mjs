@@ -1,23 +1,24 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
 
 function read(path) {
     return readFileSync(path, 'utf-8');
 }
 
-test('header exposes a main navigation aria label', () => {
-    const source = read('src/components/layout/Header.tsx');
-    assert.match(source, /aria-label="Navigation principale"/);
-});
+describe('layout accessibility smoke checks', () => {
+    it('header exposes a main navigation aria label', () => {
+        const source = read('src/components/layout/Header.tsx');
+        expect(source).toMatch(/aria-label="Navigation principale"/);
+    });
 
-test('mobile nav exposes an aria label', () => {
-    const source = read('src/components/layout/MobileBottomNav.tsx');
-    assert.match(source, /aria-label="Navigation mobile"/);
-});
+    it('mobile nav exposes an aria label', () => {
+        const source = read('src/components/layout/MobileBottomNav.tsx');
+        expect(source).toMatch(/aria-label="Navigation mobile"/);
+    });
 
-test('footer exposes legal and footer navigation labels', () => {
-    const source = read('src/components/layout/Footer.tsx');
-    assert.match(source, /aria-label="Navigation pied de page"/);
-    assert.match(source, /aria-label="Pages légales"/);
+    it('footer exposes legal and footer navigation labels', () => {
+        const source = read('src/components/layout/Footer.tsx');
+        expect(source).toMatch(/aria-label="Navigation pied de page"/);
+        expect(source).toMatch(/aria-label="Pages légales"/);
+    });
 });
