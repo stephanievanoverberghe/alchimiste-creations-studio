@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
 import { isNearTop, getScrollDirection } from '@/lib/utils/scroll-direction';
-import { siteContent } from '@/content/site-content';
+import { mainNavigation, primaryCta } from '@/content/site';
 
 function isActive(pathname: string, href: string) {
   if (href === '/') return pathname === '/';
@@ -18,10 +18,10 @@ export function MobileBottomNav() {
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
-  const left = siteContent.nav.slice(0, 2);
-  const right = siteContent.nav.slice(2, 4);
-  const CtaIcon = siteContent.ctaPrimary.icon;
-  const ctaActive = isActive(pathname, siteContent.ctaPrimary.href);
+  const left = mainNavigation.slice(0, 2);
+  const right = mainNavigation.slice(2, 4);
+  const CtaIcon = primaryCta.icon;
+  const ctaActive = isActive(pathname, primaryCta.href);
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
@@ -102,8 +102,8 @@ export function MobileBottomNav() {
           })}
 
           <Link
-            href={siteContent.ctaPrimary.href}
-            aria-label={siteContent.ctaPrimary.label}
+            href={primaryCta.href}
+            aria-label={primaryCta.label}
             aria-current={ctaActive ? 'page' : undefined}
             className="focus-ring -mt-6 flex flex-col items-center justify-center gap-1 rounded-xl"
           >

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CSSProperties, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Button, Container } from '@/components/ui';
-import { siteContent } from '@/content/site-content';
+import { mainNavigation, primaryCta, siteBrand } from '@/content/site';
 import { cn } from '@/lib/utils/cn';
 
 function isActive(pathname: string, href: string) {
@@ -33,7 +33,7 @@ export function Header() {
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
   const activeHref = useMemo(
-    () => siteContent.nav.find((item) => isActive(pathname, item.href))?.href,
+    () => mainNavigation.find((item) => isActive(pathname, item.href))?.href,
     [pathname],
   );
 
@@ -67,9 +67,9 @@ export function Header() {
   return (
     <header className="site-header hidden sm:block">
       <Container className="site-header__shell">
-        <Link href="/" aria-label={siteContent.brand} className="site-header__brand">
+        <Link href="/" aria-label={siteBrand} className="site-header__brand">
           <span aria-hidden="true" className="site-header__brand-dot" />
-          <span className="site-header__brand-label">{siteContent.brand}</span>
+          <span className="site-header__brand-label">{siteBrand}</span>
         </Link>
 
         <nav
@@ -90,7 +90,7 @@ export function Header() {
               indicator.ready && 'site-header__desktop-indicator--ready',
             )}
           />
-          {siteContent.nav.map((item) => {
+          {mainNavigation.map((item) => {
             const active = isActive(pathname, item.href);
 
             return (
@@ -114,16 +114,16 @@ export function Header() {
 
         <div className="site-header__actions">
           <Button
-            href={siteContent.ctaPrimary.href}
+            href={primaryCta.href}
             variant="secondary"
             size="sm"
             className="hidden lg:inline-flex"
           >
-            {siteContent.ctaPrimary.label}
+            {primaryCta.label}
           </Button>
 
           <Button
-            href={siteContent.ctaPrimary.href}
+            href={primaryCta.href}
             variant="secondary"
             size="sm"
             className="hidden md:inline-flex lg:hidden"
@@ -154,7 +154,7 @@ export function Header() {
         )}
       >
         <Container className="site-header__tablet-menu-inner">
-          {siteContent.nav.map((item, index) => {
+          {mainNavigation.map((item, index) => {
             const active = isActive(pathname, item.href);
 
             return (

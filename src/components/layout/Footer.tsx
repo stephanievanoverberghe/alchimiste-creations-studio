@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { Button, Container, Badge } from '@/components/ui';
-import { siteContent } from '@/content/site-content';
+import { footerContent, siteBrand, siteValueProposition } from '@/content/site';
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const MailIcon = siteContent.footerMetaIcons.mail;
-  const MapIcon = siteContent.footerMetaIcons.map;
+  const MailIcon = footerContent.contact.icons.mail;
+  const MapIcon = footerContent.contact.icons.map;
 
   return (
     <footer className="mt-24 border-t border-border/60 py-12 md:py-16">
@@ -23,21 +23,21 @@ export function Footer() {
           <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
             <div className="space-y-6">
               <Badge variant="primary" className="w-fit">
-                {siteContent.footerIntro}
+                {footerContent.intro}
               </Badge>
 
               <div className="space-y-4">
                 <p className="max-w-[16ch] text-3xl font-semibold tracking-tight text-text sm:text-4xl lg:text-5xl">
-                  {siteContent.footerTitle}
+                  {footerContent.title}
                 </p>
 
                 <p className="max-w-2xl text-sm leading-relaxed text-text-muted md:text-base">
-                  {siteContent.footerDescription}
+                  {footerContent.description}
                 </p>
               </div>
 
               <ul className="grid gap-3 sm:grid-cols-3">
-                {siteContent.footerHighlights.map((item) => {
+                {footerContent.highlights.map((item) => {
                   const Icon = item.icon;
 
                   return (
@@ -58,33 +58,29 @@ export function Footer() {
             <div className="rounded-3xl border border-border/70 bg-[linear-gradient(180deg,hsl(var(--surface-elevated))/0.92,hsl(var(--surface))/0.88)] p-5 shadow-[0_12px_34px_rgba(8,10,20,0.24)] md:p-6">
               <div className="space-y-5">
                 <div className="space-y-2">
-                  <p className="text-sm font-semibold tracking-wide text-text">
-                    {siteContent.brand}
-                  </p>
-                  <p className="text-sm leading-relaxed text-text-muted">
-                    {siteContent.valueProposition}
-                  </p>
+                  <p className="text-sm font-semibold tracking-wide text-text">{siteBrand}</p>
+                  <p className="text-sm leading-relaxed text-text-muted">{siteValueProposition}</p>
                 </div>
 
                 <div className="space-y-3 text-sm text-text-muted">
                   <p className="inline-flex items-center gap-2">
                     <MailIcon className="h-4 w-4 shrink-0 text-primary" />
                     <a
-                      href={`mailto:${siteContent.contact.email}`}
+                      href={`mailto:${footerContent.contact.email}`}
                       className="transition-colors duration-(--motion-fast) ease-(--ease-standard) hover:text-text"
                     >
-                      {siteContent.contact.email}
+                      {footerContent.contact.email}
                     </a>
                   </p>
 
                   <p className="inline-flex items-center gap-2">
                     <MapIcon className="h-4 w-4 shrink-0 text-primary" />
-                    <span>{siteContent.contact.location}</span>
+                    <span>{footerContent.contact.location}</span>
                   </p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {siteContent.social.map((item) => {
+                  {footerContent.socialLinks.map((item) => {
                     const Icon = item.icon;
 
                     return (
@@ -103,8 +99,8 @@ export function Footer() {
                 </div>
 
                 <div className="pt-1">
-                  <Button href={siteContent.ctaPrimary.href} size="sm">
-                    {siteContent.ctaPrimary.label}
+                  <Button href={footerContent.cta.href} size="sm">
+                    {footerContent.cta.label}
                   </Button>
                 </div>
               </div>
@@ -114,7 +110,7 @@ export function Footer() {
 
         <section className="grid gap-8 border-t border-border/60 pt-8 md:grid-cols-[1fr_auto_auto] md:items-start md:gap-12">
           <div className="space-y-2">
-            <p className="text-sm font-semibold tracking-wide text-text">{siteContent.brand}</p>
+            <p className="text-sm font-semibold tracking-wide text-text">{siteBrand}</p>
             <p className="max-w-lg text-sm leading-relaxed text-text-muted">
               Des sites web clairs, modernes et crédibles pour présenter votre activité avec plus de
               justesse.
@@ -126,7 +122,7 @@ export function Footer() {
               Navigation
             </p>
             <ul className="space-y-2">
-              {siteContent.nav.map((item) => (
+              {footerContent.navigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -144,7 +140,7 @@ export function Footer() {
               Légal
             </p>
             <ul className="space-y-2">
-              {siteContent.legal.map((item) => (
+              {footerContent.legalNavigation.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -160,9 +156,9 @@ export function Footer() {
 
         <div className="flex flex-col gap-2 border-t border-border/60 pt-4 text-xs text-text-muted md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {siteContent.brand}. Tous droits réservés.
+            © {year} {siteBrand}. Tous droits réservés.
           </p>
-          <p>{siteContent.footerBottomText}</p>
+          <p>{footerContent.bottomText}</p>
         </div>
       </Container>
     </footer>
