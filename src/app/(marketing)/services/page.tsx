@@ -1,8 +1,13 @@
+import { Container, Heading, Section } from '@/components/ui';
+
 export default function ServicesPage() {
   return (
-    <main className="container-base section-base">
-      <h1>Services</h1>
-      <p className="text-muted">Les offres d’accompagnement et de réalisation.</p>
+    <main>
+      <Section>
+        <Container>
+          <Heading title="Services" description="Les offres d’accompagnement et de réalisation." />
+        </Container>
+      </Section>
     </main>
   );
 }

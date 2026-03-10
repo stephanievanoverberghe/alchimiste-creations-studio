@@ -1,8 +1,13 @@
+import { Container, Heading, Section } from '@/components/ui';
+
 export default function ContactPage() {
   return (
-    <main className="container-base section-base">
-      <h1>Contact</h1>
-      <p className="text-muted">Parlons de votre projet.</p>
+    <main>
+      <Section>
+        <Container>
+          <Heading title="Contact" description="Parlons de votre projet." />
+        </Container>
+      </Section>
     </main>
   );
 }

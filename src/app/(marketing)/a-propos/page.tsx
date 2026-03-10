@@ -1,8 +1,13 @@
+import { Container, Heading, Section } from '@/components/ui';
+
 export default function AProposPage() {
   return (
-    <main className="container-base section-base">
-      <h1>À propos</h1>
-      <p className="text-muted">Présentation du studio et de ma vision produit.</p>
+    <main>
+      <Section>
+        <Container>
+          <Heading title="À propos" description="Présentation du studio et de ma vision produit." />
+        </Container>
+      </Section>
     </main>
   );
 }

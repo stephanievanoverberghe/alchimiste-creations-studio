@@ -1,8 +1,17 @@
+import { Container, Heading, Section } from '@/components/ui';
+
 export default function HomePage() {
-    return (
-        <main className="container-base section-base">
-            <h1>Alchimiste Créations</h1>
-            <p className="text-muted">Foundation prête.</p>
-        </main>
-    );
+  return (
+    <main>
+      <Section>
+        <Container>
+          <Heading
+            eyebrow="Sprint 1 à 3"
+            title="Alchimiste Créations"
+            description="Foundation prête : base technique, design system et layout global en place."
+          />
+        </Container>
+      </Section>
+    </main>
+  );
 }

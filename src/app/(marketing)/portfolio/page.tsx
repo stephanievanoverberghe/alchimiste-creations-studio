@@ -1,8 +1,16 @@
+import { Container, Heading, Section } from '@/components/ui';
+
 export default function PortfolioPage() {
   return (
-    <main className="container-base section-base">
-      <h1>Portfolio</h1>
-      <p className="text-muted">Une sélection de projets livrés et des résultats obtenus.</p>
+    <main>
+      <Section>
+        <Container>
+          <Heading
+            title="Portfolio"
+            description="Une sélection de projets livrés et des résultats obtenus."
+          />
+        </Container>
+      </Section>
     </main>
   );
 }

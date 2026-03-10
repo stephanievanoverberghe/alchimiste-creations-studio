@@ -2,14 +2,58 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ComponentType } from 'react';
 import { cn } from '@/lib/utils/cn';
 import { isNearTop, getScrollDirection } from '@/lib/utils/scroll-direction';
 import { mainNavigation, primaryCta } from '@/content/site';
 
-function isActive(pathname: string, href: string) {
+type NavIcon = ComponentType<{ className?: string }>;
+
+type MobileNavLinkItemProps = {
+  href: string;
+  label: string;
+  isActive: boolean;
+  icon?: NavIcon;
+};
+
+function isActivePath(pathname: string, href: string) {
   if (href === '/') return pathname === '/';
   return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function MobileNavLinkItem({ href, label, isActive, icon: Icon }: MobileNavLinkItemProps) {
+  return (
+    <Link
+      href={href}
+      aria-label={label}
+      aria-current={isActive ? 'page' : undefined}
+      className={cn(
+        'relative flex h-14 flex-col items-center justify-center gap-1 rounded-xl px-1 text-[10px] font-semibold transition-all duration-(--motion-fast) ease-(--ease-standard) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
+        isActive ? 'text-text' : 'text-text-muted hover:-translate-y-0.5 hover:text-text',
+      )}
+    >
+      <span
+        aria-hidden="true"
+        className={cn(
+          'absolute top-1.5 h-1.5 w-1.5 rounded-full bg-primary transition-all duration-(--motion-fast) ease-(--ease-standard)',
+          isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-50',
+        )}
+      />
+
+      {Icon ? (
+        <span
+          className={cn(
+            'inline-flex h-8 w-8 items-center justify-center rounded-xl transition-all duration-(--motion-fast) ease-(--ease-standard)',
+            isActive && 'bg-white/6 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]',
+          )}
+        >
+          <Icon className="h-4.5 w-4.5" />
+        </span>
+      ) : null}
+
+      <span>{label}</span>
+    </Link>
+  );
 }
 
 export function MobileBottomNav() {
@@ -21,7 +65,7 @@ export function MobileBottomNav() {
   const left = mainNavigation.slice(0, 2);
   const right = mainNavigation.slice(2, 4);
   const CtaIcon = primaryCta.icon;
-  const ctaActive = isActive(pathname, primaryCta.href);
+  const ctaActive = isActivePath(pathname, primaryCta.href);
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
@@ -62,44 +106,15 @@ export function MobileBottomNav() {
         className="mobile-bottom-nav mx-auto max-w-md rounded-3xl border border-border/70 bg-surface/85 shadow-[0_14px_40px_rgba(4,7,18,0.45)] backdrop-blur-xl"
       >
         <div className="grid grid-cols-5 items-end gap-1 p-2">
-          {left.map((item) => {
-            const Icon = item.icon;
-            const active = isActive(pathname, item.href);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-label={item.label}
-                aria-current={active ? 'page' : undefined}
-                className={cn(
-                  'relative flex h-14 flex-col items-center justify-center gap-1 rounded-xl px-1 text-[10px] font-semibold transition-all duration-(--motion-fast) ease-(--ease-standard) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
-                  active ? 'text-text' : 'text-text-muted hover:-translate-y-0.5 hover:text-text',
-                )}
-              >
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    'absolute top-1.5 h-1.5 w-1.5 rounded-full bg-primary transition-all duration-(--motion-fast) ease-(--ease-standard)',
-                    active ? 'opacity-100 scale-100' : 'opacity-0 scale-50',
-                  )}
-                />
-
-                {Icon ? (
-                  <span
-                    className={cn(
-                      'inline-flex h-8 w-8 items-center justify-center rounded-xl transition-all duration-(--motion-fast) ease-(--ease-standard)',
-                      active && 'bg-white/6 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]',
-                    )}
-                  >
-                    <Icon className="h-4.5 w-4.5" />
-                  </span>
-                ) : null}
-
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
+          {left.map((item) => (
+            <MobileNavLinkItem
+              key={item.href}
+              href={item.href}
+              label={item.label}
+              icon={item.icon}
+              isActive={isActivePath(pathname, item.href)}
+            />
+          ))}
 
           <Link
             href={primaryCta.href}
@@ -121,44 +136,15 @@ export function MobileBottomNav() {
             </span>
           </Link>
 
-          {right.map((item) => {
-            const Icon = item.icon;
-            const active = isActive(pathname, item.href);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-label={item.label}
-                aria-current={active ? 'page' : undefined}
-                className={cn(
-                  'relative flex h-14 flex-col items-center justify-center gap-1 rounded-xl px-1 text-[10px] font-semibold transition-all duration-(--motion-fast) ease-(--ease-standard) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
-                  active ? 'text-text' : 'text-text-muted hover:-translate-y-0.5 hover:text-text',
-                )}
-              >
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    'absolute top-1.5 h-1.5 w-1.5 rounded-full bg-primary transition-all duration-(--motion-fast) ease-(--ease-standard)',
-                    active ? 'opacity-100 scale-100' : 'opacity-0 scale-50',
-                  )}
-                />
-
-                {Icon ? (
-                  <span
-                    className={cn(
-                      'inline-flex h-8 w-8 items-center justify-center rounded-xl transition-all duration-(--motion-fast) ease-(--ease-standard)',
-                      active && 'bg-white/6 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]',
-                    )}
-                  >
-                    <Icon className="h-4.5 w-4.5" />
-                  </span>
-                ) : null}
-
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
+          {right.map((item) => (
+            <MobileNavLinkItem
+              key={item.href}
+              href={item.href}
+              label={item.label}
+              icon={item.icon}
+              isActive={isActivePath(pathname, item.href)}
+            />
+          ))}
         </div>
       </nav>
     </div>

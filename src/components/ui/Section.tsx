@@ -1,18 +1,23 @@
-import { type ElementType, type ReactNode } from 'react';
+import { type ComponentPropsWithoutRef, type ElementType, type ReactNode } from 'react';
 import { cn } from '@/lib/utils/cn';
 
 type SectionProps<T extends ElementType = 'section'> = {
   as?: T;
   children: ReactNode;
   className?: string;
-};
+} & Omit<ComponentPropsWithoutRef<T>, 'as' | 'children' | 'className'>;
 
 export function Section<T extends ElementType = 'section'>({
   as,
   children,
   className,
+  ...props
 }: SectionProps<T>) {
   const Component = as ?? 'section';
 
-  return <Component className={cn('py-(--space-section-y)', className)}>{children}</Component>;
+  return (
+    <Component className={cn('py-(--space-section-y)', className)} {...props}>
+      {children}
+    </Component>
+  );
 }
