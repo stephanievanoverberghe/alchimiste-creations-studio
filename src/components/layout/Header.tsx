@@ -2,15 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { CSSProperties, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { CSSProperties, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Button, Container } from '@/components/ui';
 import { siteContent } from '@/content/site-content';
 import { cn } from '@/lib/utils/cn';
-import { getScrollDirection, isNearTop } from '@/lib/utils/scroll-direction';
-
-const NEAR_TOP_OFFSET = 72;
-const HIDE_DISTANCE = 18;
-const SHOW_DISTANCE = 14;
 
 function isActive(pathname: string, href: string) {
   if (href === '/') return pathname === '/';
@@ -32,10 +27,8 @@ const INITIAL_INDICATOR: IndicatorState = {
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [indicator, setIndicator] = useState<IndicatorState>(INITIAL_INDICATOR);
-  const lastScrollYRef = useRef(0);
-  const lastToggleYRef = useRef(0);
+
   const navRef = useRef<HTMLElement | null>(null);
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
@@ -43,51 +36,6 @@ export function Header() {
     () => siteContent.nav.find((item) => isActive(pathname, item.href))?.href,
     [pathname],
   );
-
-  useEffect(() => {
-    let ticking = false;
-
-    const updateVisibility = () => {
-      const currentY = window.scrollY;
-      const direction = getScrollDirection({
-        currentY,
-        previousY: lastScrollYRef.current,
-        threshold: 4,
-      });
-
-      if (open || isNearTop(currentY, NEAR_TOP_OFFSET)) {
-        setHidden(false);
-        lastToggleYRef.current = currentY;
-      } else {
-        const deltaFromToggle = currentY - lastToggleYRef.current;
-
-        if (direction === 'down' && !hidden && deltaFromToggle > HIDE_DISTANCE) {
-          setHidden(true);
-          lastToggleYRef.current = currentY;
-        }
-
-        if (direction === 'up' && hidden && deltaFromToggle < -SHOW_DISTANCE) {
-          setHidden(false);
-          lastToggleYRef.current = currentY;
-        }
-      }
-
-      lastScrollYRef.current = currentY;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(updateVisibility);
-    };
-
-    lastScrollYRef.current = window.scrollY;
-    lastToggleYRef.current = window.scrollY;
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [hidden, open]);
 
   useLayoutEffect(() => {
     const updateIndicator = () => {
@@ -117,12 +65,7 @@ export function Header() {
   }, [activeHref]);
 
   return (
-    <header
-      className={cn(
-        'site-header inset-x-0 top-0 z-50 hidden sm:block',
-        hidden && !open ? 'site-header--hidden' : 'site-header--visible',
-      )}
-    >
+    <header className="site-header hidden sm:block">
       <Container className="site-header__shell">
         <Link href="/" aria-label={siteContent.brand} className="site-header__brand">
           <span aria-hidden="true" className="site-header__brand-dot" />
@@ -190,16 +133,7 @@ export function Header() {
 
           <button
             type="button"
-            onClick={() => {
-              setOpen((prev) => {
-                const next = !prev;
-                if (next) {
-                  setHidden(false);
-                  lastToggleYRef.current = window.scrollY;
-                }
-                return next;
-              });
-            }}
+            onClick={() => setOpen((prev) => !prev)}
             className={cn('site-header__burger', open && 'site-header__burger--open')}
             aria-expanded={open}
             aria-controls="site-tablet-menu"
