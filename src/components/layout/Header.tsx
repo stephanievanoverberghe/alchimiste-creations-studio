@@ -2,56 +2,150 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { CSSProperties, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Button, Container } from '@/components/ui';
 import { siteContent } from '@/content/site-content';
 import { cn } from '@/lib/utils/cn';
+import { getScrollDirection, isNearTop } from '@/lib/utils/scroll-direction';
 
 function isActive(pathname: string, href: string) {
   if (href === '/') return pathname === '/';
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
+type IndicatorState = {
+  left: number;
+  width: number;
+  ready: boolean;
+};
+
+const INITIAL_INDICATOR: IndicatorState = {
+  left: 0,
+  width: 0,
+  ready: false,
+};
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [indicator, setIndicator] = useState<IndicatorState>(INITIAL_INDICATOR);
+  const lastScrollYRef = useRef(0);
+  const navRef = useRef<HTMLElement | null>(null);
+  const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+
+  const activeHref = useMemo(
+    () => siteContent.nav.find((item) => isActive(pathname, item.href))?.href,
+    [pathname],
+  );
+
+  useEffect(() => {
+    let ticking = false;
+
+    const updateVisibility = () => {
+      const currentY = window.scrollY;
+      const direction = getScrollDirection({
+        currentY,
+        previousY: lastScrollYRef.current,
+        threshold: 10,
+      });
+
+      if (open || isNearTop(currentY, 56)) {
+        setHidden(false);
+      } else if (direction === 'down') {
+        setHidden(true);
+      } else if (direction === 'up') {
+        setHidden(false);
+      }
+
+      lastScrollYRef.current = currentY;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateVisibility);
+    };
+
+    lastScrollYRef.current = window.scrollY;
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [open]);
+
+  useLayoutEffect(() => {
+    const updateIndicator = () => {
+      if (!activeHref) {
+        setIndicator(INITIAL_INDICATOR);
+        return;
+      }
+
+      const navEl = navRef.current;
+      const linkEl = linkRefs.current[activeHref];
+
+      if (!navEl || !linkEl) {
+        setIndicator(INITIAL_INDICATOR);
+        return;
+      }
+
+      setIndicator({
+        left: linkEl.offsetLeft,
+        width: linkEl.offsetWidth,
+        ready: true,
+      });
+    };
+
+    updateIndicator();
+    window.addEventListener('resize', updateIndicator);
+    return () => window.removeEventListener('resize', updateIndicator);
+  }, [activeHref]);
 
   return (
-    <header className="site-header sticky top-0 z-50 hidden border-b border-border/70 bg-bg/86 backdrop-blur-xl transition-all duration-(--motion-base) ease-(--ease-standard) sm:block">
-      <Container className="grid grid-cols-[auto_1fr_auto] items-center gap-4 py-3 lg:gap-6">
-        <Link
-          href="/"
-          aria-label={siteContent.brand}
-          className="inline-flex items-center gap-3 transition-transform duration-(--motion-fast) ease-(--ease-standard) hover:-translate-y-0.5"
+    <header
+      className={cn(
+        'site-header fixed inset-x-0 top-0 z-50 hidden sm:block',
+        hidden && !open ? 'site-header--hidden' : 'site-header--visible',
+      )}
+    >
+      <Container className="site-header__shell">
+        <Link href="/" aria-label={siteContent.brand} className="site-header__brand">
+          <span aria-hidden="true" className="site-header__brand-dot" />
+          <span className="site-header__brand-label">{siteContent.brand}</span>
+        </Link>
+
+        <nav
+          ref={navRef}
+          aria-label="Navigation principale"
+          className="site-header__desktop-nav"
+          style={
+            {
+              '--indicator-left': `${indicator.left}px`,
+              '--indicator-width': `${indicator.width}px`,
+            } as CSSProperties
+          }
         >
           <span
             aria-hidden="true"
-            className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_20px_rgba(122,84,255,0.95)]"
+            className={cn(
+              'site-header__desktop-indicator',
+              indicator.ready && 'site-header__desktop-indicator--ready',
+            )}
           />
-          <span className="text-sm font-semibold tracking-wide md:text-base">
-            {siteContent.brand}
-          </span>
-        </Link>
-
-        {/* Desktop nav uniquement */}
-        <nav
-          aria-label="Navigation principale"
-          className="hidden items-center justify-center gap-1 rounded-2xl p-1 lg:flex"
-        >
           {siteContent.nav.map((item) => {
             const active = isActive(pathname, item.href);
 
             return (
               <Link
                 key={item.href}
+                ref={(el) => {
+                  linkRefs.current[item.href] = el;
+                }}
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'rounded-xl px-3 py-2 text-sm transition-all duration-(--motion-fast) ease-(--ease-standard)',
-                  active
-                    ? 'bg-surface-elevated text-text shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]'
-                    : 'text-text-muted hover:-translate-y-0.5 hover:text-text',
+                  'site-header__desktop-link',
+                  active && 'site-header__desktop-link--active',
                 )}
               >
                 {item.label}
@@ -60,8 +154,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="flex items-center justify-end gap-2">
-          {/* CTA desktop */}
+        <div className="site-header__actions">
           <Button
             href={siteContent.ctaPrimary.href}
             variant="secondary"
@@ -71,7 +164,6 @@ export function Header() {
             {siteContent.ctaPrimary.label}
           </Button>
 
-          {/* CTA court tablette */}
           <Button
             href={siteContent.ctaPrimary.href}
             variant="secondary"
@@ -81,36 +173,29 @@ export function Header() {
             Contact
           </Button>
 
-          {/* Hamburger tablette uniquement */}
           <button
             type="button"
             onClick={() => setOpen((prev) => !prev)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/70 bg-surface/65 transition-all duration-(--motion-fast) ease-(--ease-standard) hover:-translate-y-0.5 hover:border-primary/40 lg:hidden"
+            className={cn('site-header__burger', open && 'site-header__burger--open')}
             aria-expanded={open}
             aria-controls="site-tablet-menu"
             aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
           >
-            <span
-              className={cn(
-                'transition-transform duration-(--motion-fast) ease-(--ease-standard)',
-                open && 'rotate-90',
-              )}
-            >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </span>
+            <span className="site-header__burger-line" />
+            <span className="site-header__burger-line" />
+            <span className="site-header__burger-line" />
           </button>
         </div>
       </Container>
 
-      {/* Menu compact tablette */}
       <div
         id="site-tablet-menu"
         className={cn(
-          'overflow-hidden border-t border-border/70 transition-[max-height,opacity] duration-(--motion-base) ease-(--ease-standard) lg:hidden',
-          open ? 'max-h-130 opacity-100' : 'max-h-0 opacity-0',
+          'site-header__tablet-menu lg:hidden',
+          open ? 'site-header__tablet-menu--open' : 'site-header__tablet-menu--closed',
         )}
       >
-        <Container className="grid gap-1 py-3">
+        <Container className="site-header__tablet-menu-inner">
           {siteContent.nav.map((item, index) => {
             const active = isActive(pathname, item.href);
 
@@ -119,14 +204,12 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                style={open ? { animationDelay: `${index * 50}ms` } : undefined}
                 className={cn(
-                  'rounded-xl px-3 py-3 text-sm transition-all duration-(--motion-fast) ease-(--ease-standard)',
-                  open && 'animate-[revealUp_var(--motion-slow)_var(--ease-standard)_both]',
-                  active
-                    ? 'bg-surface-elevated text-text shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]'
-                    : 'text-text-muted hover:text-text',
+                  'site-header__tablet-link',
+                  open && 'site-header__tablet-link--open',
+                  active && 'site-header__tablet-link--active',
                 )}
+                style={{ '--item-index': index } as CSSProperties}
                 aria-current={active ? 'page' : undefined}
               >
                 {item.label}
