@@ -44,9 +44,8 @@ const sizeClasses: Record<ButtonSize, string> = {
 function ButtonInner({
   children,
   variant,
-  size,
   className,
-}: Required<Pick<BaseProps, 'children' | 'variant' | 'size'>> & {
+}: Required<Pick<BaseProps, 'children' | 'variant'>> & {
   className?: string;
 }) {
   return (
@@ -59,7 +58,7 @@ function ButtonInner({
           'group-hover:translate-x-[140%]',
         )}
       />
-      <span className={cn('relative z-1]', className)}>{children}</span>
+      <span className={cn('relative z-1', className)}>{children}</span>
     </>
   );
 }
@@ -72,7 +71,7 @@ export function Button(props: ButtonProps) {
   if ('href' in props && props.href) {
     return (
       <Link href={props.href} className={classes}>
-        <ButtonInner variant={variant} size={size} className={undefined}>
+        <ButtonInner variant={variant} className={undefined}>
           {children}
         </ButtonInner>
       </Link>
@@ -81,7 +80,7 @@ export function Button(props: ButtonProps) {
 
   return (
     <button type="button" className={classes} {...rest}>
-      <ButtonInner variant={variant} size={size} className={undefined}>
+      <ButtonInner variant={variant} className={undefined}>
         {children}
       </ButtonInner>
     </button>
