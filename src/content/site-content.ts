@@ -1,8 +1,7 @@
-// src/content/site-content.ts
 import {
   type LucideIcon,
   BriefcaseBusiness,
-  ContactRound,
+  Send,
   Gem,
   Instagram,
   Linkedin,
@@ -37,7 +36,7 @@ export const siteContent = {
   ctaPrimary: {
     href: '/contact',
     label: 'Démarrer un projet',
-    icon: ContactRound,
+    icon: Send,
   },
   contact: {
     email: 'bonjour@alchimiste-creations.fr',

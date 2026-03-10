@@ -1,0 +1,9 @@
+.site-header {
+    animation: revealUp var(--motion-base) var(--ease-standard) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header {
+        animation: none;
+    }
+}

@@ -1,0 +1,20 @@
+.mobile-bottom-nav {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    will-change: transform, opacity;
+    transition:
+        transform var(--motion-base) var(--ease-standard),
+        opacity var(--motion-fast) var(--ease-standard);
+}
+
+.mobile-bottom-nav[data-visible='false'] {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, calc(100% + env(safe-area-inset-bottom) + 0.75rem), 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mobile-bottom-nav {
+        transition: none;
+    }
+}
