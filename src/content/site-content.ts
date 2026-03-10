@@ -27,7 +27,7 @@ export type SiteSocialItem = {
 export const siteContent = {
   brand: 'Alchimiste Créations',
   valueProposition:
-    'Studio web indépendant : branding digital, sites Next.js et optimisation conversion pour les marques qui veulent un site utile, rapide et mémorable.',
+    'J’aide les entrepreneurs et créateurs à transformer leur activité en un site web clair, moderne et crédible qui inspire confiance et attire les bonnes personnes.',
   nav: [
     { href: '/', label: 'Accueil', icon: House },
     { href: '/portfolio', label: 'Portfolio', icon: BriefcaseBusiness },
@@ -36,7 +36,7 @@ export const siteContent = {
   ] satisfies SiteNavItem[],
   ctaPrimary: {
     href: '/contact',
-    label: 'Démarrer un projet',
+    label: 'Réserver un appel découverte',
     icon: Send,
   },
   contact: {
@@ -52,12 +52,17 @@ export const siteContent = {
     { href: '/politique-confidentialite', label: 'Politique de confidentialité' },
   ] satisfies SiteNavItem[],
   footerHighlights: [
-    { label: 'Branding & direction digitale', icon: Sparkles },
-    { label: 'Design + développement Next.js', icon: Gem },
-    { label: 'Optimisation conversion', icon: ShieldCheck },
+    { label: 'Clarté du message', icon: Sparkles },
+    { label: 'Design moderne et crédible', icon: Gem },
+    { label: 'Performance & conversion', icon: ShieldCheck },
   ],
   footerMetaIcons: {
     mail: Mail,
     map: MapPin,
   },
+  footerIntro: 'Discutons de votre projet',
+  footerTitle: 'Un site plus clair, plus crédible, plus juste.',
+  footerDescription:
+    'Chaque projet est conçu pour valoriser votre activité, inspirer confiance et donner envie de vous contacter.',
+  footerBottomText: 'Studio web indépendant · Clarté · Crédibilité · Performance',
 };
