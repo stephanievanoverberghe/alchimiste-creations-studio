@@ -8,6 +8,10 @@ import { siteContent } from '@/content/site-content';
 import { cn } from '@/lib/utils/cn';
 import { getScrollDirection, isNearTop } from '@/lib/utils/scroll-direction';
 
+const NEAR_TOP_OFFSET = 72;
+const HIDE_DISTANCE = 18;
+const SHOW_DISTANCE = 14;
+
 function isActive(pathname: string, href: string) {
   if (href === '/') return pathname === '/';
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -31,6 +35,7 @@ export function Header() {
   const [hidden, setHidden] = useState(false);
   const [indicator, setIndicator] = useState<IndicatorState>(INITIAL_INDICATOR);
   const lastScrollYRef = useRef(0);
+  const lastToggleYRef = useRef(0);
   const navRef = useRef<HTMLElement | null>(null);
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
@@ -47,15 +52,24 @@ export function Header() {
       const direction = getScrollDirection({
         currentY,
         previousY: lastScrollYRef.current,
-        threshold: 10,
+        threshold: 4,
       });
 
-      if (open || isNearTop(currentY, 56)) {
+      if (open || isNearTop(currentY, NEAR_TOP_OFFSET)) {
         setHidden(false);
-      } else if (direction === 'down') {
-        setHidden(true);
-      } else if (direction === 'up') {
-        setHidden(false);
+        lastToggleYRef.current = currentY;
+      } else {
+        const deltaFromToggle = currentY - lastToggleYRef.current;
+
+        if (direction === 'down' && !hidden && deltaFromToggle > HIDE_DISTANCE) {
+          setHidden(true);
+          lastToggleYRef.current = currentY;
+        }
+
+        if (direction === 'up' && hidden && deltaFromToggle < -SHOW_DISTANCE) {
+          setHidden(false);
+          lastToggleYRef.current = currentY;
+        }
       }
 
       lastScrollYRef.current = currentY;
@@ -69,10 +83,11 @@ export function Header() {
     };
 
     lastScrollYRef.current = window.scrollY;
+    lastToggleYRef.current = window.scrollY;
 
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [open]);
+  }, [hidden, open]);
 
   useLayoutEffect(() => {
     const updateIndicator = () => {
@@ -104,7 +119,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        'site-header fixed inset-x-0 top-0 z-50 hidden sm:block',
+        'site-header inset-x-0 top-0 z-50 hidden sm:block',
         hidden && !open ? 'site-header--hidden' : 'site-header--visible',
       )}
     >
@@ -175,7 +190,16 @@ export function Header() {
 
           <button
             type="button"
-            onClick={() => setOpen((prev) => !prev)}
+            onClick={() => {
+              setOpen((prev) => {
+                const next = !prev;
+                if (next) {
+                  setHidden(false);
+                  lastToggleYRef.current = window.scrollY;
+                }
+                return next;
+              });
+            }}
             className={cn('site-header__burger', open && 'site-header__burger--open')}
             aria-expanded={open}
             aria-controls="site-tablet-menu"
