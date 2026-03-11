@@ -5,7 +5,7 @@ export function ValueProposition() {
   const content = getValuePropositionContent();
 
   return (
-    <Section>
+    <Section className="relative overflow-hidden">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <Heading
@@ -16,17 +16,22 @@ export function ValueProposition() {
           />
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {content.items.map((item) => {
             const Icon = item.icon;
 
             return (
               <Card
                 key={item.id}
-                className="group h-full border-border/70 bg-card/70 p-6 shadow-(--shadow-card) transition-all duration-200 ease-out hover:-translate-y-1 hover:border-primary/30"
+                className="relative h-full overflow-hidden border-border/70 bg-card/70 shadow-[0_12px_40px_rgba(0,0,0,0.22)]"
               >
-                <div className="flex h-full flex-col">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary transition-transform duration-200 ease-out group-hover:scale-105">
+                <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                  <div className="absolute left-1/2 top-0 h-36 w-36 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_28%)]" />
+                </div>
+
+                <div className="relative flex h-full flex-col p-6">
+                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary">
                     <Icon className="h-5 w-5" />
                   </div>
 

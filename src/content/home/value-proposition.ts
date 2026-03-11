@@ -4,29 +4,30 @@ import type { ValuePropositionContent } from '@/domain/home/value-proposition';
 
 export const valuePropositionContent: ValuePropositionContent = {
   eyebrow: 'Méthode Alchimiste',
-  title: 'Un site pensé comme un levier de crédibilité et de développement.',
+  title: 'Un site conçu comme un levier de crédibilité et de développement.',
   description:
-    'Chaque projet combine direction créative, structure UX et implémentation technique pour transformer votre présence en ligne en outil utile pour votre activité.',
+    'Chaque projet combine direction créative, structure UX et implémentation technique pour transformer votre présence en ligne en un véritable outil au service de votre activité.',
+
   items: [
     {
       id: 'branding-digital',
-      title: 'Direction visuelle premium',
+      title: 'Direction visuelle crédible et soignée',
       description:
-        'Un univers digital cohérent qui reflète votre niveau d’exigence et positionne votre activité de façon plus professionnelle.',
+        'Un univers digital cohérent, élégant et professionnel qui valorise votre activité et renforce immédiatement la confiance de vos visiteurs.',
       icon: Palette,
     },
     {
       id: 'nextjs-performance',
-      title: 'Expérience rapide et maîtrisée',
+      title: 'Technologie moderne et performances élevées',
       description:
-        'Un front-end moderne construit avec Next.js pour offrir un site fluide, stable et lisible sur mobile comme sur desktop.',
+        'Un site rapide, stable et optimisé construit avec Next.js pour offrir une expérience fluide et fiable sur mobile comme sur desktop.',
       icon: Gauge,
     },
     {
       id: 'conversion-optimization',
-      title: 'Parcours orienté prise de contact',
+      title: 'Structure pensée pour générer des contacts',
       description:
-        'Une hiérarchie claire, des messages précis et des CTA visibles pour convertir plus de visiteurs en prospects qualifiés.',
+        'Une hiérarchie claire, un message lisible et des appels à l’action bien placés pour transformer plus de visiteurs en prospects.',
       icon: Sparkles,
     },
   ],
