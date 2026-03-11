@@ -1,3 +1,40 @@
+/* src/styles/animations.css */
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mobileNavIn {
+    from {
+        opacity: 0;
+        transform: translateY(110%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mobileNavOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(110%);
+    }
+}
+
 @keyframes hero-float-mobile {
 
     0%,
@@ -7,30 +44,6 @@
 
     50% {
         transform: translate3d(0, -10px, 0) rotate(-0.4deg);
-    }
-}
-
-@keyframes hero-float-tablet {
-
-    0%,
-    100% {
-        transform: translate3d(0, 0, 0) rotate(0deg);
-    }
-
-    50% {
-        transform: translate3d(0, -8px, 0) rotate(0.35deg);
-    }
-}
-
-@keyframes hero-float-note {
-
-    0%,
-    100% {
-        transform: translate3d(0, 0, 0);
-    }
-
-    50% {
-        transform: translate3d(0, -6px, 0);
     }
 }
 
@@ -50,18 +63,6 @@
     animation: hero-float-mobile 5.4s ease-in-out infinite;
 }
 
-.hero-float-tablet {
-    animation: hero-float-tablet 6.2s ease-in-out infinite;
-}
-
-.hero-float-note {
-    animation: hero-float-note 4.8s ease-in-out infinite;
-}
-
-.hero-float-note-delay {
-    animation: hero-float-note 5.6s ease-in-out infinite;
-}
-
 .hero-glow-orb {
     animation: hero-glow-drift 7s ease-in-out infinite;
 }
@@ -77,9 +78,6 @@
 @media (prefers-reduced-motion: reduce) {
 
     .hero-float-mobile,
-    .hero-float-tablet,
-    .hero-float-note,
-    .hero-float-note-delay,
     .hero-glow-orb,
     .hero-glow-orb-delay,
     .hero-glow-orb-slow {

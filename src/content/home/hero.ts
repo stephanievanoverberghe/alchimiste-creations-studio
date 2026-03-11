@@ -24,35 +24,9 @@ export const heroContent: HeroContent = {
       src: '/images/mockups/hero-desktop.webp',
       alt: 'Aperçu desktop d’un site premium conçu par Alchimiste Créations',
     },
-    tablet: {
-      src: '/images/mockups/hero-tablet.webp',
-      alt: 'Aperçu tablette d’un site premium conçu par Alchimiste Créations',
-    },
     mobile: {
       src: '/images/mockups/hero-mobile.webp',
       alt: 'Aperçu mobile d’un site premium conçu par Alchimiste Créations',
-    },
-    floatingNotes: {
-      desktop: [
-        {
-          title: 'Image plus crédible',
-          description: 'Une hiérarchie claire qui valorise immédiatement votre activité.',
-        },
-        {
-          title: 'Parcours orienté contact',
-          description: 'Des CTA visibles et un message lisible pour générer plus de demandes.',
-        },
-      ],
-      mobile: [
-        {
-          title: 'Image crédible',
-          description: 'Clair, moderne et professionnel dès le premier écran.',
-        },
-        {
-          title: 'Pensé conversion',
-          description: 'Parcours simplifié pour transformer plus de visiteurs en prospects.',
-        },
-      ],
     },
   },
 };
