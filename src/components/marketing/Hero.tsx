@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { getHeroContent } from '@/application/home/getHeroContent';
 import { HeroMockup } from '@/components/marketing/HeroMockup';
 import { Badge, Button, Container, Section } from '@/components/ui';
@@ -8,7 +6,7 @@ export function Hero() {
   const content = getHeroContent();
 
   return (
-    <Section className="relative overflow-hidden pt-8 sm:pt-10 md:pt-14">
+    <Section className="relative overflow-hidden pt-8 sm:pt-10 md:pt-14 lg:pt-16">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -20,7 +18,7 @@ export function Hero() {
       </div>
 
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:gap-16 xl:gap-20">
           <div className="order-1 max-w-2xl">
             <Badge variant="primary" className="mb-4 sm:mb-5">
               {content.eyebrow}
@@ -35,12 +33,17 @@ export function Hero() {
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
-              <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href={content.primaryCta.href}>{content.primaryCta.label}</Link>
+              <Button href={content.primaryCta.href} size="lg" className="w-full sm:w-auto">
+                {content.primaryCta.label}
               </Button>
 
-              <Button asChild variant="secondary" size="lg" className="w-full sm:w-auto">
-                <Link href={content.secondaryCta.href}>{content.secondaryCta.label}</Link>
+              <Button
+                href={content.secondaryCta.href}
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
+                {content.secondaryCta.label}
               </Button>
             </div>
 
@@ -57,7 +60,7 @@ export function Hero() {
           </div>
 
           <div className="order-2">
-            <HeroMockup />
+            <HeroMockup mockup={content.mockup} />
           </div>
         </div>
       </Container>

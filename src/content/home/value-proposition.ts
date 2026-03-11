@@ -3,30 +3,30 @@ import { Gauge, Palette, Sparkles } from 'lucide-react';
 import type { ValuePropositionContent } from '@/domain/home/value-proposition';
 
 export const valuePropositionContent: ValuePropositionContent = {
-  eyebrow: 'Ce que je crée',
-  title: 'Un site qui ne fait pas que présenter votre activité.',
+  eyebrow: 'Méthode Alchimiste',
+  title: 'Un site pensé comme un levier de crédibilité et de développement.',
   description:
-    'Chaque projet est pensé pour clarifier votre message, renforcer votre image professionnelle et créer une présence en ligne capable de convaincre les bonnes personnes.',
+    'Chaque projet combine direction créative, structure UX et implémentation technique pour transformer votre présence en ligne en outil utile pour votre activité.',
   items: [
     {
       id: 'branding-digital',
-      title: 'Branding digital',
+      title: 'Direction visuelle premium',
       description:
-        'Un univers visuel cohérent pour donner à votre activité une présence plus forte, plus crédible et plus mémorable.',
+        'Un univers digital cohérent qui reflète votre niveau d’exigence et positionne votre activité de façon plus professionnelle.',
       icon: Palette,
     },
     {
       id: 'nextjs-performance',
-      title: 'Sites Next.js performants',
+      title: 'Expérience rapide et maîtrisée',
       description:
-        'Des interfaces modernes, rapides et responsive, construites avec une stack solide pour une expérience fluide sur tous les écrans.',
+        'Un front-end moderne construit avec Next.js pour offrir un site fluide, stable et lisible sur mobile comme sur desktop.',
       icon: Gauge,
     },
     {
       id: 'conversion-optimization',
-      title: 'Optimisation conversion',
+      title: 'Parcours orienté prise de contact',
       description:
-        'Une structure claire, des messages précis et des appels à l’action visibles pour transformer davantage de visiteurs en prises de contact.',
+        'Une hiérarchie claire, des messages précis et des CTA visibles pour convertir plus de visiteurs en prospects qualifiés.',
       icon: Sparkles,
     },
   ],
