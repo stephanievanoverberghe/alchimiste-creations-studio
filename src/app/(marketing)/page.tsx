@@ -4,6 +4,7 @@ import { PortfolioPreview } from '@/components/marketing/PortfolioPreview';
 import { Process } from '@/components/marketing/Process';
 import { ServicesPreview } from '@/components/marketing/ServicesPreview';
 import { ValueProposition } from '@/components/marketing/ValueProposition';
+import { FinalCta } from '@/components/marketing/FinalCta';
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       <PortfolioPreview />
       <Process />
       <Faq />
+      <FinalCta />
     </>
   );
 }
