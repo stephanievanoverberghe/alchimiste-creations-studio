@@ -28,16 +28,16 @@ export function Problem() {
             />
 
             <div className="grid gap-12 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-14 lg:px-10 lg:py-12 xl:px-12 xl:py-14">
-              <div className="lg:pr-6">
+              <div className="lg:pr-6 text-center md:text-start">
                 <p className="text-sm font-medium uppercase tracking-[0.18em] text-accent">
                   {content.eyebrow}
                 </p>
 
-                <h2 className="mt-5 max-w-[14ch] text-[2rem] font-semibold tracking-tight text-text sm:text-[2.4rem] sm:leading-[1.08] md:text-[2.8rem] lg:text-[3.1rem]">
+                <h2 className="mt-5 lg:max-w-[14ch] text-[2rem] font-semibold tracking-tight text-text sm:text-[2.4rem] sm:leading-[1.08] md:text-[2.8rem] lg:text-[3.1rem]">
                   {content.title}
                 </h2>
 
-                <p className="mt-6 max-w-[34ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+                <p className="mt-6 lg:max-w-[34ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
                   {content.description}
                 </p>
               </div>
@@ -59,7 +59,7 @@ export function Problem() {
                           {item.title}
                         </h3>
 
-                        <p className="mt-3 max-w-[40ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+                        <p className="mt-3 lg:max-w-[40ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
                           {item.consequence}
                         </p>
                       </div>

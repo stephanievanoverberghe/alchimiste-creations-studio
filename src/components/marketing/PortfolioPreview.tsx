@@ -158,9 +158,7 @@ type SecondaryProjectCardProps = {
   index: number;
 };
 
-function SecondaryProjectCard({ project, index }: SecondaryProjectCardProps) {
-  const displayIndex = String(index + 1).padStart(2, '0');
-
+function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
   return (
     <Link href={project.href} className="group block">
       <article className="relative overflow-hidden rounded-[1.7rem] border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.74),rgba(9,14,28,0.84))] shadow-[0_18px_40px_rgba(0,0,0,0.16)] backdrop-blur-xl transition-all duration-300 ease-out md:hover:-translate-y-0.5 md:hover:shadow-[0_28px_56px_rgba(80,80,255,0.12)]">
@@ -189,12 +187,6 @@ function SecondaryProjectCard({ project, index }: SecondaryProjectCardProps) {
 
           <div className="pointer-events-none absolute left-4 top-4 z-10">
             <Badge variant="default">{project.category}</Badge>
-          </div>
-
-          <div className="pointer-events-none absolute right-4 top-4 z-10">
-            <span className="inline-flex items-center rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[0.64rem] font-medium tracking-[0.18em] text-white/75 backdrop-blur-md">
-              {displayIndex}
-            </span>
           </div>
         </div>
 

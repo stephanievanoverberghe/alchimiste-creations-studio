@@ -19,7 +19,7 @@ export function Heading({ eyebrow, title, description, align = 'left', className
 
       <h2
         className={cn(
-          'max-w-[14ch] text-3xl font-semibold tracking-tight text-text sm:text-4xl md:text-5xl',
+          'lg:max-w-[14ch] text-3xl font-semibold tracking-tight text-text sm:text-4xl md:text-5xl',
           centered && 'mx-auto',
         )}
       >

@@ -28,9 +28,9 @@ export function Process() {
           {content.steps.map((step) => (
             <article
               key={step.id}
-              className="grid gap-5 border-b border-white/8 py-6 sm:py-8 lg:grid-cols-[120px_minmax(0,220px)_minmax(0,1fr)] lg:gap-8 lg:py-10"
+              className="grid gap-5 text-center lg:text-start border-b border-white/8 py-6 sm:py-8 lg:grid-cols-[120px_minmax(0,220px)_minmax(0,1fr)] lg:gap-8 lg:py-10"
             >
-              <div className="flex items-start">
+              <div className="">
                 <span className="text-sm font-medium tracking-[0.18em] text-foreground/40">
                   {step.number}
                 </span>
@@ -43,7 +43,7 @@ export function Process() {
               </div>
 
               <div>
-                <p className="max-w-[42ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+                <p className="lg:max-w-[42ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
                   {step.description}
                 </p>
               </div>

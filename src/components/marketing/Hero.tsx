@@ -18,7 +18,7 @@ export function Hero() {
 
       <Container>
         <div className="grid items-center gap-10 md:gap-12 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1.02fr)] lg:gap-14 xl:gap-18">
-          <div className="order-2 max-w-2xl md:order-1">
+          <div className="order-2 max-w-2xl md:order-1 text-center md:text-start">
             <Badge variant="primary" className="mb-4 sm:mb-5">
               {content.eyebrow}
             </Badge>

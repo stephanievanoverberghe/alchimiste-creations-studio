@@ -8,7 +8,7 @@ export function Footer() {
   const MapIcon = footerContent.contact.icons.map;
 
   return (
-    <footer className="mt-24 border-t border-border/60 py-12 md:py-16">
+    <footer className="border-t border-border/60 py-12 md:py-16">
       <Container className="space-y-10">
         <section className="relative overflow-hidden rounded-4xl border border-border/70 bg-[linear-gradient(180deg,hsl(var(--surface))/0.92,hsl(var(--bg))/0.96)] p-6 shadow-[0_18px_60px_rgba(4,7,18,0.42)] md:p-8 lg:p-10">
           <div

@@ -61,13 +61,7 @@ export function ServicesPreview() {
                 </div>
 
                 <div className="relative z-10 p-6 sm:p-8 lg:p-10">
-                  <div className="grid gap-8 lg:grid-cols-[72px_minmax(0,1.05fr)_minmax(280px,0.72fr)] lg:gap-10">
-                    <div className="flex items-start">
-                      <span className="text-sm font-medium tracking-[0.18em] text-foreground/40 transition-colors duration-300 md:group-hover:text-foreground/68">
-                        0{index + 1}
-                      </span>
-                    </div>
-
+                  <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.72fr)] lg:gap-10">
                     <div>
                       <div className="flex flex-wrap items-center gap-3">
                         <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/12 bg-white/5 text-foreground/80 transition-all duration-300 md:group-hover:border-primary/20 md:group-hover:bg-primary/10 md:group-hover:text-primary">
@@ -82,11 +76,11 @@ export function ServicesPreview() {
                         </Badge>
                       </div>
 
-                      <h3 className="mt-5 max-w-[12ch] text-[2rem] font-semibold tracking-tight text-foreground sm:text-[2.3rem] lg:text-[2.7rem] lg:leading-[1.02]">
+                      <h3 className="mt-5 lg:max-w-[12ch] text-[2rem] font-semibold tracking-tight text-foreground sm:text-[2.3rem] lg:text-[2.7rem] lg:leading-[1.02]">
                         {item.title}
                       </h3>
 
-                      <p className="mt-5 max-w-[34ch] text-base leading-8 text-muted-foreground transition-colors duration-300 md:group-hover:text-text sm:text-lg">
+                      <p className="mt-5 lg:max-w-[34ch] text-base leading-8 text-muted-foreground transition-colors duration-300 md:group-hover:text-text sm:text-lg">
                         {item.description}
                       </p>
                     </div>

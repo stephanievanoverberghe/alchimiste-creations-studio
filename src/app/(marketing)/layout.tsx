@@ -9,7 +9,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <>
       <Header />
-      <div className="pb-28 md:pb-0">{children}</div>
+      <>{children}</>
       <Footer />
       <MobileBottomNav />
     </>
