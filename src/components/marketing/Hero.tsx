@@ -6,7 +6,7 @@ export function Hero() {
   const content = getHeroContent();
 
   return (
-    <Section className="relative overflow-hidden pt-8 sm:pt-10 md:pt-14 lg:pt-16">
+    <Section className="relative overflow-hidden pt-10 sm:pt-12 md:pt-16 lg:pt-18">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -17,19 +17,31 @@ export function Hero() {
       </div>
 
       <Container>
-        <div className="grid items-center gap-10 md:gap-12 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:gap-16 xl:gap-20">
+        <div className="grid items-center gap-10 md:gap-12 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1.02fr)] lg:gap-14 xl:gap-18">
           <div className="order-2 max-w-2xl md:order-1">
             <Badge variant="primary" className="mb-4 sm:mb-5">
               {content.eyebrow}
             </Badge>
 
-            <h1 className="max-w-xl text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-xl text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.55rem] lg:leading-[1.02]">
               {content.title}
             </h1>
 
-            <p className="mt-5 max-w-lg text-base leading-7 text-muted-foreground sm:mt-6 sm:text-lg sm:leading-8">
+            <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground sm:mt-6 sm:text-lg sm:leading-8">
               {content.description}
             </p>
+
+            <ul className="mt-7 grid gap-3 sm:mt-8 sm:grid-cols-3">
+              {content.trustIndicators.map((indicator) => (
+                <li
+                  key={indicator.id}
+                  className="rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] px-4 py-3 backdrop-blur-md"
+                >
+                  <p className="text-sm font-semibold text-foreground">{indicator.value}</p>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">{indicator.label}</p>
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <Button href={content.primaryCta.href} size="lg" className="w-full sm:w-auto">
@@ -45,20 +57,9 @@ export function Hero() {
                 {content.secondaryCta.label}
               </Button>
             </div>
-
-            <ul className="mt-7 flex flex-wrap gap-3 text-sm text-muted-foreground sm:mt-8">
-              {content.highlights.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-full border border-border/70 bg-background/50 px-3 py-1.5 backdrop-blur transition-all duration-200 ease-out md:hover:-translate-y-0.5 md:hover:border-primary/30"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
 
-          <div className="order-1 mb-8 md:order-2 md:mb-0">
+          <div className="order-1 mb-6 md:order-2 md:mb-0">
             <HeroMockup mockup={content.mockup} />
           </div>
         </div>

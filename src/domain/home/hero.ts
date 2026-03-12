@@ -7,6 +7,11 @@ export type HeroContent = {
   eyebrow: string;
   title: string;
   description: string;
+  trustIndicators: Array<{
+    id: string;
+    value: string;
+    label: string;
+  }>;
   primaryCta: {
     label: string;
     href: string;
@@ -15,7 +20,6 @@ export type HeroContent = {
     label: string;
     href: string;
   };
-  highlights: string[];
   mockup: {
     browserLabel: string;
     desktop: HeroMockupImage;

@@ -4,8 +4,13 @@ export type PortfolioPreviewProjectItem = {
   title: string;
   category: string;
   description: string;
+  objective: string;
+  problem: string;
+  solution: string;
   context: string;
   result: string;
+  beforeLabel: string;
+  afterLabel: string;
   href: string;
   ctaLabel: string;
   image: {

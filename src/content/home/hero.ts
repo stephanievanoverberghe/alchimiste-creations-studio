@@ -2,9 +2,26 @@ import type { HeroContent } from '@/domain/home/hero';
 
 export const heroContent: HeroContent = {
   eyebrow: 'Studio web indépendant — design, clarté, conversion',
-  title: 'Attirez des prospects plus qualifiés avec un site clair, crédible et orienté conversion.',
+  title: 'Un site clair, crédible et orienté conversion pour attirer plus de prospects qualifiés.',
   description:
     'Je conçois des sites premium pour entrepreneurs et indépendants qui veulent mieux présenter leur valeur, rassurer plus vite et générer davantage de prises de contact utiles.',
+  trustIndicators: [
+    {
+      id: 'timeline',
+      value: '2 à 6 semaines',
+      label: 'De la stratégie au déploiement',
+    },
+    {
+      id: 'mobile-first',
+      value: 'Mobile-first',
+      label: 'Pensé pour convertir sur tous les écrans',
+    },
+    {
+      id: 'nextjs-stack',
+      value: 'Next.js & perf',
+      label: 'Base technique rapide, propre et évolutive',
+    },
+  ],
   primaryCta: {
     label: 'Réserver un appel découverte',
     href: '/contact',
@@ -13,11 +30,6 @@ export const heroContent: HeroContent = {
     label: 'Voir des résultats',
     href: '/portfolio',
   },
-  highlights: [
-    'Positionnement clarifié',
-    'Parcours pensé conversion',
-    'Next.js rapide et évolutif',
-  ],
   mockup: {
     browserLabel: 'alchimiste-creations.fr/projet',
     desktop: {

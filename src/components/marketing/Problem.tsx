@@ -5,7 +5,7 @@ export function Problem() {
   const content = getProblemContent();
 
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-30">
+    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -16,7 +16,7 @@ export function Problem() {
 
       <Container>
         <div className="mx-auto mt-6 max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2.2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.74),rgba(9,14,28,0.88))] shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-xl">
+          <div className="relative overflow-hidden rounded-[2.3rem] border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.74),rgba(9,14,28,0.88))] shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-xl">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),transparent)]"
@@ -27,41 +27,39 @@ export function Problem() {
               className="pointer-events-none absolute -left-10 top-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
             />
 
-            <div className="grid gap-10 p-6 sm:p-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14 lg:p-10 xl:p-12">
-              {/* Intro */}
+            <div className="grid gap-12 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-14 lg:px-10 lg:py-12 xl:px-12 xl:py-14">
               <div className="lg:pr-6">
                 <p className="text-sm font-medium uppercase tracking-[0.18em] text-accent">
                   {content.eyebrow}
                 </p>
 
-                <h2 className="mt-5 max-w-[16ch] text-3xl font-semibold tracking-tight text-text sm:text-4xl md:text-5xl">
+                <h2 className="mt-5 max-w-[14ch] text-[2rem] font-semibold tracking-tight text-text sm:text-[2.4rem] sm:leading-[1.08] md:text-[2.8rem] lg:text-[3.1rem]">
                   {content.title}
                 </h2>
 
-                <p className="mt-5 max-w-[30ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+                <p className="mt-6 max-w-[34ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
                   {content.description}
                 </p>
               </div>
 
-              {/* Problems */}
               <div className="space-y-0">
                 {content.items.map((item, index) => (
                   <article
                     key={item.id}
                     className={[
-                      'group relative py-6 sm:py-7',
+                      'group relative py-7 sm:py-8',
                       index !== 0 ? 'border-t border-white/8' : '',
                     ].join(' ')}
                   >
-                    <div className="flex items-start gap-4 sm:gap-5">
-                      <span className="mt-1.5 flex h-3.5 w-3.5 shrink-0 rounded-full bg-primary/70 shadow-[0_0_18px_rgba(122,84,255,0.42)]" />
+                    <div className="flex items-start gap-4 sm:gap-6">
+                      <span className="mt-2 flex h-3.5 w-3.5 shrink-0 rounded-full bg-primary/70 shadow-[0_0_18px_rgba(122,84,255,0.42)]" />
 
                       <div className="min-w-0">
-                        <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-[1.5rem] lg:leading-[1.08]">
+                        <h3 className="text-[1.15rem] font-semibold tracking-tight text-foreground sm:text-[1.35rem] lg:text-[1.55rem] lg:leading-[1.08]">
                           {item.title}
                         </h3>
 
-                        <p className="mt-3 max-w-[38ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+                        <p className="mt-3 max-w-[40ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
                           {item.consequence}
                         </p>
                       </div>

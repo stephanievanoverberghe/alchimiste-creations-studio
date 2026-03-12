@@ -1,13 +1,13 @@
 import type { SocialProofContent } from '@/domain/home/social-proof';
 
 export const socialProofContent: SocialProofContent = {
-  eyebrow: 'Méthode & standards',
+  eyebrow: 'Standards de conception',
 
   quote:
-    'Un site premium ne doit pas seulement être esthétique. Il doit clarifier votre positionnement, renforcer la valeur perçue et transformer l’intérêt en prise de contact.',
+    'Un site premium ne doit pas seulement être esthétique. Il doit clarifier votre positionnement, renforcer votre valeur perçue et rendre la prise de contact plus naturelle.',
 
   author: 'Alchimiste Créations',
-  role: 'Approche de conception',
+  role: 'Méthode de conception',
 
   stats: [
     {

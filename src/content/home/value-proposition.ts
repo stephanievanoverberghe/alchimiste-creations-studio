@@ -11,21 +11,21 @@ export const valuePropositionContent: ValuePropositionContent = {
   items: [
     {
       id: 'branding-digital',
-      title: 'Direction visuelle crédible et soignée',
+      title: 'Direction visuelle crédible',
       description:
         'Un univers digital cohérent, élégant et professionnel qui valorise votre activité et renforce immédiatement la confiance de vos visiteurs.',
       icon: Palette,
     },
     {
       id: 'nextjs-performance',
-      title: 'Technologie moderne et performances élevées',
+      title: 'Technologie moderne et performante',
       description:
         'Un site rapide, stable et optimisé construit avec Next.js pour offrir une expérience fluide et fiable sur mobile comme sur desktop.',
       icon: Gauge,
     },
     {
       id: 'conversion-optimization',
-      title: 'Structure pensée pour générer des contacts',
+      title: 'Structure pensée pour convertir',
       description:
         'Une hiérarchie claire, un message lisible et des appels à l’action bien placés pour transformer plus de visiteurs en prospects.',
       icon: Sparkles,

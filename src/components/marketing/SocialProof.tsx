@@ -5,7 +5,7 @@ export function SocialProof() {
   const content = getSocialProofContent();
 
   return (
-    <Section className="relative overflow-hidden py-16 sm:py-18 lg:py-22">
+    <Section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -30,7 +30,7 @@ export function SocialProof() {
             className="pointer-events-none absolute right-0 top-1/3 h-32 w-32 rounded-full bg-accent/6 blur-3xl"
           />
 
-          <div className="grid gap-10 p-6 sm:p-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:gap-12 lg:p-10 xl:p-12">
+          <div className="grid gap-10 p-6 sm:p-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(320px,0.88fr)] lg:gap-12 lg:p-10 xl:p-12">
             <div className="relative max-w-2xl">
               <div
                 aria-hidden="true"
@@ -40,10 +40,10 @@ export function SocialProof() {
               <div className="lg:pl-8">
                 <Badge variant="primary">{content.eyebrow}</Badge>
 
-                <blockquote className="mt-6 text-[1.4rem] font-medium leading-[1.42] tracking-[-0.04em] text-foreground sm:text-[1.7rem] lg:text-[2rem] lg:leading-[1.34] xl:text-[2.15rem]">
-                  <span className="text-foreground/42">“</span>
+                <blockquote className="mt-6 text-[1.3rem] font-medium leading-[1.45] tracking-[-0.04em] text-foreground sm:text-[1.55rem] lg:text-[1.9rem] lg:leading-[1.36] xl:text-[2.05rem]">
+                  <span className="text-foreground/38">“</span>
                   {content.quote}
-                  <span className="text-foreground/42">”</span>
+                  <span className="text-foreground/38">”</span>
                 </blockquote>
 
                 <div className="mt-8 flex items-center gap-4">
@@ -73,7 +73,7 @@ export function SocialProof() {
                   />
 
                   <div className="relative z-10 flex items-start justify-between gap-4">
-                    <div className="max-w-104">
+                    <div className="max-w-[24rem]">
                       <p className="text-[1.02rem] font-semibold tracking-[-0.02em] text-foreground sm:text-[1.16rem]">
                         {stat.value}
                       </p>

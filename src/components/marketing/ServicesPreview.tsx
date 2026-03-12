@@ -29,9 +29,11 @@ export function ServicesPreview() {
           />
         </div>
 
-        <div className="mt-18 space-y-7 lg:mt-24 lg:space-y-10">
+        <div className="mt-16 space-y-6 sm:mt-18 lg:mt-22 lg:space-y-8">
           {content.items.map((item, index) => {
             const isFeatured = index === 1;
+            const highlightLabel =
+              item.highlightLabel ?? (isFeatured ? 'Offre signature' : 'Offre');
 
             return (
               <Link
@@ -59,15 +61,15 @@ export function ServicesPreview() {
                 </div>
 
                 <div className="relative z-10 p-6 sm:p-8 lg:p-10">
-                  <div className="grid gap-8 lg:grid-cols-[88px_minmax(0,1.1fr)_minmax(280px,0.72fr)] lg:gap-10">
+                  <div className="grid gap-8 lg:grid-cols-[72px_minmax(0,1.05fr)_minmax(280px,0.72fr)] lg:gap-10">
                     <div className="flex items-start">
-                      <span className="text-sm font-medium tracking-[0.18em] text-foreground/45 transition-colors duration-300 md:group-hover:text-foreground/70">
+                      <span className="text-sm font-medium tracking-[0.18em] text-foreground/40 transition-colors duration-300 md:group-hover:text-foreground/68">
                         0{index + 1}
                       </span>
                     </div>
 
                     <div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex flex-wrap items-center gap-3">
                         <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/12 bg-white/5 text-foreground/80 transition-all duration-300 md:group-hover:border-primary/20 md:group-hover:bg-primary/10 md:group-hover:text-primary">
                           <item.icon className="h-5 w-5" />
                         </div>
@@ -76,11 +78,11 @@ export function ServicesPreview() {
                           variant={isFeatured ? 'primary' : 'default'}
                           className="transition-all duration-300 md:group-hover:border-[hsl(var(--primary)/0.35)] md:group-hover:bg-[hsl(var(--primary)/0.10)]"
                         >
-                          {isFeatured ? 'Offre signature' : 'Offre'}
+                          {highlightLabel}
                         </Badge>
                       </div>
 
-                      <h3 className="mt-5 max-w-[12ch] text-3xl font-semibold tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem] lg:leading-[1.02]">
+                      <h3 className="mt-5 max-w-[12ch] text-[2rem] font-semibold tracking-tight text-foreground sm:text-[2.3rem] lg:text-[2.7rem] lg:leading-[1.02]">
                         {item.title}
                       </h3>
 
@@ -91,13 +93,29 @@ export function ServicesPreview() {
 
                     <div className="flex flex-col justify-between gap-8 lg:border-l lg:border-white/8 lg:pl-8">
                       <div>
-                        <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-foreground/50">
-                          Idéal pour
-                        </p>
+                        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+                          <div>
+                            <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-foreground/50">
+                              Idéal pour
+                            </p>
 
-                        <p className="mt-3 text-sm leading-7 text-muted-foreground transition-colors duration-300 md:group-hover:text-text sm:text-base">
-                          {item.idealFor}
-                        </p>
+                            <p className="mt-3 text-sm leading-7 text-muted-foreground transition-colors duration-300 md:group-hover:text-text sm:text-base">
+                              {item.idealFor}
+                            </p>
+                          </div>
+
+                          <div className="rounded-2xl border border-white/10 bg-white/3 px-4 py-3">
+                            <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-foreground/50">
+                              Investissement
+                            </p>
+                            <p className="mt-2 text-sm font-semibold text-foreground sm:text-base">
+                              {item.startingPrice}
+                            </p>
+                            <p className="mt-1 text-xs text-muted-foreground">
+                              Délai habituel : {item.timeline}
+                            </p>
+                          </div>
+                        </div>
                       </div>
 
                       <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-6">
@@ -105,16 +123,16 @@ export function ServicesPreview() {
 
                         <span
                           className={cn(
-                            'group/cta relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-xl px-5 text-sm font-semibold transition-all duration-(--motion-base) ease-(--ease-standard)',
+                            'group/cta relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-xl px-5 text-sm font-semibold transition-all duration-300 ease-out',
                             isFeatured
-                              ? 'bg-primary text-primary-foreground shadow-(--shadow-glow) md:group-hover:-translate-y-0.5 md:group-hover:scale-[1.02] md:group-hover:brightness-110 md:group-hover:shadow-[0_14px_34px_rgba(0,0,0,0.22)]'
-                              : 'border border-border bg-surface-elevated text-text md:group-hover:-translate-y-0.5 md:group-hover:scale-[1.02] md:group-hover:border-primary md:group-hover:text-white md:group-hover:shadow-[0_14px_34px_rgba(0,0,0,0.18)]',
+                              ? 'bg-primary text-primary-foreground shadow-[0_12px_28px_rgba(124,92,255,0.30)] md:group-hover:-translate-y-0.5 md:group-hover:scale-[1.02] md:group-hover:brightness-110'
+                              : 'border border-white/12 bg-white/5 text-foreground md:group-hover:-translate-y-0.5 md:group-hover:scale-[1.02] md:group-hover:border-primary/30 md:group-hover:bg-primary/10 md:group-hover:text-white',
                           )}
                         >
                           {isFeatured ? (
                             <span
                               aria-hidden="true"
-                              className="pointer-events-none absolute inset-0 -translate-x-[140%] bg-[linear-gradient(110deg,transparent_24%,rgba(255,255,255,0.35)_50%,transparent_76%)] transition-transform duration-620 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:translate-x-[140%]"
+                              className="pointer-events-none absolute inset-0 -translate-x-[140%] bg-[linear-gradient(110deg,transparent_24%,rgba(255,255,255,0.35)_50%,transparent_76%)] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:translate-x-[140%]"
                             />
                           ) : null}
 
