@@ -4,17 +4,17 @@ import type { ServicesPreviewContent } from '@/domain/home/services-preview';
 
 export const servicesPreviewContent: ServicesPreviewContent = {
   eyebrow: 'Offres',
-  title: 'Trois formats clairs pour créer, structurer ou faire évoluer votre présence en ligne.',
+  title: 'Trois offres pour lancer, structurer ou accélérer votre présence en ligne.',
   description:
-    'Chaque offre répond à un besoin précis : lancer une activité, présenter un univers complet ou moderniser un site existant pour le rendre plus crédible, plus clair et plus performant.',
+    'Chaque format répond à un niveau de maturité précis. Vous choisissez l’offre la plus utile selon votre contexte actuel et vos objectifs de conversion.',
   items: [
     {
       id: 'landing-page',
       title: 'Landing Page',
       description:
-        'Une page unique pensée pour présenter une offre, un service ou un projet avec clarté et efficacité.',
+        'Une page stratégique pour vendre une offre claire avec un message lisible et un appel à l’action central.',
       idealFor:
-        'Idéal pour lancer une activité, mettre en avant une offre précise ou créer une première présence en ligne professionnelle.',
+        'À choisir si vous lancez une offre unique ou une campagne et que vous avez besoin d’un support rapide à activer.',
       icon: Layers3,
       href: '/services#landing-page',
       ctaLabel: "Découvrir l'offre",
@@ -23,9 +23,9 @@ export const servicesPreviewContent: ServicesPreviewContent = {
       id: 'site-vitrine',
       title: 'Site vitrine',
       description:
-        'Un site complet pour présenter votre activité, vos services et votre univers avec une image plus professionnelle.',
+        'Un site complet pour présenter votre activité, vos services et votre différence avec une structure qui inspire confiance.',
       idealFor:
-        'Idéal pour les entrepreneurs, coachs, thérapeutes, artistes, photographes et indépendants qui veulent une présence en ligne crédible.',
+        'À choisir si votre activité est installée et que vous avez besoin d’un site crédible pour convertir sur la durée.',
       icon: MonitorSmartphone,
       href: '/services#site-vitrine',
       ctaLabel: 'Voir le détail',
@@ -34,9 +34,9 @@ export const servicesPreviewContent: ServicesPreviewContent = {
       id: 'refonte-site',
       title: 'Refonte de site',
       description:
-        'Une refonte pensée pour clarifier votre message, moderniser votre image et améliorer l’efficacité de votre site.',
+        'Une refonte ciblée pour clarifier le message, moderniser l’image et améliorer les performances de conversion.',
       idealFor:
-        'Idéal si votre site est daté, peu lisible ou ne reflète plus la qualité réelle de votre activité.',
+        'À choisir si votre site existe déjà mais ne reflète plus votre niveau de qualité ou ne génère pas assez de demandes.',
       icon: RefreshCcw,
       href: '/services#refonte-site',
       ctaLabel: 'Explorer la refonte',

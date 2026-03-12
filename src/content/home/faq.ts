@@ -1,43 +1,45 @@
-export const faqContent = {
+import type { FaqContent } from '@/domain/home/faq';
+
+export const faqContent: FaqContent = {
   eyebrow: 'Questions fréquentes',
   title: 'Avant de démarrer un projet.',
   description:
-    'Créer un site est une étape importante pour une activité. Voici les réponses aux questions que l’on me pose le plus souvent avant de commencer une collaboration.',
+    'Créer un site est une étape importante pour une activité. Voici les réponses aux questions les plus fréquentes avant de commencer une collaboration.',
 
   items: [
     {
       id: 'budget',
       question: 'Quel budget prévoir pour la création d’un site ?',
       answer:
-        'Chaque projet est différent. Le tarif dépend du type de site, du nombre de pages et du niveau de personnalisation. Après un premier échange, je vous propose un devis clair et adapté à votre projet.',
+        'Le budget dépend du format (landing page, site vitrine, refonte), du périmètre et du niveau de personnalisation. Après l’appel découverte, je vous envoie une proposition claire avec options et priorités.',
     },
 
     {
       id: 'delais',
       question: 'Combien de temps dure la création d’un site ?',
       answer:
-        'La plupart des projets prennent entre 2 et 6 semaines selon leur complexité. L’objectif est de créer un site solide, clair et durable, plutôt que de livrer quelque chose dans la précipitation.',
+        'La plupart des projets sont livrés entre 2 et 6 semaines selon leur complexité. Chaque étape est planifiée pour garder un rythme fluide et éviter les allers-retours inutiles.',
     },
 
     {
       id: 'process',
       question: 'Comment se déroule la collaboration ?',
       answer:
-        'Le projet commence par un échange pour comprendre votre activité, votre positionnement et vos objectifs. Ensuite viennent la structure du site, la direction visuelle et le développement du projet.',
+        'Nous commençons par cadrer vos objectifs et votre positionnement. Ensuite, vous validez la structure, la direction visuelle puis le développement avant la mise en ligne.',
     },
 
     {
       id: 'mobile',
       question: 'Le site sera-t-il optimisé pour mobile ?',
       answer:
-        'Oui. Aujourd’hui la majorité des visiteurs naviguent sur smartphone. Les sites sont donc conçus pour être rapides, lisibles et agréables à utiliser sur mobile, tablette et ordinateur.',
+        'Oui. Les interfaces sont pensées mobile-first pour garantir lisibilité, rapidité et confort d’utilisation sur smartphone, tablette et desktop.',
     },
 
     {
       id: 'evolution',
       question: 'Le site pourra-t-il évoluer avec mon activité ?',
       answer:
-        'Oui. Les projets sont construits sur une base technique moderne et évolutive afin de pouvoir ajouter des pages, faire évoluer le contenu ou enrichir le site dans le temps.',
+        'Oui. Le socle technique est conçu pour évoluer : ajout de pages, nouveaux contenus, enrichissement progressif de votre présence digitale.',
     },
   ],
 };

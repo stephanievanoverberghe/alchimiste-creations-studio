@@ -67,12 +67,18 @@ export function ServicesPreview() {
                     </div>
 
                     <div>
-                      <Badge
-                        variant={isFeatured ? 'primary' : 'default'}
-                        className="transition-all duration-300 md:group-hover:border-[hsl(var(--primary)/0.35)] md:group-hover:bg-[hsl(var(--primary)/0.10)]"
-                      >
-                        {isFeatured ? 'Offre signature' : 'Offre'}
-                      </Badge>
+                      <div className="flex items-center gap-3">
+                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/12 bg-white/5 text-foreground/80 transition-all duration-300 md:group-hover:border-primary/20 md:group-hover:bg-primary/10 md:group-hover:text-primary">
+                          <item.icon className="h-5 w-5" />
+                        </div>
+
+                        <Badge
+                          variant={isFeatured ? 'primary' : 'default'}
+                          className="transition-all duration-300 md:group-hover:border-[hsl(var(--primary)/0.35)] md:group-hover:bg-[hsl(var(--primary)/0.10)]"
+                        >
+                          {isFeatured ? 'Offre signature' : 'Offre'}
+                        </Badge>
+                      </div>
 
                       <h3 className="mt-5 max-w-[12ch] text-3xl font-semibold tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem] lg:leading-[1.02]">
                         {item.title}

@@ -4,6 +4,8 @@ export type PortfolioPreviewProjectItem = {
   title: string;
   category: string;
   description: string;
+  context: string;
+  result: string;
   href: string;
   ctaLabel: string;
   image: {
@@ -27,5 +29,5 @@ export type PortfolioPreviewContent = {
   eyebrow: string;
   title: string;
   description: string;
-  items: [PortfolioPreviewProjectItem, PortfolioPreviewProjectItem, PortfolioPreviewCtaItem];
+  items: PortfolioPreviewItem[];
 };
