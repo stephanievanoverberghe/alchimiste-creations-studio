@@ -49,40 +49,38 @@ export function PortfolioPreview() {
           />
         </div>
 
-        <>
-          <div className="mt-10 grid gap-5 md:hidden lg:hidden">
-            {visibleProjects.map((project, index) => (
-              <PortfolioProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-                badgeVariant={index === 0 ? 'primary' : 'default'}
-              />
-            ))}
-          </div>
+        <div className="mt-10 grid gap-5 md:hidden lg:hidden">
+          {visibleProjects.map((project, index) => (
+            <PortfolioProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              badgeVariant={index === 0 ? 'primary' : 'default'}
+            />
+          ))}
+        </div>
 
-          <div className="mt-10 hidden gap-5 md:grid md:grid-cols-2 lg:hidden">
-            {mediumProjects.map((project, index) => (
-              <PortfolioProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-                badgeVariant={index === 0 ? 'primary' : 'default'}
-              />
-            ))}
-          </div>
+        <div className="mt-10 hidden gap-5 md:grid md:grid-cols-2 lg:hidden">
+          {mediumProjects.map((project, index) => (
+            <PortfolioProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              badgeVariant={index === 0 ? 'primary' : 'default'}
+            />
+          ))}
+        </div>
 
-          <div className="mt-10 hidden gap-5 lg:grid lg:grid-cols-3">
-            {visibleProjects.map((project, index) => (
-              <PortfolioProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-                badgeVariant={index === 0 ? 'primary' : 'default'}
-              />
-            ))}
-          </div>
-        </>
+        <div className="mt-10 hidden gap-5 lg:grid lg:grid-cols-3">
+          {visibleProjects.map((project, index) => (
+            <PortfolioProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              badgeVariant={index === 0 ? 'primary' : 'default'}
+            />
+          ))}
+        </div>
 
         <PortfolioCalloutCard
           title={ctaItem.title}

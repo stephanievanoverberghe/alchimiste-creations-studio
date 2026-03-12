@@ -2,8 +2,11 @@
     animation: revealUp var(--motion-base) var(--ease-standard) both;
 }
 
-.site-header__shell {
+.site-header__layout {
     margin-top: 0.6rem;
+}
+
+.site-header__shell {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -166,22 +169,21 @@
 }
 
 @media (min-width: 640px) and (max-width: 1023.98px) {
-    .site-header {
-        padding-inline: 0.5rem;
+    .site-header__layout {
+        margin-top: 0.7rem;
     }
 
     .site-header__shell {
-        margin-top: 0.7rem;
         border-radius: 1.1rem;
         padding-inline: 0.95rem;
-    }
-
-    .site-header__tablet-menu {
-        margin-inline: 0.2rem;
     }
 }
 
 @media (min-width: 1024px) {
+    .site-header__layout {
+        margin-top: 0.7rem;
+    }
+
     .site-header__shell {
         grid-template-columns: auto 1fr auto;
         gap: 1.2rem;
