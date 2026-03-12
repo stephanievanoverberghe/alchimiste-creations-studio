@@ -7,6 +7,15 @@ export function ValueProposition() {
 
   return (
     <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute left-[10%] top-[10%] h-36 w-36 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute right-[8%] top-[18%] h-32 w-32 rounded-full bg-accent/7 blur-3xl" />
+        <div className="absolute left-1/2 bottom-0 h-40 w-40 -translate-x-1/2 rounded-full bg-primary/6 blur-3xl" />
+      </div>
+
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <Heading
@@ -17,35 +26,52 @@ export function ValueProposition() {
           />
         </div>
 
-        <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-8">
-          {content.items.map((item) => {
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {content.items.map((item, index) => {
             const Icon = item.icon;
+            const isMiddle = index === 1;
 
             return (
               <Card
                 key={item.id}
                 className={cn(
-                  'group relative h-full overflow-hidden border-border/70 bg-card/70 shadow-[0_12px_40px_rgba(0,0,0,0.22)] transition-all duration-300 ease-out',
-                  'md:hover:-translate-y-1 md:hover:border-primary/18 md:hover:shadow-[0_20px_54px_rgba(0,0,0,0.28)]',
+                  'relative h-full overflow-hidden rounded-3xl border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.74),rgba(9,14,28,0.86))] shadow-[0_18px_40px_rgba(0,0,0,0.16)] backdrop-blur-xl',
+                  isMiddle && 'lg:-translate-y-1',
                 )}
               >
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-                  <div className="absolute left-1/2 top-0 h-36 w-36 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl transition-opacity duration-300 md:group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_28%)]" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.14),transparent)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_32%)]" />
+                  <div className="absolute -top-10 left-1/2 h-28 w-28 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl opacity-70" />
                 </div>
 
-                <div className="relative flex h-full flex-col p-5 sm:p-6">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-all duration-300 md:group-hover:scale-[1.03] md:group-hover:border-primary/30 md:group-hover:bg-primary/12">
-                    <Icon className="h-5 w-5" />
+                <div className="relative flex h-full flex-col p-6 sm:p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/4 text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                      <Icon className="h-5 w-5" />
+                    </div>
+
+                    <span className="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-foreground/32">
+                      0{index + 1}
+                    </span>
                   </div>
 
-                  <h3 className="text-[1.12rem] font-semibold tracking-tight text-foreground sm:text-[1.22rem] lg:text-xl">
-                    {item.title}
-                  </h3>
+                  <div className="mt-7 flex-1">
+                    <h3 className="max-w-[16ch] text-[1.15rem] font-semibold tracking-[-0.03em] text-foreground sm:text-[1.22rem] lg:text-[1.3rem]">
+                      {item.title}
+                    </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-[0.98rem] sm:leading-8">
-                    {item.description}
-                  </p>
+                    <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-[0.98rem] sm:leading-8">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 flex items-center gap-3">
+                    <span className="h-px w-8 bg-[linear-gradient(90deg,rgba(255,255,255,0.18),transparent)]" />
+                    <span className="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-foreground/38">
+                      Méthode
+                    </span>
+                  </div>
                 </div>
               </Card>
             );

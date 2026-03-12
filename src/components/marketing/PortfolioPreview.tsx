@@ -77,7 +77,20 @@ type FeaturedProjectCardProps = {
 function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
   return (
     <Link href={project.href} className="group block">
-      <article className="relative overflow-hidden rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,rgba(17,22,34,0.78),rgba(9,13,24,0.90))] shadow-[0_22px_46px_rgba(0,0,0,0.14)] backdrop-blur-xl transition-all duration-500 ease-out md:hover:-translate-y-1 md:hover:border-white/16 md:hover:shadow-[0_30px_60px_rgba(0,0,0,0.20)]">
+      <article className="relative overflow-hidden rounded-[1.9rem] border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.78),rgba(9,14,28,0.84))] shadow-[0_20px_70px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 ease-out md:hover:-translate-y-0.5 md:hover:shadow-[0_30px_90px_rgba(80,80,255,0.15)]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 md:group-hover:opacity-100"
+        >
+          <div className="absolute inset-0 rounded-[1.9rem] ring-1 ring-primary/30" />
+        </div>
+
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-x-0 top-0 h-28 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),transparent)]" />
+          <div className="absolute -left-12 top-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl transition-opacity duration-300 md:group-hover:opacity-100" />
+          <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
+        </div>
+
         <div className="relative h-72.5 overflow-hidden sm:h-85">
           <Image
             src={project.image.src}
@@ -105,7 +118,7 @@ function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
               </p>
             </div>
 
-            <h3 className="mt-4 text-[1.4rem] font-medium tracking-[-0.04em] text-foreground sm:text-[1.7rem]">
+            <h3 className="mt-4 text-[1.4rem] font-semibold tracking-[-0.04em] text-foreground sm:text-[1.7rem]">
               {project.title}
             </h3>
 
@@ -150,7 +163,19 @@ function SecondaryProjectCard({ project, index }: SecondaryProjectCardProps) {
 
   return (
     <Link href={project.href} className="group block">
-      <article className="relative overflow-hidden rounded-[1.7rem] border border-white/10 bg-[linear-gradient(180deg,rgba(17,22,34,0.72),rgba(9,13,24,0.88))] shadow-[0_18px_40px_rgba(0,0,0,0.12)] backdrop-blur-xl transition-all duration-500 ease-out md:hover:-translate-y-1 md:hover:border-white/16 md:hover:shadow-[0_28px_56px_rgba(0,0,0,0.18)]">
+      <article className="relative overflow-hidden rounded-[1.7rem] border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.74),rgba(9,14,28,0.84))] shadow-[0_18px_40px_rgba(0,0,0,0.16)] backdrop-blur-xl transition-all duration-300 ease-out md:hover:-translate-y-0.5 md:hover:shadow-[0_28px_56px_rgba(80,80,255,0.12)]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 md:group-hover:opacity-100"
+        >
+          <div className="absolute inset-0 rounded-[1.7rem] ring-1 ring-primary/25" />
+        </div>
+
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),transparent)]" />
+          <div className="absolute -left-10 top-0 h-32 w-32 rounded-full bg-primary/8 blur-3xl transition-opacity duration-300 md:group-hover:opacity-100" />
+        </div>
+
         <div className="relative h-55 overflow-hidden sm:h-62.5">
           <Image
             src={project.image.src}
@@ -182,16 +207,19 @@ function SecondaryProjectCard({ project, index }: SecondaryProjectCardProps) {
               </p>
             </div>
 
-            <h3 className="mt-4 text-[1.24rem] font-medium tracking-[-0.04em] text-foreground sm:text-[1.42rem]">
+            <h3 className="mt-4 text-[1.24rem] font-semibold tracking-[-0.04em] text-foreground sm:text-[1.42rem]">
               {project.title}
             </h3>
 
-            <p className="mt-3 text-sm leading-7 text-muted-foreground transition-colors duration-300 md:group-hover:text-foreground/80">
+            <p className="mt-3 text-sm leading-7 text-muted-foreground transition-colors duration-300 md:group-hover:text-text">
               {project.description}
             </p>
 
-            <div className="mt-4 border-t border-white/8 pt-4">
-              <p className="text-xs leading-6 text-foreground/72 sm:text-[0.82rem] sm:leading-6">
+            <div className="mt-4 rounded-2xl border border-white/10 bg-white/3 px-4 py-3">
+              <p className="text-[0.64rem] font-medium uppercase tracking-[0.16em] text-foreground/50">
+                Résultat
+              </p>
+              <p className="mt-2 text-xs leading-6 text-muted-foreground sm:text-[0.82rem] sm:leading-6">
                 {stripLabel(project.result)}
               </p>
             </div>
@@ -201,7 +229,7 @@ function SecondaryProjectCard({ project, index }: SecondaryProjectCardProps) {
               <BeforeAfterPill highlight>{project.afterLabel}</BeforeAfterPill>
             </div>
 
-            <div className="mt-5 flex items-center justify-between gap-3">
+            <div className="mt-5 flex items-center justify-between gap-3 border-t border-white/10 pt-4">
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-transform duration-300 ease-out md:group-hover:translate-x-0.5">
                 {project.ctaLabel}
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 ease-out md:group-hover:translate-x-0.5 md:group-hover:-translate-y-0.5" />
@@ -229,10 +257,10 @@ function MiniCaseCard({ label, value, highlight = false }: MiniCaseCardProps) {
         'rounded-2xl border px-4 py-3',
         highlight
           ? 'border-primary/20 bg-primary/6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]'
-          : 'border-white/8 bg-white/2',
+          : 'border-white/10 bg-white/3',
       )}
     >
-      <p className="text-[0.64rem] font-medium uppercase tracking-[0.16em] text-foreground/38">
+      <p className="text-[0.64rem] font-medium uppercase tracking-[0.16em] text-foreground/45">
         {label}
       </p>
       <p className="mt-2 text-xs leading-6 text-muted-foreground sm:text-[0.82rem] sm:leading-6">
@@ -274,11 +302,11 @@ function PortfolioCalloutCard({ title, description, href, ctaLabel }: PortfolioC
     <div className="mt-8">
       <Link
         href={href}
-        className="group relative block overflow-hidden rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,19,30,0.82),rgba(10,14,24,0.96))] px-5 py-5 shadow-[0_18px_38px_rgba(0,0,0,0.12)] backdrop-blur-xl transition-all duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:px-6 sm:py-6 md:hover:border-primary/22 md:hover:shadow-[0_28px_58px_rgba(54,54,130,0.16)]"
+        className="group relative block overflow-hidden rounded-[1.6rem] border border-white/8 bg-[linear-gradient(180deg,rgba(15,19,30,0.82),rgba(10,14,24,0.96))] px-5 py-5 shadow-[0_18px_38px_rgba(0,0,0,0.12)] backdrop-blur-xl transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:px-6 sm:py-6 md:hover:border-primary/22 md:hover:shadow-[0_28px_58px_rgba(54,54,130,0.16)]"
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 md:group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 md:group-hover:opacity-100"
         >
           <div className="absolute inset-0 rounded-[1.6rem] ring-1 ring-primary/14" />
         </div>
@@ -299,11 +327,11 @@ function PortfolioCalloutCard({ title, description, href, ctaLabel }: PortfolioC
               <span className="hidden h-px w-12 bg-[linear-gradient(90deg,rgba(255,255,255,0.18),transparent)] sm:block" />
             </div>
 
-            <h3 className="mt-4 text-[1.24rem] font-medium tracking-[-0.04em] text-foreground sm:text-[1.42rem]">
+            <h3 className="mt-4 text-[1.24rem] font-semibold tracking-[-0.04em] text-foreground sm:text-[1.42rem]">
               {title}
             </h3>
 
-            <p className="mt-3 text-sm leading-7 text-muted-foreground transition-colors duration-300 md:group-hover:text-foreground/78 sm:text-base sm:leading-8">
+            <p className="mt-3 text-sm leading-7 text-muted-foreground transition-colors duration-300 md:group-hover:text-text sm:text-base sm:leading-8">
               {description}
             </p>
           </div>
