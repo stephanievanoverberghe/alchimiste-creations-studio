@@ -1,4 +1,5 @@
 import type { HeroContent } from '@/domain/home/hero';
+import { primaryContactCtaLabel } from '@/content/site/messaging';
 
 export const heroContent: HeroContent = {
   eyebrow: 'Studio web indépendant — design, clarté, conversion',
@@ -23,7 +24,7 @@ export const heroContent: HeroContent = {
     },
   ],
   primaryCta: {
-    label: 'Réserver un appel découverte',
+    label: primaryContactCtaLabel,
     href: '/contact',
   },
   secondaryCta: {

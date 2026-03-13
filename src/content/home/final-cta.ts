@@ -1,4 +1,5 @@
 import type { FinalCtaContent } from '@/domain/home/final-cta';
+import { primaryContactCtaLabel, trustCallMeta } from '@/content/site/messaging';
 
 export const finalCtaContent: FinalCtaContent = {
   eyebrow: 'Démarrer un projet',
@@ -8,9 +9,9 @@ export const finalCtaContent: FinalCtaContent = {
   description:
     'En 30 minutes, nous cadrons vos objectifs, votre priorité business et la meilleure approche pour créer un site clair, crédible et efficace.',
 
-  buttonLabel: 'Réserver un appel découverte',
+  buttonLabel: primaryContactCtaLabel,
 
   buttonHref: '/contact',
 
-  meta: 'Sans engagement • Réponse sous 24h • Échange de 30 minutes',
+  meta: trustCallMeta,
 };

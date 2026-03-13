@@ -1,4 +1,9 @@
 import type { ServicesPageContent } from '@/domain/services/page';
+import {
+  primaryContactCtaLabel,
+  secondaryContactCtaLabel,
+  trustCallMeta,
+} from '@/content/site/messaging';
 
 export const servicesPageContent: ServicesPageContent = {
   hero: {
@@ -7,7 +12,7 @@ export const servicesPageContent: ServicesPageContent = {
     description:
       'Chaque offre répond à un besoin précis : lancer une présence crédible, structurer un site durable ou refondre un existant devenu moins efficace.',
     primaryCta: {
-      label: 'Parler de votre projet',
+      label: secondaryContactCtaLabel,
       href: '/contact',
     },
     secondaryCta: {
@@ -111,8 +116,8 @@ export const servicesPageContent: ServicesPageContent = {
     title: 'Vous hésitez entre plusieurs formats ?',
     description:
       'Nous pouvons clarifier ensemble la solution la plus adaptée à votre activité, votre priorité et votre budget.',
-    buttonLabel: 'Réserver un appel découverte',
+    buttonLabel: primaryContactCtaLabel,
     buttonHref: '/contact',
-    meta: 'Sans engagement • Réponse sous 24h • Échange de 30 minutes',
+    meta: trustCallMeta,
   },
 };

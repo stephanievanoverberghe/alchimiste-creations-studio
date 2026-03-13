@@ -1,4 +1,5 @@
 import type { PortfolioPageContent, PortfolioProjectPageContent } from '@/domain/portfolio/page';
+import { primaryContactCtaLabel, secondaryContactCtaLabel } from '@/content/site/messaging';
 
 export const portfolioPageContent: PortfolioPageContent = {
   hero: {
@@ -45,7 +46,7 @@ export const portfolioPageContent: PortfolioPageContent = {
     title: 'Vous souhaitez créer une présence en ligne plus claire et plus crédible ?',
     description:
       'Nous pouvons cadrer votre besoin, clarifier votre priorité et définir la meilleure approche pour votre site.',
-    buttonLabel: 'Parler de votre projet',
+    buttonLabel: secondaryContactCtaLabel,
     buttonHref: '/contact',
   },
 };
@@ -64,7 +65,7 @@ export const portfolioProjectPageContent: PortfolioProjectPageContent = {
     title: 'Vous voulez le même niveau de clarté pour votre site ?',
     description:
       'Nous pouvons construire une présence plus lisible, plus élégante et plus convaincante pour votre activité.',
-    buttonLabel: 'Réserver un appel découverte',
+    buttonLabel: primaryContactCtaLabel,
     buttonHref: '/contact',
   },
 };

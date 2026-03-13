@@ -1,5 +1,5 @@
-import { services } from '@/content/services/services';
 import { getServicesPageContent } from '@/application/services/getServicesPageContent';
+import { getServices } from '@/application/services/getServices';
 import {
   ServicesCards,
   ServicesComparison,
@@ -11,6 +11,7 @@ import {
 
 export default function ServicesPage() {
   const content = getServicesPageContent();
+  const services = getServices();
 
   return (
     <>

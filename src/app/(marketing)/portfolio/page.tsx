@@ -1,5 +1,5 @@
 import { getPortfolioPageContent } from '@/application/portfolio/getPortfolioPageContent';
-import { getAllPortfolioProjects } from '@/application/portfolio/getProjectBySlug';
+import { getPortfolioProjects } from '@/application/portfolio/getPortfolioData';
 import {
   PortfolioFinalCta,
   PortfolioGrid,
@@ -9,7 +9,7 @@ import {
 
 export default function PortfolioPage() {
   const content = getPortfolioPageContent();
-  const projects = getAllPortfolioProjects();
+  const projects = getPortfolioProjects();
 
   return (
     <>

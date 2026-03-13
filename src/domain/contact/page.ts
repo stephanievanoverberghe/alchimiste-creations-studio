@@ -1,3 +1,5 @@
+export type ContactProcessStepId = 'message' | 'reply' | 'call' | 'next-step';
+
 export type ContactPageContent = {
   hero: {
     eyebrow: string;
@@ -38,7 +40,7 @@ export type ContactPageContent = {
     title: string;
     description: string;
     steps: {
-      id: string;
+      id: ContactProcessStepId;
       title: string;
       description: string;
     }[];

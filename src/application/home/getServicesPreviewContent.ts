@@ -5,7 +5,7 @@ import {
 } from '@/content/home/services-preview';
 import type { ServicesPreviewContent } from '@/domain/services/types';
 
-import { getServiceBySlug } from '../services/getServices';
+import { getServiceBySlug } from '@/application/services/getServices';
 
 export function getServicesPreviewContent(): ServicesPreviewContent {
   const items = servicesPreviewOrder

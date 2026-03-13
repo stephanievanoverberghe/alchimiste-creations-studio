@@ -1,4 +1,5 @@
 import { type LucideIcon, BriefcaseBusiness, Gem, House, Send, Sparkles } from 'lucide-react';
+import { primaryContactCtaLabel } from './messaging';
 
 export type SiteNavItem = {
   href: string;
@@ -15,7 +16,7 @@ export const mainNavigation: SiteNavItem[] = [
 
 export const primaryCta = {
   href: '/contact',
-  label: 'Réserver un appel découverte',
+  label: primaryContactCtaLabel,
   icon: Send,
 };
 

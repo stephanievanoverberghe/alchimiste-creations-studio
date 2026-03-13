@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
 
 import {
-  getAllPortfolioProjects,
-  getNextProject,
-  getProjectBySlug,
-} from '@/application/portfolio/getProjectBySlug';
+  getPortfolioProjects,
+  getNextPortfolioProject,
+  getPortfolioProjectBySlug,
+} from '@/application/portfolio/getPortfolioData';
 import { getPortfolioProjectPageContent } from '@/application/portfolio/getPortfolioPageContent';
 import {
   PortfolioProjectBeforeAfter,
@@ -21,21 +21,21 @@ type PortfolioProjectPageProps = {
 };
 
 export function generateStaticParams() {
-  return getAllPortfolioProjects().map((project) => ({
+  return getPortfolioProjects().map((project) => ({
     slug: project.slug,
   }));
 }
 
 export default async function PortfolioProjectPage({ params }: PortfolioProjectPageProps) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = getPortfolioProjectBySlug(slug);
 
   if (!project) {
     notFound();
   }
 
   const content = getPortfolioProjectPageContent();
-  const nextProject = getNextProject(slug);
+  const nextProject = getNextPortfolioProject(slug);
 
   return (
     <>

@@ -3,7 +3,7 @@ import {
   portfolioPreviewProjectOrder,
   portfolioPreviewSectionContent,
 } from '@/content/home/portfolio-preview';
-import { getPortfolioProjectBySlug } from '@/application/portfolio/getPortfolioProjects';
+import { getPortfolioProjectBySlug } from '@/application/portfolio/getPortfolioData';
 import type { PortfolioPreviewContent } from '@/domain/portfolio/types';
 
 export function getPortfolioPreviewContent(): PortfolioPreviewContent {

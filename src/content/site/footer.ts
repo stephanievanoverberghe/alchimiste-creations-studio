@@ -1,11 +1,11 @@
 import { Mail, MapPin, ShieldCheck, Sparkles, Gem } from 'lucide-react';
 import { legalNavigation, mainNavigation, primaryCta } from './navigation';
 import { socialLinks } from './social-links';
+import { coreValuePromise } from './messaging';
 
 export const siteBrand = 'Alchimiste Créations';
 
-export const siteValueProposition =
-  'J’aide les entrepreneurs et créateurs à transformer leur activité en un site web clair, moderne et crédible qui inspire confiance et attire les bonnes personnes.';
+export const siteValueProposition = `J’aide les entrepreneurs et créateurs à transformer leur activité en ${coreValuePromise.toLowerCase()}`;
 
 export const footerContent = {
   intro: 'Discutons de votre projet',

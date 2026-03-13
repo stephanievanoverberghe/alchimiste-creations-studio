@@ -1,3 +1,7 @@
+export type AboutVisionPointId = 'clarity' | 'perception' | 'utility';
+export type AboutValueId = 'coherence' | 'clarity' | 'quality' | 'simplicity';
+export type AboutJourneyStepId = 'observe' | 'design' | 'build';
+
 export type AboutPageContent = {
   hero: {
     eyebrow: string;
@@ -15,7 +19,7 @@ export type AboutPageContent = {
     title: string;
     description: string;
     points: {
-      id: string;
+      id: AboutVisionPointId;
       title: string;
       description: string;
     }[];
@@ -25,7 +29,7 @@ export type AboutPageContent = {
     title: string;
     description: string;
     items: {
-      id: string;
+      id: AboutValueId;
       title: string;
       description: string;
     }[];
@@ -35,7 +39,7 @@ export type AboutPageContent = {
     title: string;
     description: string;
     steps: {
-      id: string;
+      id: AboutJourneyStepId;
       title: string;
       description: string;
     }[];
