@@ -1,13 +1,24 @@
-import { Container, Heading, Section } from '@/components/ui';
+import { getAboutPageContent } from '@/application/about/getAboutPageContent';
+import {
+  AboutFinalCta,
+  AboutHero,
+  AboutIntro,
+  AboutJourney,
+  AboutValues,
+  AboutVision,
+} from '@/components/marketing/about';
 
-export default function AProposPage() {
+export default function AboutPage() {
+  const content = getAboutPageContent();
+
   return (
-    <main>
-      <Section>
-        <Container>
-          <Heading title="À propos" description="Présentation du studio et de ma vision produit." />
-        </Container>
-      </Section>
-    </main>
+    <>
+      <AboutHero content={content.hero} />
+      <AboutIntro content={content.intro} />
+      <AboutVision content={content.vision} />
+      <AboutValues content={content.values} />
+      <AboutJourney content={content.journey} />
+      <AboutFinalCta content={content.finalCta} />
+    </>
   );
 }

@@ -1,13 +1,14 @@
-import { Container, Heading, Section } from '@/components/ui';
+import { getContactPageContent } from '@/application/contact/getContactPageContent';
+import { ContactFormSection, ContactHero, ContactProcess } from '@/components/marketing/contact';
 
 export default function ContactPage() {
+  const content = getContactPageContent();
+
   return (
-    <main>
-      <Section>
-        <Container>
-          <Heading title="Contact" description="Parlons de votre projet." />
-        </Container>
-      </Section>
-    </main>
+    <>
+      <ContactHero content={content.hero} />
+      <ContactFormSection form={content.form} sidebar={content.sidebar} />
+      <ContactProcess content={content.process} />
+    </>
   );
 }

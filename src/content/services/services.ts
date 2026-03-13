@@ -1,6 +1,6 @@
 import { Service } from '@/domain/services/types';
 
-export const services: Service[] = [
+const servicesData: Service[] = [
   {
     slug: 'landing-page',
     title: 'Landing Page',
@@ -55,7 +55,6 @@ export const services: Service[] = [
     ],
 
     timeline: '2 à 3 semaines',
-
     startingPrice: '900 €',
 
     options: [
@@ -64,6 +63,9 @@ export const services: Service[] = [
       { name: 'Animation légère', price: '100 €' },
       { name: 'SEO avancé', price: '200 €' },
     ],
+
+    highlightLabel: 'Idéal pour démarrer',
+    order: 1,
   },
 
   {
@@ -105,7 +107,6 @@ export const services: Service[] = [
     ],
 
     timeline: '3 à 5 semaines',
-
     startingPrice: '1 800 €',
 
     options: [
@@ -115,6 +116,10 @@ export const services: Service[] = [
       { name: 'Animations avancées', price: '200 €' },
       { name: 'Intégration outil marketing', price: '200 €' },
     ],
+
+    highlightLabel: 'Le plus demandé',
+    featured: true,
+    order: 2,
   },
 
   {
@@ -158,7 +163,6 @@ export const services: Service[] = [
     ],
 
     timeline: '3 à 6 semaines',
-
     startingPrice: '1 500 €',
 
     options: [
@@ -167,5 +171,10 @@ export const services: Service[] = [
       { name: 'SEO avancé', price: '300 €' },
       { name: 'Blog', price: '400 €' },
     ],
+
+    highlightLabel: 'Moderniser l’existant',
+    order: 3,
   },
 ];
+
+export const services = [...servicesData].sort((a, b) => (a.order ?? 99) - (b.order ?? 99));

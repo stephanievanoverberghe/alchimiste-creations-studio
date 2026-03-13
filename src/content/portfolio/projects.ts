@@ -1,6 +1,6 @@
 import type { PortfolioProject } from '@/domain/portfolio/types';
 
-export const portfolioProjects: PortfolioProject[] = [
+const portfolioProjectsData: PortfolioProject[] = [
   {
     slug: 'studio-lumen',
     title: 'Studio Lumen',
@@ -22,6 +22,8 @@ export const portfolioProjects: PortfolioProject[] = [
       src: '/images/portfolio/studio-lumen-template-home.webp',
       alt: 'Aperçu du projet Studio Lumen',
     },
+    featured: true,
+    order: 1,
   },
   {
     slug: 'rivage-photo',
@@ -45,6 +47,7 @@ export const portfolioProjects: PortfolioProject[] = [
       src: '/images/portfolio/rivage-photo-template-home.webp',
       alt: 'Aperçu du projet Rivage Photo',
     },
+    order: 2,
   },
   {
     slug: 'explorart',
@@ -68,5 +71,10 @@ export const portfolioProjects: PortfolioProject[] = [
       src: '/images/portfolio/explorart-template-home.webp',
       alt: 'Aperçu du projet Explorart',
     },
+    order: 3,
   },
 ];
+
+export const portfolioProjects = [...portfolioProjectsData].sort(
+  (a, b) => (a.order ?? 99) - (b.order ?? 99),
+);

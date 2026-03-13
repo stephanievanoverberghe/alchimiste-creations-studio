@@ -1,16 +1,22 @@
-import { Container, Heading, Section } from '@/components/ui';
+import { getPortfolioPageContent } from '@/application/portfolio/getPortfolioPageContent';
+import { getAllPortfolioProjects } from '@/application/portfolio/getProjectBySlug';
+import {
+  PortfolioFinalCta,
+  PortfolioGrid,
+  PortfolioHero,
+  PortfolioProcess,
+} from '@/components/marketing/portfolio';
 
 export default function PortfolioPage() {
+  const content = getPortfolioPageContent();
+  const projects = getAllPortfolioProjects();
+
   return (
-    <main>
-      <Section>
-        <Container>
-          <Heading
-            title="Portfolio"
-            description="Une sélection de projets livrés et des résultats obtenus."
-          />
-        </Container>
-      </Section>
-    </main>
+    <>
+      <PortfolioHero content={content.hero} />
+      <PortfolioGrid content={content.grid} projects={projects} />
+      <PortfolioProcess content={content.process} />
+      <PortfolioFinalCta content={content.finalCta} />
+    </>
   );
 }

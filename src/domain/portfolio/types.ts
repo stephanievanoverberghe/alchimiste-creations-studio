@@ -1,5 +1,7 @@
+export type PortfolioProjectSlug = 'studio-lumen' | 'rivage-photo' | 'explorart';
+
 export type PortfolioProject = {
-  slug: string;
+  slug: PortfolioProjectSlug;
   title: string;
   category: string;
   description: string;
@@ -15,6 +17,8 @@ export type PortfolioProject = {
     src: string;
     alt: string;
   };
+  featured?: boolean;
+  order?: number;
 };
 
 export type PortfolioPreviewProjectItem = PortfolioProject & {

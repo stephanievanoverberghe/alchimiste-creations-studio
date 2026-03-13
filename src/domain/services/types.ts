@@ -1,4 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
+
 export type ServiceSlug = 'landing-page' | 'site-vitrine' | 'refonte-site';
 
 export interface ServiceOption {
@@ -19,6 +20,11 @@ export interface Service {
   timeline: string;
   startingPrice: string;
   options?: ServiceOption[];
+
+  // Ajouts non cassants
+  highlightLabel?: string;
+  featured?: boolean;
+  order?: number;
 }
 
 export type ServicePreviewSectionContent = {
