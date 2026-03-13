@@ -6,7 +6,8 @@ import {
   ServicesDetails,
   ServicesFinalCta,
   ServicesHero,
-  ServicesSelector,
+  ServicesProcessMini,
+  ServicesProblemStrip,
 } from '@/components/marketing/services';
 
 export default function ServicesPage() {
@@ -16,10 +17,11 @@ export default function ServicesPage() {
   return (
     <>
       <ServicesHero content={content.hero} />
-      <ServicesSelector content={content.selector} services={services} />
+      <ServicesProblemStrip />
       <ServicesCards content={content.offers} services={services} />
       <ServicesComparison content={content.comparison} services={services} />
       <ServicesDetails content={content.details} services={services} />
+      <ServicesProcessMini />
       <ServicesFinalCta content={content.finalCta} />
     </>
   );

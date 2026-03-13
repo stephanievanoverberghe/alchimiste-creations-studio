@@ -85,11 +85,17 @@ type InfoBlockProps = {
 
 function InfoBlock({ title, items }: InfoBlockProps) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/3 p-5">
-      <p className="text-sm font-semibold text-foreground">{title}</p>
-      <ul className="mt-4 space-y-2 text-sm leading-7 text-muted-foreground">
+    <div className="rounded-3xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-5">
+      <p className="text-[0.72rem] font-medium uppercase tracking-[0.16em] text-foreground/55">
+        {title}
+      </p>
+
+      <ul className="mt-4 space-y-3">
         {items.map((item) => (
-          <li key={item}>• {item}</li>
+          <li key={item} className="flex gap-3 text-sm leading-7 text-muted-foreground">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+            <span>{item}</span>
+          </li>
         ))}
       </ul>
     </div>
