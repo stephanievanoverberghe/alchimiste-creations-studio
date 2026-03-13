@@ -1,6 +1,6 @@
-export type PortfolioPreviewProjectItem = {
+export type PortfolioProject = {
   id: string;
-  type: 'project';
+  slug: string;
   title: string;
   category: string;
   description: string;
@@ -11,12 +11,16 @@ export type PortfolioPreviewProjectItem = {
   result: string;
   beforeLabel: string;
   afterLabel: string;
-  href: string;
   ctaLabel: string;
   image: {
     src: string;
     alt: string;
   };
+};
+
+export type PortfolioPreviewProjectItem = PortfolioProject & {
+  type: 'project';
+  href: string;
 };
 
 export type PortfolioPreviewCtaItem = {
