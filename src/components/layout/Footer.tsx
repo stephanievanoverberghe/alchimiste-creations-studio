@@ -8,7 +8,7 @@ export function Footer() {
   const MapIcon = footerContent.contact.icons.map;
 
   return (
-    <footer className="border-t border-border/60 py-12 md:py-16">
+    <footer className="mt-10 border-t border-border/60 py-12 md:py-16">
       <Container className="space-y-10">
         <section className="relative overflow-hidden rounded-4xl border border-border/70 bg-[linear-gradient(180deg,hsl(var(--surface))/0.92,hsl(var(--bg))/0.96)] p-6 shadow-[0_18px_60px_rgba(4,7,18,0.42)] md:p-8 lg:p-10">
           <div
@@ -27,7 +27,7 @@ export function Footer() {
               </Badge>
 
               <div className="space-y-4">
-                <p className="max-w-[16ch] text-3xl font-semibold tracking-tight text-text sm:text-4xl lg:text-5xl">
+                <p className="lg:max-w-[16ch] text-3xl font-semibold tracking-tight text-text sm:text-4xl lg:text-5xl">
                   {footerContent.title}
                 </p>
 
@@ -98,7 +98,7 @@ export function Footer() {
                   })}
                 </div>
 
-                <div className="pt-1">
+                <div className="pt-1 text-center md:text-start">
                   <Button href={footerContent.cta.href} size="sm">
                     {footerContent.cta.label}
                   </Button>
@@ -154,7 +154,7 @@ export function Footer() {
           </nav>
         </section>
 
-        <div className="flex flex-col gap-2 border-t border-border/60 pt-4 text-xs text-text-muted md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-2 border-t border-border/60 pt-4 text-center text-xs text-text-muted md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {siteBrand}. Tous droits réservés.
           </p>

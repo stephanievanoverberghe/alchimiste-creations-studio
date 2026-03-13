@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
-import { getServicesPreviewContent } from '@/application/home/getServicesPreviewContent';
+import { getServicesPreviewContent } from '@/application/services/getServicesPreviewContent';
 import { Badge, Container, Heading, Section } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
 

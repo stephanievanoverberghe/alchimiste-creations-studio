@@ -57,7 +57,7 @@ export function ValueProposition() {
                   </div>
 
                   <div className="mt-7 flex-1">
-                    <h3 className="max-w-[16ch] text-[1.15rem] font-semibold tracking-[-0.03em] text-foreground sm:text-[1.22rem] lg:text-[1.3rem]">
+                    <h3 className="lg:max-w-[16ch] text-[1.15rem] font-semibold tracking-[-0.03em] text-foreground sm:text-[1.22rem] lg:text-[1.3rem]">
                       {item.title}
                     </h3>
 

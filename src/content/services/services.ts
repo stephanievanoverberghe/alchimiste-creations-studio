@@ -6,7 +6,7 @@ export const services: Service[] = [
     title: 'Landing Page',
 
     shortDescription:
-      'Une page unique conçue pour présenter une offre ou un projet de manière claire et efficace.',
+      'Une page stratégique pour présenter une offre unique, capter l’attention rapidement et diriger l’utilisateur vers une action claire.',
 
     description:
       'La landing page permet de créer rapidement une présence en ligne professionnelle pour présenter une activité ou une offre spécifique.',
@@ -70,7 +70,8 @@ export const services: Service[] = [
     slug: 'site-vitrine',
     title: 'Site vitrine',
 
-    shortDescription: 'Un site complet pour présenter une activité, des services et un univers.',
+    shortDescription:
+      'Un site complet pour présenter votre activité, vos services et votre différence avec une structure claire, crédible et pensée pour durer.',
 
     description:
       'Le site vitrine constitue la base d’une présence en ligne professionnelle et permet de présenter clairement une activité.',
@@ -121,7 +122,7 @@ export const services: Service[] = [
     title: 'Refonte de site',
 
     shortDescription:
-      'Modernisation d’un site existant pour améliorer le design, la clarté et les performances.',
+      'Une refonte ciblée pour clarifier le message, moderniser l’image et améliorer les performances de conversion sans repartir de zéro inutilement.',
 
     description:
       'La refonte consiste à transformer un site existant afin de le rendre plus moderne, clair et performant.',
