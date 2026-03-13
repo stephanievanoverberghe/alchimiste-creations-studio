@@ -9,3 +9,6 @@ export * from './Input';
 export * from './Label';
 export * from './Section';
 export * from './Textarea';
+export * from './Tabs';
+export * from './SegmentedContentSlider';
+export * from './MobileCarousel';

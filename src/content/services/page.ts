@@ -25,13 +25,89 @@ export const servicesPageContent: ServicesPageContent = {
       'Performance optimisée',
       'Approche orientée conversion',
     ],
+    featuredCard: {
+      badge: 'Offre la plus demandée',
+      title: 'Site vitrine',
+      description:
+        'Pour présenter votre activité avec une structure claire, un design crédible et une base suffisamment solide pour évoluer.',
+      priceLabel: 'Investissement',
+      priceValue: 'À partir de 1 800 €',
+      timeline: 'Délai habituel : 3 à 5 semaines',
+      detailSlug: 'site-vitrine',
+      detailLabel: 'Voir le détail de l’offre',
+      points: [
+        {
+          id: 'scope',
+          icon: 'layers3',
+          label: 'Offres cadrées',
+          value: 'Périmètre clair',
+        },
+        {
+          id: 'timeline',
+          icon: 'timer',
+          label: 'Délais réalistes',
+          value: '2 à 6 semaines',
+        },
+        {
+          id: 'goal',
+          icon: 'shieldCheck',
+          label: 'Objectif',
+          value: 'Clarté + crédibilité',
+        },
+      ],
+    },
   },
 
-  selector: {
-    eyebrow: 'Choisir la bonne offre',
-    title: 'Une offre différente selon votre stade et votre objectif.',
+  problemStrip: {
+    items: [
+      {
+        id: 'launch',
+        icon: 'rocket',
+        title: 'Lancer une présence crédible',
+        text: 'Quand il faut présenter une offre clairement sans partir sur un site trop lourd.',
+      },
+      {
+        id: 'structure',
+        icon: 'compass',
+        title: 'Structurer une activité durable',
+        text: 'Quand votre activité mérite un site complet, cohérent et professionnel.',
+      },
+      {
+        id: 'refresh',
+        icon: 'refreshCcw',
+        title: 'Moderniser un existant',
+        text: 'Quand votre site ne reflète plus votre niveau, votre image ou votre ambition.',
+      },
+    ],
+  },
+
+  process: {
+    eyebrow: 'Méthode',
+    title: 'Un cadre clair, du premier échange à la mise en ligne.',
     description:
-      'L’idée n’est pas de vendre plus que nécessaire, mais de proposer le format le plus pertinent selon votre activité, votre besoin actuel et votre objectif de conversion.',
+      'L’objectif n’est pas de vous noyer dans un process complexe, mais de rendre la collaboration simple, lisible et rassurante.',
+    steps: [
+      {
+        number: '01',
+        title: 'Échange initial',
+        text: 'Comprendre votre activité, votre priorité et le format le plus adapté.',
+      },
+      {
+        number: '02',
+        title: 'Structure & direction',
+        text: 'Définir une base claire, crédible et alignée avec votre objectif.',
+      },
+      {
+        number: '03',
+        title: 'Design & développement',
+        text: 'Créer un site moderne, responsive et cohérent dans les détails.',
+      },
+      {
+        number: '04',
+        title: 'Livraison & mise en ligne',
+        text: 'Finaliser, vérifier et mettre en ligne une version prête à être utilisée.',
+      },
+    ],
   },
 
   offers: {

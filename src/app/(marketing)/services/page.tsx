@@ -17,11 +17,11 @@ export default function ServicesPage() {
   return (
     <>
       <ServicesHero content={content.hero} />
-      <ServicesProblemStrip />
+      <ServicesProblemStrip content={content.problemStrip} />
       <ServicesCards content={content.offers} services={services} />
       <ServicesComparison content={content.comparison} services={services} />
       <ServicesDetails content={content.details} services={services} />
-      <ServicesProcessMini />
+      <ServicesProcessMini content={content.process} />
       <ServicesFinalCta content={content.finalCta} />
     </>
   );

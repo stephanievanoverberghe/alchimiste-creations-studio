@@ -1,5 +1,8 @@
-import { Badge, Container, Heading, Section } from '@/components/ui';
+'use client';
+
+import { Badge, Container, Heading, MobileCarousel, Section } from '@/components/ui';
 import { Check, Minus } from 'lucide-react';
+
 import type { ServicesPageContent } from '@/domain/services/page';
 import type { Service } from '@/domain/services/types';
 import { cn } from '@/lib/utils/cn';
@@ -22,73 +25,89 @@ export function ServicesComparison({ content, services }: ServicesComparisonProp
           />
         </div>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.slug}
-              className={cn(
-                'rounded-4xl border border-white/10 bg-[linear-gradient(180deg,rgba(17,24,39,0.78),rgba(9,14,28,0.9))] p-6 shadow-[0_20px_70px_rgba(0,0,0,0.2)] backdrop-blur-xl',
-                service.featured && 'ring-1 ring-primary/25 shadow-[0_30px_90px_rgba(0,0,0,0.3)]',
-              )}
-            >
-              <div className="flex items-center justify-between gap-4">
-                <Badge variant={service.featured ? 'primary' : 'default'}>
-                  {service.highlightLabel ?? 'Offre'}
-                </Badge>
-                <p className="text-sm font-medium text-foreground">
-                  À partir de {service.startingPrice}
-                </p>
-              </div>
+        <div className="mt-14">
+          <MobileCarousel
+            items={services}
+            getItemKey={(service) => service.slug}
+            renderItem={(service) => <ComparisonCard service={service} content={content} />}
+          />
 
-              <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground">
-                {service.title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                {service.shortDescription}
-              </p>
-
-              <div className="mt-6 rounded-3xl border border-white/8 bg-white/4 p-4">
-                <p className="text-[0.68rem] uppercase tracking-[0.16em] text-foreground/50">
-                  Format
-                </p>
-                <p className="mt-2 text-base font-medium text-foreground">
-                  {content.rows.find((row) => row.id === 'format')?.values[service.slug]}
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Délai : {content.rows.find((row) => row.id === 'timeline')?.values[service.slug]}
-                </p>
-              </div>
-
-              <ul className="mt-6 space-y-3">
-                {content.rows
-                  .filter((row) => !['format', 'timeline', 'price'].includes(row.id))
-                  .map((row) => {
-                    const value = row.values[service.slug];
-                    const isPositive = value.toLowerCase() === 'oui';
-
-                    return (
-                      <li
-                        key={row.id}
-                        className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-black/10 px-4 py-3"
-                      >
-                        <span className="text-sm text-muted-foreground">{row.label}</span>
-                        <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground">
-                          {isPositive ? (
-                            <Check className="h-4 w-4 text-primary" />
-                          ) : (
-                            <Minus className="h-4 w-4 text-foreground/50" />
-                          )}
-                          {value}
-                        </span>
-                      </li>
-                    );
-                  })}
-              </ul>
-            </article>
-          ))}
+          <div className="hidden gap-5 lg:grid lg:grid-cols-3">
+            {services.map((service) => (
+              <ComparisonCard key={service.slug} service={service} content={content} />
+            ))}
+          </div>
         </div>
       </Container>
     </Section>
+  );
+}
+
+type ComparisonCardProps = {
+  service: Service;
+  content: ServicesPageContent['comparison'];
+};
+
+function ComparisonCard({ service, content }: ComparisonCardProps) {
+  return (
+    <article
+      className={cn(
+        'rounded-4xl border border-white/10 bg-[linear-gradient(180deg,rgba(17,24,39,0.78),rgba(9,14,28,0.9))] p-6 shadow-[0_20px_70px_rgba(0,0,0,0.2)] backdrop-blur-xl',
+        service.featured && 'ring-1 ring-primary/25 shadow-[0_30px_90px_rgba(0,0,0,0.3)]',
+      )}
+    >
+      <div className="flex items-center justify-between gap-4">
+        <Badge variant={service.featured ? 'primary' : 'default'}>
+          {service.highlightLabel ?? 'Offre'}
+        </Badge>
+
+        <p className="text-sm font-medium text-foreground">À partir de {service.startingPrice}</p>
+      </div>
+
+      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground">
+        {service.title}
+      </h3>
+
+      <p className="mt-3 text-sm leading-7 text-muted-foreground">{service.shortDescription}</p>
+
+      <div className="mt-6 rounded-3xl border border-white/8 bg-white/4 p-4">
+        <p className="text-[0.68rem] uppercase tracking-[0.16em] text-foreground/50">Format</p>
+
+        <p className="mt-2 text-base font-medium text-foreground">
+          {content.rows.find((row) => row.id === 'format')?.values[service.slug]}
+        </p>
+
+        <p className="mt-1 text-sm text-muted-foreground">
+          Délai : {content.rows.find((row) => row.id === 'timeline')?.values[service.slug]}
+        </p>
+      </div>
+
+      <ul className="mt-6 space-y-3">
+        {content.rows
+          .filter((row) => !['format', 'timeline', 'price'].includes(row.id))
+          .map((row) => {
+            const value = row.values[service.slug];
+            const isPositive = value.toLowerCase() === 'oui';
+
+            return (
+              <li
+                key={row.id}
+                className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-black/10 px-4 py-3"
+              >
+                <span className="text-sm text-muted-foreground">{row.label}</span>
+
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                  {isPositive ? (
+                    <Check className="h-4 w-4 text-primary" />
+                  ) : (
+                    <Minus className="h-4 w-4 text-foreground/50" />
+                  )}
+                  {value}
+                </span>
+              </li>
+            );
+          })}
+      </ul>
+    </article>
   );
 }
