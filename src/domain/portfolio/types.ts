@@ -1,5 +1,4 @@
 export type PortfolioProject = {
-  id: string;
   slug: string;
   title: string;
   category: string;

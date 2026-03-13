@@ -6,7 +6,7 @@ import { getPortfolioPreviewContent } from '@/application/home/getPortfolioPrevi
 import type {
   PortfolioPreviewCtaItem,
   PortfolioPreviewProjectItem,
-} from '@/domain/portfolio/project.types';
+} from '@/domain/portfolio/types';
 import { Badge, Container, Heading, Section } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
 
@@ -54,7 +54,7 @@ export function PortfolioPreview() {
 
           <div className="grid gap-5">
             {secondaryProjects.map((project) => (
-              <SecondaryProjectCard key={project.id} project={project} />
+              <SecondaryProjectCard key={project.slug} project={project} />
             ))}
           </div>
         </div>

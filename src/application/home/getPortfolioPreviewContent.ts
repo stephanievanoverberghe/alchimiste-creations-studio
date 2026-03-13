@@ -4,7 +4,7 @@ import {
   portfolioPreviewSectionContent,
 } from '@/content/home/portfolio-preview';
 import { getPortfolioProjectBySlug } from '@/application/portfolio/getPortfolioProjects';
-import type { PortfolioPreviewContent } from '@/domain/portfolio/project.types';
+import type { PortfolioPreviewContent } from '@/domain/portfolio/types';
 
 export function getPortfolioPreviewContent(): PortfolioPreviewContent {
   const projects = portfolioPreviewProjectOrder

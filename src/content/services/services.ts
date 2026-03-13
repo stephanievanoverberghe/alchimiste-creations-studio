@@ -1,4 +1,4 @@
-import { Service } from '@/domain/services/service.types';
+import { Service } from '@/domain/services/types';
 
 export const services: Service[] = [
   {

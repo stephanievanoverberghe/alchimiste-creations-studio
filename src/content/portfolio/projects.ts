@@ -1,8 +1,7 @@
-import type { PortfolioProject } from '@/domain/portfolio/project.types';
+import type { PortfolioProject } from '@/domain/portfolio/types';
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    id: 'studio-lumen',
     slug: 'studio-lumen',
     title: 'Studio Lumen',
     category: 'Site vitrine premium',
@@ -25,7 +24,6 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
   {
-    id: 'rivage-photo',
     slug: 'rivage-photo',
     title: 'Rivage Photo',
     category: 'Portfolio visuel',
@@ -49,7 +47,6 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
   {
-    id: 'explorart',
     slug: 'explorart',
     title: 'Explorart',
     category: 'Plateforme éditoriale',

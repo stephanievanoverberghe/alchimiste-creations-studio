@@ -1,5 +1,5 @@
 import { services } from '@/content/services/services';
-import type { Service, ServiceSlug } from '@/domain/services/service.types';
+import type { Service, ServiceSlug } from '@/domain/services/types';
 
 export function getServices(): Service[] {
   return services;

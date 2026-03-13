@@ -4,7 +4,7 @@ import type {
   ServicePreviewOverrides,
   ServicePreviewSectionContent,
   ServiceSlug,
-} from '@/domain/services/service.types';
+} from '@/domain/services/types';
 
 export const servicesPreviewSectionContent: ServicePreviewSectionContent = {
   eyebrow: 'Offres',

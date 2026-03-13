@@ -1,4 +1,4 @@
-import type { PortfolioPreviewCtaItem } from '@/domain/portfolio/project.types';
+import type { PortfolioPreviewCtaItem } from '@/domain/portfolio/types';
 
 export const portfolioPreviewSectionContent = {
   eyebrow: 'Projets sélectionnés',

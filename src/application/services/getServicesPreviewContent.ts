@@ -3,7 +3,7 @@ import {
   servicesPreviewOverrides,
   servicesPreviewSectionContent,
 } from '@/content/home/services-preview';
-import type { ServicesPreviewContent } from '@/domain/services/service.types';
+import type { ServicesPreviewContent } from '@/domain/services/types';
 
 import { getServiceBySlug } from './getServices';
 
