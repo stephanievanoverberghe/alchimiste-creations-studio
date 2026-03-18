@@ -5,9 +5,9 @@ import type {
 } from '@/domain/portfolio/types';
 import { Container, Heading, Section } from '@/components/ui';
 
-import { FeaturedProjectCard } from './portfolio-preview/FeaturedProjectCard';
-import { PortfolioCalloutCard } from './portfolio-preview/PortfolioCalloutCard';
-import { SecondaryProjectCard } from './portfolio-preview/SecondaryProjectCard';
+import { FeaturedProjectCard } from '@/components/marketing/portfolio-preview/FeaturedProjectCard';
+import { PortfolioCalloutCard } from '@/components/marketing/portfolio-preview/PortfolioCalloutCard';
+import { SecondaryProjectCard } from '@/components/marketing/portfolio-preview//SecondaryProjectCard';
 
 export function PortfolioPreview() {
   const content = getPortfolioPreviewContent();

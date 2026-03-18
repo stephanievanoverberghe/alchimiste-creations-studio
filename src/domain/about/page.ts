@@ -60,5 +60,6 @@ export type AboutPageContent = {
     description: string;
     buttonLabel: string;
     buttonHref: string;
+    meta: string;
   };
 };

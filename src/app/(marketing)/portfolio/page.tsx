@@ -1,9 +1,9 @@
 import { getPortfolioPageContent } from '@/application/portfolio/getPortfolioPageContent';
 import { getPortfolioProjects } from '@/application/portfolio/getPortfolioProjects';
+import { PageFinalCta } from '@/components/marketing/PageFinalCta';
 import {
   PortfolioApproachStrip,
   PortfolioFeaturedProject,
-  PortfolioFinalCta,
   PortfolioHero,
   PortfolioProjectsGrid,
 } from '@/components/marketing/portfolio';
@@ -26,7 +26,7 @@ export default function PortfolioPage() {
       <PortfolioFeaturedProject content={content.featuredProject} project={featuredProject} />
       <PortfolioProjectsGrid content={content.projectsGrid} projects={secondaryProjects} />
       <PortfolioApproachStrip content={content.approach} />
-      <PortfolioFinalCta content={content.finalCta} />
+      <PageFinalCta {...content.finalCta} />
     </>
   );
 }

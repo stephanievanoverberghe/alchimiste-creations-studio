@@ -4,4 +4,3 @@ export * from './ServicesCards';
 export * from './ServicesComparison';
 export * from './ServicesDetails';
 export * from './ServicesProcessMini';
-export * from './ServicesFinalCta';

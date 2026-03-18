@@ -1,5 +1,5 @@
 import type { PortfolioProjectPageContent } from '@/domain/portfolio/page';
-import { primaryContactCtaLabel } from '@/content/site/messaging';
+import { primaryContactCtaLabel, trustCallMeta } from '@/content/site/messaging';
 
 export const portfolioProjectPageContent: PortfolioProjectPageContent = {
   backLabel: 'Retour au portfolio',
@@ -35,5 +35,6 @@ export const portfolioProjectPageContent: PortfolioProjectPageContent = {
       'Nous pouvons construire une présence en ligne plus claire, plus cohérente et plus convaincante pour votre activité.',
     buttonLabel: primaryContactCtaLabel,
     buttonHref: '/contact',
+    meta: trustCallMeta,
   },
 };

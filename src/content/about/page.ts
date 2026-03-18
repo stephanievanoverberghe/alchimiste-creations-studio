@@ -1,5 +1,5 @@
 import type { AboutPageContent } from '@/domain/about/page';
-import { secondaryContactCtaLabel } from '@/content/site/messaging';
+import { secondaryContactCtaLabel, trustCallMeta } from '@/content/site/messaging';
 
 export const aboutPageContent: AboutPageContent = {
   hero: {
@@ -147,5 +147,6 @@ export const aboutPageContent: AboutPageContent = {
       'Nous pouvons construire un site pensé pour mieux traduire la qualité de votre activité.',
     buttonLabel: secondaryContactCtaLabel,
     buttonHref: '/contact',
+    meta: trustCallMeta,
   },
 };

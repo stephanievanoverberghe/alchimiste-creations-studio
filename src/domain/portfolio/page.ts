@@ -81,5 +81,6 @@ export type PortfolioProjectPageContent = {
     description: string;
     buttonLabel: string;
     buttonHref: string;
+    meta: string;
   };
 };

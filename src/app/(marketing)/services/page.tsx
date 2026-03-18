@@ -2,11 +2,11 @@ import { Suspense } from 'react';
 
 import { getServicesPageContent } from '@/application/services/getServicesPageContent';
 import { getServices } from '@/application/services/getServices';
+import { PageFinalCta } from '@/components/marketing/PageFinalCta';
 import {
   ServicesCards,
   ServicesComparison,
   ServicesDetails,
-  ServicesFinalCta,
   ServicesHero,
   ServicesProcessMini,
   ServicesProblemStrip,
@@ -32,7 +32,10 @@ export default function ServicesPage() {
         <ServicesDetails content={content.details} services={services} />
       </Suspense>
       <ServicesProcessMini content={content.process} />
-      <ServicesFinalCta content={content.finalCta} />
+      <PageFinalCta
+        {...content.finalCta}
+        buttonClassName="group relative px-8 py-3 text-[0.95rem] font-semibold tracking-wide"
+      />
     </>
   );
 }

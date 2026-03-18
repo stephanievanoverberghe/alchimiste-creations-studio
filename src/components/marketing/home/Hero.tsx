@@ -1,5 +1,5 @@
 import { getHeroContent } from '@/application/home/getHeroContent';
-import { HeroMockup } from '@/components/marketing/HeroMockup';
+import { HeroMockup } from '@/components/marketing/home/HeroMockup';
 import { Badge, Button, Container, Section } from '@/components/ui';
 
 export function Hero() {

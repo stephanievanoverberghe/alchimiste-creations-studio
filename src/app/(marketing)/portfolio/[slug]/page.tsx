@@ -6,9 +6,9 @@ import {
   getPortfolioProjects,
 } from '@/application/portfolio/getPortfolioProjects';
 import { getPortfolioProjectPageContent } from '@/application/portfolio/getPortfolioProjectPageContent';
+import { PageFinalCta } from '@/components/marketing/PageFinalCta';
 import {
   PortfolioProjectBeforeAfter,
-  PortfolioProjectFinalCta,
   PortfolioProjectHero,
   PortfolioProjectGallery,
   PortfolioProjectNarrative,
@@ -49,7 +49,11 @@ export default async function PortfolioProjectPage({ params }: PortfolioProjectP
       <PortfolioProjectGallery project={project} content={content} />
       <PortfolioProjectBeforeAfter project={project} content={content} />
       {nextProject ? <PortfolioProjectNext project={nextProject} content={content} /> : null}
-      <PortfolioProjectFinalCta content={content.finalCta} />
+      <PageFinalCta
+        {...content.finalCta}
+        panelSize="lg"
+        buttonClassName="group relative px-8 py-3 text-[0.95rem] font-semibold tracking-wide"
+      />
     </>
   );
 }
