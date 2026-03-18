@@ -19,7 +19,8 @@ export const legalNoticeContent: LegalPageContent = {
       id: 'hebergement',
       title: 'Hébergement',
       paragraphs: [
-        'Le site est hébergé par un prestataire technique assurant la disponibilité et l’infrastructure nécessaires à sa mise en ligne.',
+        'Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.',
+        'Infrastructure et distribution : réseau CDN mondial Vercel.',
       ],
     },
     {
@@ -76,6 +77,14 @@ export const privacyPolicyContent: LegalPageContent = {
       paragraphs: [
         'Vous pouvez demander l’accès, la rectification ou la suppression de vos données personnelles en écrivant à bonjour@alchimiste-creations.fr.',
         'Les demandes sont traitées dans les meilleurs délais, conformément à la réglementation applicable.',
+      ],
+    },
+    {
+      id: 'base-legale',
+      title: 'Base légale et cadre RGPD',
+      paragraphs: [
+        'Le traitement des données du formulaire repose sur l’intérêt légitime de répondre à votre demande précontractuelle.',
+        'Conformément au RGPD, vous pouvez également demander la limitation du traitement ou vous y opposer lorsque la loi le permet.',
       ],
     },
   ],

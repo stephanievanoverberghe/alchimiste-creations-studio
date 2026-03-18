@@ -68,6 +68,31 @@ export const contactPageContent: ContactPageContent = {
     title: 'Décrivez votre projet',
     description:
       'Quelques informations bien choisies suffisent pour préparer un premier échange utile. Vous pouvez rester simple et direct.',
+    aside: {
+      eyebrow: 'Premier échange',
+      title: 'Un cadre simple, clair et sérieux.',
+      description:
+        'Quelques informations bien choisies suffisent pour préparer un échange utile. Le but n’est pas de vous faire remplir un long dossier, mais de comprendre le projet avec justesse.',
+      cards: [
+        {
+          id: 'qualification',
+          title: 'Demande qualifiée',
+          text: 'Le formulaire aide à cadrer le besoin, le budget et le niveau de maturité du projet.',
+        },
+        {
+          id: 'response-time',
+          title: 'Réponse rapide',
+          text: 'Je reviens généralement vers vous sous 24 à 48h ouvrées avec une première lecture claire.',
+        },
+        {
+          id: 'frictionless',
+          title: 'Échange sans friction',
+          text: 'Vous pouvez rester simple. L’important est surtout d’expliquer votre contexte et votre objectif.',
+        },
+      ],
+      noteLabel: 'Bon à savoir',
+      note: 'Plus votre message est précis sur votre activité, votre besoin actuel et ce que vous cherchez à améliorer, plus ma réponse pourra être utile dès le premier retour.',
+    },
     helper:
       'Pas de spam, pas de pression. Juste un premier échange clair pour voir si votre projet entre dans le bon cadre.',
     submitLabel: 'Envoyer ma demande',

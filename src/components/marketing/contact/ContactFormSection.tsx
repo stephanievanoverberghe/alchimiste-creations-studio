@@ -106,45 +106,41 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
             />
 
             <span className="inline-flex rounded-full border border-white/10 bg-white/4 px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-foreground/55">
-              Premier échange
+              {content.aside.eyebrow}
             </span>
 
             <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-              Un cadre simple, clair et sérieux.
+              {content.aside.title}
             </h3>
 
             <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
-              Quelques informations bien choisies suffisent pour préparer un échange utile. Le but
-              n’est pas de vous faire remplir un long dossier, mais de comprendre le projet avec
-              justesse.
+              {content.aside.description}
             </p>
 
             <div className="mt-8 space-y-3">
-              <InfoPill
-                icon={<ShieldCheck className="h-4 w-4" />}
-                title="Demande qualifiée"
-                text="Le formulaire aide à cadrer le besoin, le budget et le niveau de maturité du projet."
-              />
-              <InfoPill
-                icon={<Clock3 className="h-4 w-4" />}
-                title="Réponse rapide"
-                text="Je reviens généralement vers vous sous 24 à 48h ouvrées avec une première lecture claire."
-              />
-              <InfoPill
-                icon={<SendHorizonal className="h-4 w-4" />}
-                title="Échange sans friction"
-                text="Vous pouvez rester simple. L’important est surtout d’expliquer votre contexte et votre objectif."
-              />
+              {content.aside.cards.map((item) => (
+                <InfoPill
+                  key={item.id}
+                  icon={
+                    item.id === 'qualification' ? (
+                      <ShieldCheck className="h-4 w-4" />
+                    ) : item.id === 'response-time' ? (
+                      <Clock3 className="h-4 w-4" />
+                    ) : (
+                      <SendHorizonal className="h-4 w-4" />
+                    )
+                  }
+                  title={item.title}
+                  text={item.text}
+                />
+              ))}
             </div>
 
             <div className="mt-8 rounded-[1.4rem] border border-white/10 bg-white/[0.035] p-4">
               <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-foreground/45">
-                Bon à savoir
+                {content.aside.noteLabel}
               </p>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                Plus votre message est précis sur votre activité, votre besoin actuel et ce que vous
-                cherchez à améliorer, plus ma réponse pourra être utile dès le premier retour.
-              </p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{content.aside.note}</p>
             </div>
           </aside>
 

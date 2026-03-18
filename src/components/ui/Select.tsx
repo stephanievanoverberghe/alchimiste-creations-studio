@@ -207,7 +207,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
         onClick={toggleSelect}
         onKeyDown={handleKeyDown}
         className={cn(
-          'flex h-12 w-full items-center justify-between rounded-[0.95rem] border border-white/10 bg-white/4 px-4 text-left text-sm text-foreground outline-none transition-all duration-200',
+          'flex h-12 w-full items-center cursor-pointer justify-between rounded-[0.95rem] border border-white/10 bg-white/4 px-4 text-left text-sm text-foreground outline-none transition-all duration-200',
           'focus-visible:border-primary/40 focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))]',
           'disabled:cursor-not-allowed disabled:opacity-60',
           isOpen && 'border-primary/30 bg-white/5',
@@ -251,7 +251,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
                 onMouseEnter={() => setHighlightedIndex(index)}
                 onClick={() => updateValue(option.value)}
                 className={cn(
-                  'flex w-full items-center justify-between rounded-[0.9rem] px-3 py-3 text-left text-sm transition',
+                  'flex w-full cursor-pointer items-center justify-between rounded-[0.9rem] px-3 py-3 text-left text-sm transition',
                   isHighlighted
                     ? 'bg-white/[0.07] text-foreground'
                     : 'text-muted-foreground hover:bg-white/5 hover:text-foreground',

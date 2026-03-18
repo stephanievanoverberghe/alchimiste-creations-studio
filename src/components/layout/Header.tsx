@@ -123,15 +123,6 @@ export function Header() {
               {primaryCta.label}
             </Button>
 
-            <Button
-              href={primaryCta.href}
-              variant="secondary"
-              size="sm"
-              className="hidden md:inline-flex lg:hidden"
-            >
-              Contact
-            </Button>
-
             <button
               type="button"
               onClick={() => setOpen((prev) => !prev)}

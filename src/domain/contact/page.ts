@@ -40,6 +40,18 @@ export type ContactPageContent = {
     eyebrow: string;
     title: string;
     description: string;
+    aside: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      cards: {
+        id: 'qualification' | 'response-time' | 'frictionless';
+        title: string;
+        text: string;
+      }[];
+      noteLabel: string;
+      note: string;
+    };
     helper: string;
     submitLabel: string;
     successMessage: string;

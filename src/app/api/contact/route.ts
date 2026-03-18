@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { contactFormSchema } from '@/domain/contact/form';
+import { sendContactEmail } from '@/infrastructure/contact/SendContactEmail';
 
 export async function POST(request: Request) {
   try {
@@ -21,8 +22,21 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'OK' }, { status: 200 });
     }
 
-    // TODO:
-    // brancher Resend / Nodemailer / autre provider ici
+    const sendResult = await sendContactEmail(parsed.data);
+
+    if (!sendResult.ok && sendResult.reason === 'missing_config') {
+      return NextResponse.json(
+        {
+          message:
+            "Le service de contact n'est pas encore configuré. Veuillez réessayer plus tard ou écrire directement par email.",
+        },
+        { status: 503 },
+      );
+    }
+
+    if (!sendResult.ok) {
+      return NextResponse.json({ message: "L'envoi du message a échoué." }, { status: 502 });
+    }
 
     return NextResponse.json({ message: 'Message reçu.' }, { status: 200 });
   } catch {
