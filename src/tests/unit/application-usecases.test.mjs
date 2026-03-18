@@ -14,7 +14,7 @@ describe('application use-cases contracts', () => {
     });
 
     it('portfolio use-cases are centralized in getPortfolioData', () => {
-        const source = read('src/application/portfolio/getPortfolioData.ts');
+        const source = read('src/application/portfolio/getPortfolioProjects.ts');
 
         expect(source).toMatch(/export function getPortfolioProjects\(/);
         expect(source).toMatch(/export function getPortfolioProjectBySlug\(slug: PortfolioProjectSlug\)/);

@@ -13,6 +13,34 @@ export const aboutPageContent: AboutPageContent = {
       'Approche orientée conversion',
       'Développement moderne',
     ],
+    aside: {
+      eyebrow: 'Studio indépendant',
+      title: 'Une approche pensée pour mieux traduire la qualité réelle d’une activité.',
+      description:
+        'Chaque projet cherche un point d’équilibre entre perception, lisibilité, structure et expérience utilisateur.',
+      items: [
+        {
+          id: 'design',
+          label: 'Design',
+          value: 'Premium et lisible',
+        },
+        {
+          id: 'message',
+          label: 'Message',
+          value: 'Plus clair et plus juste',
+        },
+        {
+          id: 'experience',
+          label: 'Expérience',
+          value: 'Fluide et cohérente',
+        },
+        {
+          id: 'goal',
+          label: 'Finalité',
+          value: 'Mieux convaincre',
+        },
+      ],
+    },
   },
 
   intro: {

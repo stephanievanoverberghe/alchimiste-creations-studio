@@ -8,6 +8,16 @@ export type AboutPageContent = {
     title: string;
     description: string;
     highlights: string[];
+    aside: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      items: {
+        id: string;
+        label: string;
+        value: string;
+      }[];
+    };
   };
   intro: {
     eyebrow: string;
