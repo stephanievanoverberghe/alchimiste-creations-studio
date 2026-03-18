@@ -1,4 +1,22 @@
-export type ContactProcessStepId = 'message' | 'reply' | 'call' | 'next-step';
+import type { Service } from '@/domain/services/types';
+
+export type ContactProjectType = Service['slug'] | 'autre';
+
+export type ContactBudgetRange =
+  | 'less-than-1000'
+  | '1000-2000'
+  | '2000-4000'
+  | '4000-plus'
+  | 'undecided';
+
+export type ContactTimeline =
+  | 'asap'
+  | 'less-than-1-month'
+  | '1-to-2-months'
+  | '2-to-3-months'
+  | 'flexible';
+
+export type ContactProcessStepId = 'message' | 'review' | 'call' | 'next-step';
 
 export type ContactPageContent = {
   hero: {
@@ -7,33 +25,69 @@ export type ContactPageContent = {
     description: string;
     highlights: string[];
   };
-  form: {
-    title: string;
-    description: string;
-    fields: {
-      nameLabel: string;
-      emailLabel: string;
-      companyLabel: string;
-      serviceLabel: string;
-      budgetLabel: string;
-      messageLabel: string;
-    };
-    placeholders: {
-      name: string;
-      email: string;
-      company: string;
-      service: string;
-      budget: string;
-      message: string;
-    };
-    submitLabel: string;
-    helper: string;
-  };
-  sidebar: {
+  guidelines: {
     eyebrow: string;
     title: string;
     description: string;
-    points: string[];
+    cards: {
+      id: 'projects' | 'budget' | 'readiness' | 'fit';
+      title: string;
+      description: string;
+      points: string[];
+    }[];
+  };
+  form: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    helper: string;
+    submitLabel: string;
+    successMessage: string;
+    errorMessage: string;
+    fields: {
+      firstNameLabel: string;
+      lastNameLabel: string;
+      emailLabel: string;
+      projectTypeLabel: string;
+      budgetLabel: string;
+      timelineLabel: string;
+      websiteLabel: string;
+      messageLabel: string;
+    };
+    placeholders: {
+      firstName: string;
+      lastName: string;
+      email: string;
+      website: string;
+      message: string;
+    };
+    options: {
+      projectTypes: {
+        value: ContactProjectType;
+        label: string;
+      }[];
+      budgets: {
+        value: ContactBudgetRange;
+        label: string;
+      }[];
+      timelines: {
+        value: ContactTimeline;
+        label: string;
+      }[];
+    };
+    emptyOptionLabel: string;
+  };
+  alternativeContact: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    emailLabel: string;
+    email: string;
+    responseTimeLabel: string;
+    responseTime: string;
+    availabilityLabel: string;
+    availability: string;
+    note: string;
   };
   process: {
     eyebrow: string;

@@ -2,82 +2,154 @@ import type { ContactPageContent } from '@/domain/contact/page';
 
 export const contactPageContent: ContactPageContent = {
   hero: {
-    eyebrow: 'Contact',
-    title: 'Parlons de votre projet.',
+    eyebrow: 'Premier échange',
+    title: 'Parlons d’un projet clair, sérieux et pensé pour convertir.',
     description:
-      'Expliquez-moi votre activité, votre besoin et votre priorité. Je vous répondrai avec une première lecture claire de la meilleure approche possible.',
+      'Décrivez votre activité, votre besoin et votre contexte. Je vous réponds avec un premier retour clair pour voir si une collaboration a du sens.',
     highlights: [
-      'Réponse sous 24h',
+      'Réponse sous 24 à 48h',
       'Échange sans engagement',
-      'Cadrage clair',
-      'Approche personnalisée',
+      'Approche claire et structurée',
+      'Projets sélectionnés avec attention',
+    ],
+  },
+
+  guidelines: {
+    eyebrow: 'Avant de me contacter',
+    title: 'Quelques repères pour cadrer le projet dès le départ.',
+    description:
+      'Le but n’est pas de compliquer la prise de contact, mais de créer un premier échange plus utile, plus fluide et mieux qualifié.',
+    cards: [
+      {
+        id: 'projects',
+        title: 'Types de projets accompagnés',
+        description:
+          'J’accompagne principalement les entrepreneurs, indépendants et créateurs qui ont besoin d’une présence en ligne plus claire et plus crédible.',
+        points: ['Landing page', 'Site vitrine', 'Refonte de site existant'],
+      },
+      {
+        id: 'budget',
+        title: 'Budget de départ',
+        description:
+          'Les projets sont cadrés selon le niveau d’accompagnement, le format du site et la complexité du besoin.',
+        points: [
+          'Landing page : à partir de 900 €',
+          'Site vitrine : à partir de 1 800 €',
+          'Refonte : à partir de 1 500 €',
+        ],
+      },
+      {
+        id: 'readiness',
+        title: 'Ce qu’il est utile d’avoir',
+        description:
+          'Votre projet n’a pas besoin d’être parfaitement défini, mais certains éléments rendent l’échange plus pertinent.',
+        points: [
+          'Une activité déjà posée',
+          'Un besoin identifié',
+          'Quelques idées, contenus ou références',
+        ],
+      },
+      {
+        id: 'fit',
+        title: 'Ce qui fait un bon fit',
+        description:
+          'Les meilleures collaborations commencent quand la clarté, la perception et la qualité du site sont de vraies priorités.',
+        points: [
+          'Vous cherchez plus qu’un site “joli”',
+          'Vous voulez mieux présenter votre offre',
+          'Vous accordez de l’importance au détail',
+        ],
+      },
     ],
   },
 
   form: {
-    title: 'Décrivez votre besoin',
+    eyebrow: 'Formulaire',
+    title: 'Décrivez votre projet',
     description:
-      'Vous n’avez pas besoin d’avoir tout cadré. Quelques éléments suffisent pour démarrer une première discussion utile.',
+      'Quelques informations bien choisies suffisent pour préparer un premier échange utile. Vous pouvez rester simple et direct.',
+    helper:
+      'Pas de spam, pas de pression. Juste un premier échange clair pour voir si votre projet entre dans le bon cadre.',
+    submitLabel: 'Envoyer ma demande',
+    successMessage:
+      'Votre demande a bien été envoyée. Je reviens vers vous rapidement avec une première lecture du projet.',
+    errorMessage:
+      'Une erreur est survenue pendant l’envoi. Vous pouvez réessayer ou m’écrire directement.',
     fields: {
-      nameLabel: 'Nom',
+      firstNameLabel: 'Prénom',
+      lastNameLabel: 'Nom',
       emailLabel: 'Email',
-      companyLabel: 'Activité / entreprise',
-      serviceLabel: 'Type de projet',
-      budgetLabel: 'Budget estimatif',
+      projectTypeLabel: 'Type de projet',
+      budgetLabel: 'Budget estimé',
+      timelineLabel: 'Délai souhaité',
+      websiteLabel: 'Site existant (optionnel)',
       messageLabel: 'Votre message',
     },
     placeholders: {
-      name: 'Votre nom',
+      firstName: 'Votre prénom',
+      lastName: 'Votre nom',
       email: 'vous@exemple.com',
-      company: 'Nom de votre activité',
-      service: 'Site vitrine, refonte, landing page...',
-      budget: 'Ex. 1500 € à 3000 €',
+      website: 'www.votresite.fr',
       message:
-        'Décrivez votre projet, votre besoin actuel, votre objectif et ce qui vous bloque aujourd’hui.',
+        'Expliquez votre activité, votre besoin actuel, votre objectif et ce que vous attendez du projet.',
     },
-    submitLabel: 'Envoyer ma demande',
-    helper:
-      'Pas de spam, pas de pression. Juste un premier échange clair pour voir si nous pouvons travailler ensemble.',
+    options: {
+      projectTypes: [],
+      budgets: [
+        { value: 'less-than-1000', label: 'Moins de 1 000 €' },
+        { value: '1000-2000', label: '1 000 € à 2 000 €' },
+        { value: '2000-4000', label: '2 000 € à 4 000 €' },
+        { value: '4000-plus', label: '4 000 € et plus' },
+        { value: 'undecided', label: 'À définir' },
+      ],
+      timelines: [
+        { value: 'asap', label: 'Dès que possible' },
+        { value: 'less-than-1-month', label: 'Moins d’un mois' },
+        { value: '1-to-2-months', label: '1 à 2 mois' },
+        { value: '2-to-3-months', label: '2 à 3 mois' },
+        { value: 'flexible', label: 'Flexible' },
+      ],
+    },
+    emptyOptionLabel: 'Sélectionnez une option',
   },
 
-  sidebar: {
-    eyebrow: 'Avant de commencer',
-    title: 'Ce que vous pouvez me confier',
+  alternativeContact: {
+    eyebrow: 'Autre possibilité',
+    title: 'Vous préférez un contact plus direct ?',
     description:
-      'Je conçois des sites pensés pour clarifier votre image, mieux présenter votre offre et améliorer la qualité des prises de contact.',
-    points: [
-      'Création de landing page',
-      'Création de site vitrine',
-      'Refonte de site existant',
-      'Clarification du message',
-      'Amélioration de la perception et de la crédibilité',
-      'Optimisation responsive et performance',
-    ],
+      'Si vous avez déjà un brief clair ou une question rapide, vous pouvez aussi me contacter directement par email.',
+    emailLabel: 'Email direct',
+    email: 'bonjour@alchimiste-creations.fr',
+    responseTimeLabel: 'Délai de réponse',
+    responseTime: 'En général sous 24 à 48h ouvrées',
+    availabilityLabel: 'Disponibilité',
+    availability: 'Nouveaux projets sélectionnés avec attention',
+    note: 'Même si tout n’est pas encore parfaitement cadré, vous pouvez écrire. L’important est d’expliquer votre contexte et votre besoin.',
   },
 
   process: {
     eyebrow: 'Comment ça se passe',
-    title: 'Un processus simple et rassurant.',
+    title: 'Un processus simple, fluide et rassurant.',
     description:
-      'L’objectif du premier contact est de comprendre votre besoin, clarifier votre priorité et identifier la meilleure suite.',
+      'Le premier contact sert à comprendre votre besoin, clarifier les priorités et identifier la meilleure suite possible.',
     steps: [
       {
         id: 'message',
         title: 'Vous envoyez votre demande',
         description:
-          'Vous me donnez les éléments essentiels sur votre activité, votre projet et votre besoin actuel.',
+          'Vous partagez les éléments essentiels sur votre activité, votre besoin et le contexte du projet.',
       },
       {
-        id: 'reply',
-        title: 'Je vous réponds rapidement',
+        id: 'review',
+        title: 'Je fais une première lecture',
         description:
-          'Je reviens vers vous avec une première lecture du besoin et, si pertinent, une proposition d’échange.',
+          'J’analyse la demande pour comprendre les enjeux, la maturité du projet et le niveau d’accompagnement attendu.',
       },
       {
         id: 'call',
-        title: 'Nous cadrons le projet',
+        title: 'Nous échangeons si le fit est bon',
         description:
-          'Nous échangeons sur vos objectifs, votre contexte et l’offre la plus adaptée.',
+          'Si le projet correspond bien au cadre du studio, je vous propose un échange pour approfondir.',
       },
       {
         id: 'next-step',

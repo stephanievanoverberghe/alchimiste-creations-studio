@@ -12,3 +12,4 @@ export * from './Textarea';
 export * from './Tabs';
 export * from './SegmentedContentSlider';
 export * from './MobileCarousel';
+export * from './Select';

@@ -1,5 +1,11 @@
 import { getContactPageContent } from '@/application/contact/getContactPageContent';
-import { ContactFormSection, ContactHero, ContactProcess } from '@/components/marketing/contact';
+import {
+  ContactAlt,
+  ContactFormSection,
+  ContactGuidelines,
+  ContactHero,
+  ContactProcess,
+} from '@/components/marketing/contact';
 
 export default function ContactPage() {
   const content = getContactPageContent();
@@ -7,8 +13,10 @@ export default function ContactPage() {
   return (
     <>
       <ContactHero content={content.hero} />
-      <ContactFormSection form={content.form} sidebar={content.sidebar} />
+      <ContactGuidelines content={content.guidelines} />
+      <ContactFormSection content={content.form} />
       <ContactProcess content={content.process} />
+      <ContactAlt content={content.alternativeContact} />
     </>
   );
 }
