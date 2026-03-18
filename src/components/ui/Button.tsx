@@ -27,7 +27,7 @@ type ButtonAsLinkProps = BaseProps & {
 export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
 const baseClasses =
-  'ui-button group relative inline-flex items-center justify-center overflow-hidden rounded-xl font-semibold transition-all duration-[var(--motion-base)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--bg))] disabled:pointer-events-none disabled:opacity-50';
+  'ui-button cursor-pointer group relative inline-flex items-center justify-center overflow-hidden rounded-xl font-semibold transition-all duration-[var(--motion-base)] ease-[var(--ease-standard)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--bg))] disabled:pointer-events-none disabled:opacity-50';
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
@@ -78,7 +78,7 @@ export function Button(props: ButtonProps) {
   const { type = 'button', ...restButtonProps } = buttonProps;
 
   return (
-    <button type={type} className={classes} {...restButtonProps}>
+    <button type={type} {...restButtonProps} className={classes}>
       <ButtonInner variant={variant}>{children}</ButtonInner>
     </button>
   );

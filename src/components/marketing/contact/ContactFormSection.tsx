@@ -95,17 +95,17 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
         </div>
 
         <div className="mx-auto mt-14 grid max-w-6xl gap-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
-          <aside className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(17,24,39,0.78),rgba(9,14,28,0.92))] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.2)] backdrop-blur-xl sm:p-8">
+          <aside className="relative overflow-hidden rounded-4xl border border-white/10 bg-[linear-gradient(180deg,rgba(17,24,39,0.78),rgba(9,14,28,0.92))] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.2)] backdrop-blur-xl sm:p-8">
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.16),transparent)]"
             />
             <div
               aria-hidden="true"
-              className="absolute -right-8 top-0 h-28 w-28 rounded-full bg-white/[0.04] blur-3xl"
+              className="absolute -right-8 top-0 h-28 w-28 rounded-full bg-white/4 blur-3xl"
             />
 
-            <span className="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-foreground/55">
+            <span className="inline-flex rounded-full border border-white/10 bg-white/4 px-3 py-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-foreground/55">
               Premier échange
             </span>
 
@@ -148,7 +148,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
             </div>
           </aside>
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(17,24,39,0.82),rgba(9,14,28,0.96))] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:p-8 lg:p-10">
+          <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-[linear-gradient(180deg,rgba(17,24,39,0.82),rgba(9,14,28,0.96))] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:p-8 lg:p-10">
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.16),transparent)]"
@@ -168,7 +168,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 <FormField label={content.fields.firstNameLabel} error={errors.firstName?.message}>
                   <Input
                     placeholder={content.placeholders.firstName}
-                    className="border-white/10 bg-white/[0.04] text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
+                    className="border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                     {...register('firstName')}
                   />
                 </FormField>
@@ -176,7 +176,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 <FormField label={content.fields.lastNameLabel} error={errors.lastName?.message}>
                   <Input
                     placeholder={content.placeholders.lastName}
-                    className="border-white/10 bg-white/[0.04] text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
+                    className="border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                     {...register('lastName')}
                   />
                 </FormField>
@@ -186,7 +186,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 <Input
                   type="email"
                   placeholder={content.placeholders.email}
-                  className="border-white/10 bg-white/[0.04] text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
+                  className="border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                   {...register('email')}
                 />
               </FormField>
@@ -251,7 +251,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 <FormField label={content.fields.websiteLabel} error={errors.website?.message}>
                   <Input
                     placeholder={content.placeholders.website}
-                    className="border-white/10 bg-white/[0.04] text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
+                    className="border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                     {...register('website')}
                   />
                 </FormField>
@@ -261,7 +261,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 <Textarea
                   rows={8}
                   placeholder={content.placeholders.message}
-                  className="min-h-44 border-white/10 bg-white/[0.04] text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
+                  className="min-h-44 border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                   {...register('message')}
                 />
               </FormField>
@@ -276,7 +276,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                   size="lg"
                   type="submit"
                   disabled={isSubmitting}
-                  className="min-w-56 rounded-[1rem] px-6 text-[0.95rem] font-semibold tracking-wide shadow-[0_18px_40px_rgba(124,92,255,0.22)]"
+                  className="min-w-56 rounded-2xl px-6 text-[0.95rem] font-semibold tracking-wide shadow-[0_18px_40px_rgba(124,92,255,0.22)]"
                 >
                   {isSubmitting ? 'Envoi en cours...' : content.submitLabel}
                 </Button>
@@ -325,7 +325,7 @@ function InfoPill({ icon, title, text }: InfoPillProps) {
   return (
     <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.035] p-4">
       <div className="flex items-start gap-3">
-        <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-foreground/80">
+        <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-foreground/80">
           {icon}
         </span>
         <div>
