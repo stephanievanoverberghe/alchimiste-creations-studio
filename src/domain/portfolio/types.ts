@@ -55,5 +55,14 @@ export type PortfolioPreviewContent = {
   eyebrow: string;
   title: string;
   description: string;
+  uiLabels: {
+    signatureProjectBadge: string;
+    caseStudyLabel: string;
+    objectiveLabel: string;
+    problemLabel: string;
+    solutionLabel: string;
+    resultLabel: string;
+    calloutBadgeLabel: string;
+  };
   items: PortfolioPreviewItem[];
 };

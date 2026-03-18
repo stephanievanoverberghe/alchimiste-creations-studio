@@ -31,6 +31,12 @@ export type ServicePreviewSectionContent = {
   eyebrow: string;
   title: string;
   description: string;
+  idealForLabel: string;
+  investmentLabel: string;
+  startingFromLabel: string;
+  timelineLabel: string;
+  defaultOfferBadge: string;
+  featuredOfferBadge: string;
 };
 
 export type ServicePreviewOverrides = {

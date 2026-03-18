@@ -8,6 +8,7 @@ type PortfolioCalloutCardProps = {
   description: string;
   href: string;
   ctaLabel: string;
+  badgeLabel: string;
 };
 
 export function PortfolioCalloutCard({
@@ -15,6 +16,7 @@ export function PortfolioCalloutCard({
   description,
   href,
   ctaLabel,
+  badgeLabel,
 }: PortfolioCalloutCardProps) {
   return (
     <div className="mt-8">
@@ -41,7 +43,7 @@ export function PortfolioCalloutCard({
         <div className="relative z-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3">
-              <Badge variant="primary">À votre tour</Badge>
+              <Badge variant="primary">{badgeLabel}</Badge>
               <span className="hidden h-px w-12 bg-[linear-gradient(90deg,rgba(255,255,255,0.18),transparent)] sm:block" />
             </div>
 

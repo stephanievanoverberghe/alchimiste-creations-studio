@@ -37,11 +37,17 @@ export function PortfolioPreview() {
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {featuredProject ? <FeaturedProjectCard project={featuredProject} /> : null}
+          {featuredProject ? (
+            <FeaturedProjectCard project={featuredProject} uiLabels={content.uiLabels} />
+          ) : null}
 
           <div className="grid gap-5">
             {secondaryProjects.map((project) => (
-              <SecondaryProjectCard key={project.slug} project={project} />
+              <SecondaryProjectCard
+                key={project.slug}
+                project={project}
+                uiLabels={content.uiLabels}
+              />
             ))}
           </div>
         </div>
@@ -51,6 +57,7 @@ export function PortfolioPreview() {
           description={ctaItem.description}
           href={ctaItem.href}
           ctaLabel={ctaItem.ctaLabel}
+          badgeLabel={content.uiLabels.calloutBadgeLabel}
         />
       </Container>
     </Section>

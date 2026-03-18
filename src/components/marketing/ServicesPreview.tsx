@@ -33,7 +33,8 @@ export function ServicesPreview() {
           {content.items.map((item, index) => {
             const isFeatured = index === 1;
             const highlightLabel =
-              item.highlightLabel ?? (isFeatured ? 'Offre signature' : 'Offre');
+              item.highlightLabel ??
+              (isFeatured ? content.featuredOfferBadge : content.defaultOfferBadge);
 
             return (
               <Link
@@ -90,7 +91,7 @@ export function ServicesPreview() {
                         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
                           <div>
                             <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-foreground/50">
-                              Idéal pour
+                              {content.idealForLabel}
                             </p>
 
                             <p className="mt-3 text-sm leading-7 text-muted-foreground transition-colors duration-300 md:group-hover:text-text sm:text-base">
@@ -100,13 +101,13 @@ export function ServicesPreview() {
 
                           <div className="rounded-2xl border border-white/10 bg-white/3 px-4 py-3">
                             <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-foreground/50">
-                              Investissement
+                              {content.investmentLabel}
                             </p>
                             <p className="mt-2 text-sm font-semibold text-foreground sm:text-base">
-                              {item.startingPrice}
+                              {content.startingFromLabel} {item.startingPrice}
                             </p>
                             <p className="mt-1 text-xs text-muted-foreground">
-                              Délai habituel : {item.timeline}
+                              {content.timelineLabel} : {item.timeline}
                             </p>
                           </div>
                         </div>

@@ -4,13 +4,17 @@ import { ArrowUpRight } from 'lucide-react';
 
 import { Badge } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
-import type { PortfolioPreviewProjectItem } from '@/domain/portfolio/types';
+import type {
+  PortfolioPreviewContent,
+  PortfolioPreviewProjectItem,
+} from '@/domain/portfolio/types';
 
 type SecondaryProjectCardProps = {
   project: PortfolioPreviewProjectItem;
+  uiLabels: PortfolioPreviewContent['uiLabels'];
 };
 
-export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
+export function SecondaryProjectCard({ project, uiLabels }: SecondaryProjectCardProps) {
   return (
     <Link href={project.href} className="group block">
       <article className="relative overflow-hidden rounded-[1.7rem] border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.74),rgba(9,14,28,0.84))] shadow-[0_18px_40px_rgba(0,0,0,0.16)] backdrop-blur-xl transition-all duration-300 ease-out md:hover:-translate-y-0.5 md:hover:shadow-[0_28px_56px_rgba(80,80,255,0.12)]">
@@ -47,7 +51,7 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[linear-gradient(90deg,rgba(255,255,255,0.18),transparent)]" />
               <p className="text-[0.66rem] font-medium uppercase tracking-[0.18em] text-foreground/38">
-                Étude de cas
+                {uiLabels.caseStudyLabel}
               </p>
             </div>
 
@@ -61,7 +65,7 @@ export function SecondaryProjectCard({ project }: SecondaryProjectCardProps) {
 
             <div className="mt-4 rounded-2xl border border-white/10 bg-white/3 px-4 py-3">
               <p className="text-[0.64rem] font-medium uppercase tracking-[0.16em] text-foreground/50">
-                Résultat
+                {uiLabels.resultLabel}
               </p>
               <p className="mt-2 text-xs leading-6 text-muted-foreground sm:text-[0.82rem] sm:leading-6">
                 {stripLabel(project.result)}

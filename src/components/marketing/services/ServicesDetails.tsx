@@ -51,7 +51,7 @@ export function ServicesDetails({ content, services }: ServicesDetailsProps) {
   const tabItems = services.map((service) => ({
     value: service.slug,
     label: service.title,
-    badge: service.featured ? 'Populaire' : undefined,
+    badge: service.featured ? content.featuredOfferBadge : undefined,
   }));
 
   const detailItems: SegmentedContentSliderItem[] = [
@@ -137,7 +137,9 @@ export function ServicesDetails({ content, services }: ServicesDetailsProps) {
                   </Badge>
 
                   <span className="text-sm text-muted-foreground">
-                    À partir de {activeService.startingPrice} • {activeService.timeline}
+                    {content.startingFromLabel} {activeService.startingPrice}{' '}
+                    {content.summaryMetaSeparator} {content.timelineValueLabel}{' '}
+                    {activeService.timeline}
                   </span>
                 </div>
 
@@ -159,7 +161,7 @@ export function ServicesDetails({ content, services }: ServicesDetailsProps) {
                   <div>
                     <p className="text-sm text-muted-foreground">{content.investmentLabel}</p>
                     <p className="mt-1 text-lg font-semibold text-foreground">
-                      À partir de {activeService.startingPrice}
+                      {content.startingFromLabel} {activeService.startingPrice}
                     </p>
                   </div>
 

@@ -78,9 +78,13 @@ export type ServicesPageContent = {
     title: string;
     description: string;
     defaultOfferBadge: string;
+    featuredOfferBadge: string;
     summaryTitle: string;
     investmentLabel: string;
+    startingFromLabel: string;
     timelineLabel: string;
+    timelineValueLabel: string;
+    summaryMetaSeparator: string;
     idealForLabel: string;
     sections: {
       objectives: {

@@ -4,13 +4,17 @@ import { ArrowUpRight } from 'lucide-react';
 
 import { Badge } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
-import type { PortfolioPreviewProjectItem } from '@/domain/portfolio/types';
+import type {
+  PortfolioPreviewContent,
+  PortfolioPreviewProjectItem,
+} from '@/domain/portfolio/types';
 
 type FeaturedProjectCardProps = {
   project: PortfolioPreviewProjectItem;
+  uiLabels: PortfolioPreviewContent['uiLabels'];
 };
 
-export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
+export function FeaturedProjectCard({ project, uiLabels }: FeaturedProjectCardProps) {
   return (
     <Link href={project.href} className="group block">
       <article className="relative overflow-hidden rounded-[1.9rem] border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.78),rgba(9,14,28,0.84))] shadow-[0_20px_70px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 ease-out md:hover:-translate-y-0.5 md:hover:shadow-[0_30px_90px_rgba(80,80,255,0.15)]">
@@ -40,7 +44,7 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
           <div className="pointer-events-none absolute left-4 top-4 z-10 flex items-center gap-2">
             <Badge variant="primary">{project.category}</Badge>
             <span className="inline-flex items-center rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[0.64rem] font-medium uppercase tracking-[0.18em] text-white/75 backdrop-blur-md">
-              Projet signature
+              {uiLabels.signatureProjectBadge}
             </span>
           </div>
         </div>
@@ -50,7 +54,7 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[linear-gradient(90deg,rgba(255,255,255,0.18),transparent)]" />
               <p className="text-[0.66rem] font-medium uppercase tracking-[0.18em] text-foreground/38">
-                Étude de cas
+                {uiLabels.caseStudyLabel}
               </p>
             </div>
 
@@ -63,10 +67,14 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
             </p>
 
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              <MiniCaseCard label="Objectif" value={project.objective} />
-              <MiniCaseCard label="Problème" value={project.problem} />
-              <MiniCaseCard label="Solution" value={project.solution} />
-              <MiniCaseCard label="Résultat" value={stripLabel(project.result)} highlight />
+              <MiniCaseCard label={uiLabels.objectiveLabel} value={project.objective} />
+              <MiniCaseCard label={uiLabels.problemLabel} value={project.problem} />
+              <MiniCaseCard label={uiLabels.solutionLabel} value={project.solution} />
+              <MiniCaseCard
+                label={uiLabels.resultLabel}
+                value={stripLabel(project.result)}
+                highlight
+              />
             </div>
 
             <div className="mt-5 flex flex-wrap gap-2">

@@ -202,9 +202,13 @@ export const servicesPageContent: ServicesPageContent = {
     description:
       'Chaque offre est présentée de manière transparente : objectifs, inclusions, livrables, contenu possible et options selon votre besoin.',
     defaultOfferBadge: 'Offre',
+    featuredOfferBadge: 'Populaire',
     summaryTitle: 'En bref',
     investmentLabel: 'Investissement',
+    startingFromLabel: 'À partir de',
     timelineLabel: 'Délai habituel',
+    timelineValueLabel: 'Délai',
+    summaryMetaSeparator: '•',
     idealForLabel: 'Idéal pour',
     sections: {
       objectives: {

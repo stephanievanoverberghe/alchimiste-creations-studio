@@ -11,6 +11,12 @@ export const servicesPreviewSectionContent: ServicePreviewSectionContent = {
   title: 'Trois offres pour lancer, structurer ou accélérer votre présence en ligne.',
   description:
     'Chaque format répond à un besoin précis. Vous choisissez l’offre la plus adaptée à votre niveau de maturité, à votre objectif et à votre priorité business.',
+  idealForLabel: 'Idéal pour',
+  investmentLabel: 'Investissement',
+  startingFromLabel: 'À partir de',
+  timelineLabel: 'Délai habituel',
+  defaultOfferBadge: 'Offre',
+  featuredOfferBadge: 'Offre signature',
 };
 
 export const servicesPreviewOrder: ServiceSlug[] = ['landing-page', 'site-vitrine', 'refonte-site'];

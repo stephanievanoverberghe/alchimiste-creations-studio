@@ -24,7 +24,7 @@ export function getServicesPreviewContent(): ServicesPreviewContent {
         description: service.shortDescription,
         idealFor: override.idealFor,
         timeline: service.timeline,
-        startingPrice: `À partir de ${service.startingPrice}`,
+        startingPrice: service.startingPrice,
         icon: override.icon,
         href: `/services#${service.slug}`,
         ctaLabel: override.ctaLabel,

@@ -7,6 +7,15 @@ export const portfolioPreviewSectionContent = {
   title: 'Des projets pensés pour améliorer la perception et la conversion.',
   description:
     'Chaque réalisation présentée ici combine direction visuelle, clarté du message et structure orientée résultat pour transformer les visites en demandes qualifiées.',
+  uiLabels: {
+    signatureProjectBadge: 'Projet signature',
+    caseStudyLabel: 'Étude de cas',
+    objectiveLabel: 'Objectif',
+    problemLabel: 'Problème',
+    solutionLabel: 'Solution',
+    resultLabel: 'Résultat',
+    calloutBadgeLabel: 'À votre tour',
+  },
 };
 export const portfolioPreviewProjectOrder: PortfolioProjectSlug[] = [
   'studio-lumen',
