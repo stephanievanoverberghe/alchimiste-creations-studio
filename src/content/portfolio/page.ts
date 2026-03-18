@@ -1,71 +1,77 @@
-import type { PortfolioPageContent, PortfolioProjectPageContent } from '@/domain/portfolio/page';
-import { primaryContactCtaLabel, secondaryContactCtaLabel } from '@/content/site/messaging';
+import type { PortfolioPageContent } from '@/domain/portfolio/page';
+import {
+  primaryContactCtaLabel,
+  secondaryContactCtaLabel,
+  trustCallMeta,
+} from '@/content/site/messaging';
 
 export const portfolioPageContent: PortfolioPageContent = {
   hero: {
     eyebrow: 'Portfolio',
-    title:
-      'Des projets conçus pour clarifier un message, renforcer une image et améliorer la conversion.',
+    title: 'Des projets pensés pour clarifier une activité et renforcer sa crédibilité.',
     description:
-      'Chaque projet présenté ici répond à un objectif concret : mieux présenter une activité, rendre une offre plus lisible et créer une présence plus crédible.',
+      'Chaque projet présenté ici montre une même intention : structurer le message, soigner la perception et créer une expérience plus claire, plus crédible et plus engageante.',
+    primaryCta: {
+      label: primaryContactCtaLabel,
+      href: '/contact',
+    },
+    secondaryCta: {
+      label: secondaryContactCtaLabel,
+      href: '/services',
+    },
+    highlights: [
+      'Clarté du message',
+      'Hiérarchie visuelle',
+      'Perception premium',
+      'Expérience utilisateur',
+    ],
   },
-  grid: {
-    eyebrow: 'Projets sélectionnés',
-    title: 'Quelques exemples de projets pensés pour la perception et la clarté.',
+
+  featuredProject: {
+    eyebrow: 'Projet en vedette',
+    title: 'Un projet mis en avant pour montrer la démarche plus en profondeur.',
     description:
-      'Ces projets montrent comment une meilleure structure, un design plus juste et une hiérarchie plus claire peuvent transformer l’expérience.',
+      'Au-delà du rendu visuel, chaque projet est pensé comme une réponse à un problème de lisibilité, de perception ou de positionnement.',
   },
-  process: {
+
+  projectsGrid: {
+    eyebrow: 'Autres projets',
+    title: 'Une sélection de projets pour montrer différentes approches.',
+    description:
+      'Sites vitrines, portfolios, expériences plus éditoriales ou immersives : chaque projet reflète une intention claire et un niveau de finition assumé.',
+  },
+
+  approach: {
     eyebrow: 'Approche',
-    title: 'Chaque projet suit une logique simple : comprendre, structurer, valoriser.',
+    title: 'Chaque projet suit la même exigence de clarté, de cohérence et de perception.',
     description:
-      'Avant de penser interface, l’objectif est d’abord de clarifier le message, le parcours et ce qui doit être perçu dès les premières secondes.',
-    steps: [
+      'L’objectif n’est pas seulement de produire une belle interface, mais de construire une présence en ligne lisible, crédible et adaptée au projet.',
+    items: [
       {
-        id: 'clarify',
-        title: 'Clarifier',
-        description:
-          'Comprendre le positionnement, l’offre et ce qui bloque la perception actuelle.',
+        id: 'message',
+        title: 'Clarifier le message',
+        text: 'Faire comprendre rapidement l’activité, l’offre et la valeur apportée.',
       },
       {
-        id: 'structure',
-        title: 'Structurer',
-        description:
-          'Organiser l’information, le parcours et les points de contact de manière plus lisible.',
+        id: 'hierarchy',
+        title: 'Structurer la lecture',
+        text: 'Créer un parcours visuel fluide, lisible et orienté vers l’essentiel.',
       },
       {
-        id: 'elevate',
-        title: 'Valoriser',
-        description:
-          'Créer une présence plus cohérente, plus crédible et plus agréable à parcourir.',
+        id: 'perception',
+        title: 'Renforcer la perception',
+        text: 'Donner au projet une image plus cohérente, plus crédible et plus premium.',
       },
     ],
   },
-  finalCta: {
-    eyebrow: 'Démarrer un projet',
-    title: 'Vous souhaitez créer une présence en ligne plus claire et plus crédible ?',
-    description:
-      'Nous pouvons cadrer votre besoin, clarifier votre priorité et définir la meilleure approche pour votre site.',
-    buttonLabel: secondaryContactCtaLabel,
-    buttonHref: '/contact',
-  },
-};
 
-export const portfolioProjectPageContent: PortfolioProjectPageContent = {
-  backLabel: 'Retour au portfolio',
-  caseStudyLabel: 'Étude de cas',
-  objectiveLabel: 'Objectif',
-  problemLabel: 'Problème',
-  solutionLabel: 'Solution',
-  resultLabel: 'Résultat',
-  beforeAfterTitle: 'Avant / Après',
-  nextProjectLabel: 'Projet suivant',
   finalCta: {
-    eyebrow: 'Créer votre projet',
-    title: 'Vous voulez le même niveau de clarté pour votre site ?',
+    eyebrow: 'Votre projet',
+    title: 'Vous voulez un site qui donne une impression plus claire et plus professionnelle ?',
     description:
-      'Nous pouvons construire une présence plus lisible, plus élégante et plus convaincante pour votre activité.',
+      'Nous pouvons construire une présence en ligne pensée pour mieux présenter votre activité et inspirer confiance dès les premières secondes.',
     buttonLabel: primaryContactCtaLabel,
     buttonHref: '/contact',
+    meta: trustCallMeta,
   },
 };

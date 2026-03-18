@@ -1,4 +1,19 @@
-export type PortfolioProjectSlug = 'studio-lumen' | 'rivage-photo' | 'explorart';
+export type PortfolioProjectSlug =
+  | 'studio-lumen'
+  | 'rivage-photo'
+  | 'explorart'
+  | 'mysteres-a-la-carte'
+  | 'ancre-toi';
+
+export type PortfolioProjectImage = {
+  src: string;
+  alt: string;
+};
+
+export type PortfolioProjectGallery = {
+  desktop: PortfolioProjectImage[];
+  mobile?: PortfolioProjectImage[];
+};
 
 export type PortfolioProject = {
   slug: PortfolioProjectSlug;
@@ -13,10 +28,9 @@ export type PortfolioProject = {
   beforeLabel: string;
   afterLabel: string;
   ctaLabel: string;
-  image: {
-    src: string;
-    alt: string;
-  };
+  image: PortfolioProjectImage;
+  images?: PortfolioProjectGallery;
+  liveUrl?: string;
   featured?: boolean;
   order?: number;
 };

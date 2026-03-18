@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { type ButtonHTMLAttributes, type HTMLAttributeAnchorTarget, type ReactNode } from 'react';
+
 import { cn } from '@/lib/utils/cn';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';
@@ -19,6 +20,8 @@ type ButtonAsButtonProps = BaseProps &
 
 type ButtonAsLinkProps = BaseProps & {
   href: string;
+  target?: HTMLAttributeAnchorTarget;
+  rel?: string;
 };
 
 export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
@@ -58,19 +61,24 @@ function ButtonInner({ children, variant }: Required<Pick<BaseProps, 'children' 
 }
 
 export function Button(props: ButtonProps) {
-  const { children, variant = 'primary', size = 'md', className, ...rest } = props;
+  const { children, variant = 'primary', size = 'md', className } = props;
   const classes = cn(baseClasses, variantClasses[variant], sizeClasses[size], className);
 
   if ('href' in props && props.href) {
+    const { href, target, rel } = props;
+
     return (
-      <Link href={props.href} className={classes}>
+      <Link href={href} target={target} rel={rel} className={classes}>
         <ButtonInner variant={variant}>{children}</ButtonInner>
       </Link>
     );
   }
 
+  const buttonProps = props as ButtonAsButtonProps;
+  const { type = 'button', ...restButtonProps } = buttonProps;
+
   return (
-    <button type="button" className={classes} {...rest}>
+    <button type={type} className={classes} {...restButtonProps}>
       <ButtonInner variant={variant}>{children}</ButtonInner>
     </button>
   );

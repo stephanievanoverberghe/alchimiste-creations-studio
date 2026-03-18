@@ -3,20 +3,34 @@ export type PortfolioPageContent = {
     eyebrow: string;
     title: string;
     description: string;
+    primaryCta: {
+      label: string;
+      href: string;
+    };
+    secondaryCta: {
+      label: string;
+      href: string;
+    };
+    highlights: string[];
   };
-  grid: {
+  featuredProject: {
     eyebrow: string;
     title: string;
     description: string;
   };
-  process: {
+  projectsGrid: {
     eyebrow: string;
     title: string;
     description: string;
-    steps: {
+  };
+  approach: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: {
       id: string;
       title: string;
-      description: string;
+      text: string;
     }[];
   };
   finalCta: {
@@ -25,12 +39,15 @@ export type PortfolioPageContent = {
     description: string;
     buttonLabel: string;
     buttonHref: string;
+    meta: string;
   };
 };
 
 export type PortfolioProjectPageContent = {
   backLabel: string;
   caseStudyLabel: string;
+  liveSiteLabel: string;
+  projectOverviewLabel: string;
   objectiveLabel: string;
   problemLabel: string;
   solutionLabel: string;

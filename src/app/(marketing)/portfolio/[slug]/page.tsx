@@ -1,17 +1,19 @@
 import { notFound } from 'next/navigation';
 
 import {
-  getPortfolioProjects,
   getNextPortfolioProject,
   getPortfolioProjectBySlug,
-} from '@/application/portfolio/getPortfolioData';
-import { getPortfolioProjectPageContent } from '@/application/portfolio/getPortfolioPageContent';
+  getPortfolioProjects,
+} from '@/application/portfolio/getPortfolioProjects';
+import { getPortfolioProjectPageContent } from '@/application/portfolio/getPortfolioProjectPageContent';
 import {
   PortfolioProjectBeforeAfter,
-  PortfolioProjectCaseStudy,
+  PortfolioProjectFinalCta,
   PortfolioProjectHero,
+  PortfolioProjectGallery,
+  PortfolioProjectNarrative,
   PortfolioProjectNext,
-} from '@/components/marketing/portfolio';
+} from '@/components/marketing/portfolio/project';
 import type { PortfolioProjectSlug } from '@/domain/portfolio/types';
 
 type PortfolioProjectPageProps = {
@@ -20,29 +22,34 @@ type PortfolioProjectPageProps = {
   }>;
 };
 
-export function generateStaticParams() {
-  return getPortfolioProjects().map((project) => ({
+export async function generateStaticParams() {
+  const projects = getPortfolioProjects();
+
+  return projects.map((project) => ({
     slug: project.slug,
   }));
 }
 
 export default async function PortfolioProjectPage({ params }: PortfolioProjectPageProps) {
   const { slug } = await params;
+
   const project = getPortfolioProjectBySlug(slug);
 
   if (!project) {
     notFound();
   }
 
-  const content = getPortfolioProjectPageContent();
   const nextProject = getNextPortfolioProject(slug);
+  const content = getPortfolioProjectPageContent();
 
   return (
     <>
       <PortfolioProjectHero project={project} content={content} />
-      <PortfolioProjectCaseStudy project={project} content={content} />
+      <PortfolioProjectNarrative project={project} content={content} />
+      <PortfolioProjectGallery project={project} />
       <PortfolioProjectBeforeAfter project={project} content={content} />
-      <PortfolioProjectNext nextProject={nextProject} content={content} />
+      {nextProject ? <PortfolioProjectNext project={nextProject} content={content} /> : null}
+      <PortfolioProjectFinalCta content={content.finalCta} />
     </>
   );
 }
