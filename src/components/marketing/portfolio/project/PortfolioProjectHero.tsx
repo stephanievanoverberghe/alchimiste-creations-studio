@@ -73,7 +73,7 @@ export function PortfolioProjectHero({ project, content }: PortfolioProjectHeroP
                 ) : null}
 
                 <Button href="/contact" variant="secondary" size="lg">
-                  Parler d’un projet
+                  {content.contactLabel}
                 </Button>
               </div>
 
@@ -108,7 +108,7 @@ export function PortfolioProjectHero({ project, content }: PortfolioProjectHeroP
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <p className="text-[0.68rem] uppercase tracking-[0.16em] text-foreground/45">
-                        Transformation
+                        {content.transformationLabel}
                       </p>
                       <p className="mt-2 text-sm text-muted-foreground">
                         {project.beforeLabel} → {project.afterLabel}

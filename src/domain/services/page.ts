@@ -45,12 +45,27 @@ export type ServicesPageContent = {
     eyebrow: string;
     title: string;
     description: string;
+    startingFromLabel: string;
+    idealForLabel: string;
+    expectedResultLabel: string;
+    expectedResultDescription: string;
+    detailsLabel: string;
+    detailsDescription: string;
+    fallbackResult: string;
+    defaultOfferBadge: string;
+    featuredOfferBadge: string;
   };
 
   comparison: {
     eyebrow: string;
     title: string;
     description: string;
+    defaultOfferBadge: string;
+    startingFromLabel: string;
+    timelineLabel: string;
+    formatRowId: string;
+    timelineRowId: string;
+    priceRowId: string;
     rows: {
       id: string;
       label: string;
@@ -62,6 +77,39 @@ export type ServicesPageContent = {
     eyebrow: string;
     title: string;
     description: string;
+    defaultOfferBadge: string;
+    summaryTitle: string;
+    investmentLabel: string;
+    timelineLabel: string;
+    idealForLabel: string;
+    sections: {
+      objectives: {
+        label: string;
+        eyebrow: string;
+        title: string;
+      };
+      includes: {
+        label: string;
+        eyebrow: string;
+        title: string;
+      };
+      deliverables: {
+        label: string;
+        eyebrow: string;
+        title: string;
+      };
+      possibleContent: {
+        label: string;
+        eyebrow: string;
+        title: string;
+      };
+      options: {
+        label: string;
+        eyebrow: string;
+        title: string;
+      };
+    };
+    fallbackPossibleContent: string;
   };
 
   process: {

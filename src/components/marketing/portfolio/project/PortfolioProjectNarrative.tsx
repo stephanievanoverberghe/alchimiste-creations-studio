@@ -23,7 +23,7 @@ export function PortfolioProjectNarrative({ project, content }: PortfolioProject
           <div className="rounded-4xl border border-white/10 bg-[linear-gradient(180deg,rgba(18,24,38,0.82),rgba(10,14,24,0.96))] p-6 shadow-[0_22px_60px_rgba(0,0,0,0.2)] backdrop-blur-xl sm:p-8 lg:p-10">
             <div className="max-w-3xl">
               <p className="text-[0.72rem] uppercase tracking-[0.16em] text-foreground/45">
-                Contexte
+                {content.contextLabel}
               </p>
               <p className="mt-4 text-sm leading-8 text-muted-foreground sm:text-base">
                 {project.context}

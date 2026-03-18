@@ -37,7 +37,8 @@ export function ServicesCards({ content, services }: ServicesCardsProps) {
           {services.map((item, index) => {
             const isFeatured = Boolean(item.featured);
             const highlightLabel =
-              item.highlightLabel ?? (isFeatured ? 'Offre signature' : 'Offre');
+              item.highlightLabel ??
+              (isFeatured ? content.featuredOfferBadge : content.defaultOfferBadge);
 
             return (
               <Link
@@ -86,8 +87,8 @@ export function ServicesCards({ content, services }: ServicesCardsProps) {
                       </span>
 
                       <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground/90">
-                        <CircleCheckBig className="h-4 w-4 text-primary" />À partir de{' '}
-                        {item.startingPrice}
+                        <CircleCheckBig className="h-4 w-4 text-primary" />
+                        {content.startingFromLabel} {item.startingPrice}
                       </span>
                     </div>
 
@@ -106,7 +107,7 @@ export function ServicesCards({ content, services }: ServicesCardsProps) {
                   <div className="flex flex-col justify-between rounded-[1.75rem] border border-white/8 bg-white/3 p-5 lg:p-6">
                     <div>
                       <p className="text-[0.68rem] uppercase tracking-[0.16em] text-foreground/50">
-                        Idéal pour
+                        {content.idealForLabel}
                       </p>
 
                       <p className="mt-3 text-sm leading-7 text-muted-foreground">
@@ -115,19 +116,18 @@ export function ServicesCards({ content, services }: ServicesCardsProps) {
 
                       <div className="mt-6 overflow-hidden rounded-3xl border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-4">
                         <p className="text-[0.68rem] uppercase tracking-[0.16em] text-foreground/50">
-                          Résultat recherché
+                          {content.expectedResultLabel}
                         </p>
 
                         <p className="mt-3 text-base font-medium leading-7 text-foreground">
                           {item.objectives[0]
                             ? item.objectives[0].charAt(0).toUpperCase() +
                               item.objectives[0].slice(1)
-                            : 'Créer une présence claire et crédible'}
+                            : content.fallbackResult}
                         </p>
 
                         <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                          Une offre cadrée pour aller à l’essentiel sans sacrifier la qualité
-                          perçue.
+                          {content.expectedResultDescription}
                         </p>
                       </div>
                     </div>
@@ -135,10 +135,10 @@ export function ServicesCards({ content, services }: ServicesCardsProps) {
                     <div className="mt-8 flex items-center justify-between border-t border-white/8 pt-6">
                       <div>
                         <p className="text-xs uppercase tracking-[0.16em] text-foreground/45">
-                          Voir le détail complet
+                          {content.detailsLabel}
                         </p>
                         <p className="mt-2 text-sm text-muted-foreground">
-                          inclus, livrables, options et périmètre
+                          {content.detailsDescription}
                         </p>
                       </div>
 

@@ -32,6 +32,13 @@ export const portfolioPageContent: PortfolioPageContent = {
     title: 'Un projet mis en avant pour montrer la démarche plus en profondeur.',
     description:
       'Au-delà du rendu visuel, chaque projet est pensé comme une réponse à un problème de lisibilité, de perception ou de positionnement.',
+    contextLabel: 'Contexte',
+    objectiveLabel: 'Objectif',
+    problemLabel: 'Problème',
+    solutionLabel: 'Solution',
+    resultLabel: 'Résultat',
+    caseStudyLabel: 'Étude de cas',
+    caseStudyDescription: 'Voir la logique, la structure et la direction du projet',
   },
 
   projectsGrid: {

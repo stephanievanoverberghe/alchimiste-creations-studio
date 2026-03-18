@@ -17,6 +17,13 @@ export type PortfolioPageContent = {
     eyebrow: string;
     title: string;
     description: string;
+    contextLabel: string;
+    objectiveLabel: string;
+    problemLabel: string;
+    solutionLabel: string;
+    resultLabel: string;
+    caseStudyLabel: string;
+    caseStudyDescription: string;
   };
   projectsGrid: {
     eyebrow: string;
@@ -47,12 +54,26 @@ export type PortfolioProjectPageContent = {
   backLabel: string;
   caseStudyLabel: string;
   liveSiteLabel: string;
+  contactLabel: string;
+  transformationLabel: string;
   projectOverviewLabel: string;
+  contextLabel: string;
   objectiveLabel: string;
   problemLabel: string;
   solutionLabel: string;
   resultLabel: string;
   beforeAfterTitle: string;
+  beforeAfterHeadingTitle: string;
+  beforeAfterHeadingDescription: string;
+  beforeLabel: string;
+  afterLabel: string;
+  gallery: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    desktopLabel: string;
+    mobileLabel: string;
+  };
   nextProjectLabel: string;
   finalCta: {
     eyebrow: string;

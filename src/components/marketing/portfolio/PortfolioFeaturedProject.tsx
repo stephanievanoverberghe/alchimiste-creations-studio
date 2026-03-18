@@ -91,23 +91,23 @@ export function PortfolioFeaturedProject({ content, project }: PortfolioFeatured
 
               <div className="mt-6 rounded-3xl border border-white/8 bg-white/3 p-5">
                 <p className="text-[0.7rem] uppercase tracking-[0.16em] text-foreground/45">
-                  Contexte
+                  {content.contextLabel}
                 </p>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">{project.context}</p>
               </div>
 
               <div className="mt-6 grid gap-4">
                 <CaseStudyDuo
-                  leftLabel="Objectif"
+                  leftLabel={content.objectiveLabel}
                   leftValue={project.objective}
-                  rightLabel="Problème"
+                  rightLabel={content.problemLabel}
                   rightValue={project.problem}
                 />
 
                 <CaseStudyDuo
-                  leftLabel="Solution"
+                  leftLabel={content.solutionLabel}
                   leftValue={project.solution}
-                  rightLabel="Résultat"
+                  rightLabel={content.resultLabel}
                   rightValue={project.result}
                 />
               </div>
@@ -115,10 +115,10 @@ export function PortfolioFeaturedProject({ content, project }: PortfolioFeatured
               <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/8 pt-6">
                 <div>
                   <p className="text-[0.68rem] uppercase tracking-[0.16em] text-foreground/45">
-                    Étude de cas
+                    {content.caseStudyLabel}
                   </p>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Voir la logique, la structure et la direction du projet
+                    {content.caseStudyDescription}
                   </p>
                 </div>
 

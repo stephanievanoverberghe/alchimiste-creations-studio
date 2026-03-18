@@ -27,8 +27,8 @@ export function PortfolioProjectBeforeAfter({
         <div className="mx-auto max-w-3xl text-center">
           <Heading
             eyebrow={content.beforeAfterTitle}
-            title="Une transformation pensée pour renforcer la perception."
-            description="Chaque projet présenté ici cherche à rendre l’activité plus lisible, plus cohérente et plus convaincante."
+            title={content.beforeAfterHeadingTitle}
+            description={content.beforeAfterHeadingDescription}
             align="center"
           />
         </div>
@@ -36,7 +36,7 @@ export function PortfolioProjectBeforeAfter({
         <div className="mx-auto mt-14 max-w-6xl">
           <div className="rounded-4xl border border-white/10 bg-[linear-gradient(180deg,rgba(18,24,38,0.82),rgba(10,14,24,0.96))] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:p-6 lg:p-8">
             <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-stretch">
-              <BeforeAfterCard label="Avant" value={project.beforeLabel} />
+              <BeforeAfterCard label={content.beforeLabel} value={project.beforeLabel} />
 
               <div className="flex items-center justify-center py-1 lg:px-2">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-foreground/70 shadow-[0_10px_30px_rgba(0,0,0,0.14)] backdrop-blur-xl">
@@ -45,7 +45,7 @@ export function PortfolioProjectBeforeAfter({
                 </div>
               </div>
 
-              <BeforeAfterCard label="Après" value={project.afterLabel} isAfter />
+              <BeforeAfterCard label={content.afterLabel} value={project.afterLabel} isAfter />
             </div>
           </div>
         </div>

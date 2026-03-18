@@ -3,6 +3,8 @@
 import { Badge, Container, Heading, MobileCarousel, Section } from '@/components/ui';
 import { Check, Minus } from 'lucide-react';
 
+import { getServicesComparisonModel } from '@/application/services/getServicesComparaisonModel';
+
 import type { ServicesPageContent } from '@/domain/services/page';
 import type { Service } from '@/domain/services/types';
 import { cn } from '@/lib/utils/cn';
@@ -13,6 +15,8 @@ type ServicesComparisonProps = {
 };
 
 export function ServicesComparison({ content, services }: ServicesComparisonProps) {
+  const comparisonModel = getServicesComparisonModel(content);
+
   return (
     <Section className="relative overflow-hidden py-20 sm:py-24">
       <Container>
@@ -29,12 +33,23 @@ export function ServicesComparison({ content, services }: ServicesComparisonProp
           <MobileCarousel
             items={services}
             getItemKey={(service) => service.slug}
-            renderItem={(service) => <ComparisonCard service={service} content={content} />}
+            renderItem={(service) => (
+              <ComparisonCard
+                service={service}
+                content={content}
+                comparisonModel={comparisonModel}
+              />
+            )}
           />
 
           <div className="hidden gap-5 lg:grid lg:grid-cols-3">
             {services.map((service) => (
-              <ComparisonCard key={service.slug} service={service} content={content} />
+              <ComparisonCard
+                key={service.slug}
+                service={service}
+                content={content}
+                comparisonModel={comparisonModel}
+              />
             ))}
           </div>
         </div>
@@ -46,9 +61,13 @@ export function ServicesComparison({ content, services }: ServicesComparisonProp
 type ComparisonCardProps = {
   service: Service;
   content: ServicesPageContent['comparison'];
+  comparisonModel: ReturnType<typeof getServicesComparisonModel>;
 };
 
-function ComparisonCard({ service, content }: ComparisonCardProps) {
+function ComparisonCard({ service, content, comparisonModel }: ComparisonCardProps) {
+  const formatLabel =
+    content.rows.find((row) => row.id === content.formatRowId)?.label ?? content.formatRowId;
+
   return (
     <article
       className={cn(
@@ -58,10 +77,12 @@ function ComparisonCard({ service, content }: ComparisonCardProps) {
     >
       <div className="flex items-center justify-between gap-4">
         <Badge variant={service.featured ? 'primary' : 'default'}>
-          {service.highlightLabel ?? 'Offre'}
+          {service.highlightLabel ?? content.defaultOfferBadge}
         </Badge>
 
-        <p className="text-sm font-medium text-foreground">À partir de {service.startingPrice}</p>
+        <p className="text-sm font-medium text-foreground">
+          {content.startingFromLabel} {service.startingPrice}
+        </p>
       </div>
 
       <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground">
@@ -71,42 +92,42 @@ function ComparisonCard({ service, content }: ComparisonCardProps) {
       <p className="mt-3 text-sm leading-7 text-muted-foreground">{service.shortDescription}</p>
 
       <div className="mt-6 rounded-3xl border border-white/8 bg-white/4 p-4">
-        <p className="text-[0.68rem] uppercase tracking-[0.16em] text-foreground/50">Format</p>
+        <p className="text-[0.68rem] uppercase tracking-[0.16em] text-foreground/50">
+          {formatLabel}
+        </p>
 
         <p className="mt-2 text-base font-medium text-foreground">
-          {content.rows.find((row) => row.id === 'format')?.values[service.slug]}
+          {comparisonModel.formatByServiceSlug[service.slug]}
         </p>
 
         <p className="mt-1 text-sm text-muted-foreground">
-          Délai : {content.rows.find((row) => row.id === 'timeline')?.values[service.slug]}
+          {content.timelineLabel} : {comparisonModel.timelineByServiceSlug[service.slug]}
         </p>
       </div>
 
       <ul className="mt-6 space-y-3">
-        {content.rows
-          .filter((row) => !['format', 'timeline', 'price'].includes(row.id))
-          .map((row) => {
-            const value = row.values[service.slug];
-            const isPositive = value.toLowerCase() === 'oui';
+        {comparisonModel.featureRows.map((row) => {
+          const value = row.values[service.slug];
+          const isPositive = value.toLowerCase() === 'oui';
 
-            return (
-              <li
-                key={row.id}
-                className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-black/10 px-4 py-3"
-              >
-                <span className="text-sm text-muted-foreground">{row.label}</span>
+          return (
+            <li
+              key={row.id}
+              className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-black/10 px-4 py-3"
+            >
+              <span className="text-sm text-muted-foreground">{row.label}</span>
 
-                <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground">
-                  {isPositive ? (
-                    <Check className="h-4 w-4 text-primary" />
-                  ) : (
-                    <Minus className="h-4 w-4 text-foreground/50" />
-                  )}
-                  {value}
-                </span>
-              </li>
-            );
-          })}
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                {isPositive ? (
+                  <Check className="h-4 w-4 text-primary" />
+                ) : (
+                  <Minus className="h-4 w-4 text-foreground/50" />
+                )}
+                {value}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </article>
   );

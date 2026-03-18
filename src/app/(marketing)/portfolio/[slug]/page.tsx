@@ -46,7 +46,7 @@ export default async function PortfolioProjectPage({ params }: PortfolioProjectP
     <>
       <PortfolioProjectHero project={project} content={content} />
       <PortfolioProjectNarrative project={project} content={content} />
-      <PortfolioProjectGallery project={project} />
+      <PortfolioProjectGallery project={project} content={content} />
       <PortfolioProjectBeforeAfter project={project} content={content} />
       {nextProject ? <PortfolioProjectNext project={nextProject} content={content} /> : null}
       <PortfolioProjectFinalCta content={content.finalCta} />

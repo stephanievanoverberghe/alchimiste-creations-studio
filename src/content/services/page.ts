@@ -115,6 +115,16 @@ export const servicesPageContent: ServicesPageContent = {
     title: 'Trois formats pour lancer, structurer ou améliorer votre site.',
     description:
       'Chaque offre est conçue pour répondre à un contexte précis avec un périmètre clair, une logique cohérente et un objectif concret.',
+    startingFromLabel: 'À partir de',
+    idealForLabel: 'Idéal pour',
+    expectedResultLabel: 'Résultat recherché',
+    expectedResultDescription:
+      'Une offre cadrée pour aller à l’essentiel sans sacrifier la qualité perçue.',
+    detailsLabel: 'Voir le détail complet',
+    detailsDescription: 'inclus, livrables, options et périmètre',
+    fallbackResult: 'Créer une présence claire et crédible',
+    defaultOfferBadge: 'Offre',
+    featuredOfferBadge: 'Offre signature',
   },
 
   comparison: {
@@ -122,6 +132,12 @@ export const servicesPageContent: ServicesPageContent = {
     title: 'Comparer les offres en un coup d’œil.',
     description:
       'Ce comparatif permet d’identifier rapidement le bon format selon votre besoin, votre niveau de maturité et votre budget de départ.',
+    defaultOfferBadge: 'Offre',
+    startingFromLabel: 'À partir de',
+    timelineLabel: 'Délai',
+    formatRowId: 'format',
+    timelineRowId: 'timeline',
+    priceRowId: 'price',
     rows: [
       {
         id: 'format',
@@ -185,6 +201,39 @@ export const servicesPageContent: ServicesPageContent = {
     title: 'Un cadre clair pour savoir ce que vous achetez réellement.',
     description:
       'Chaque offre est présentée de manière transparente : objectifs, inclusions, livrables, contenu possible et options selon votre besoin.',
+    defaultOfferBadge: 'Offre',
+    summaryTitle: 'En bref',
+    investmentLabel: 'Investissement',
+    timelineLabel: 'Délai habituel',
+    idealForLabel: 'Idéal pour',
+    sections: {
+      objectives: {
+        label: 'Objectifs',
+        eyebrow: 'Ce que vise cette offre',
+        title: 'Objectifs',
+      },
+      includes: {
+        label: 'Inclus',
+        eyebrow: 'Ce qui est prévu',
+        title: 'Inclus dans la prestation',
+      },
+      deliverables: {
+        label: 'Livrables',
+        eyebrow: 'Ce que vous recevez',
+        title: 'Livrables',
+      },
+      possibleContent: {
+        label: 'Contenu',
+        eyebrow: 'Selon votre projet',
+        title: 'Contenu possible',
+      },
+      options: {
+        label: 'Options',
+        eyebrow: 'Pour aller plus loin',
+        title: 'Options possibles',
+      },
+    },
+    fallbackPossibleContent: 'Selon le projet',
   },
 
   finalCta: {

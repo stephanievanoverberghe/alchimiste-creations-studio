@@ -13,7 +13,7 @@ import {
   type SegmentedContentSliderItem,
 } from '@/components/ui';
 import type { ServicesPageContent } from '@/domain/services/page';
-import type { Service, ServiceSlug } from '@/domain/services/types';
+import type { Service, ServiceOption, ServiceSlug } from '@/domain/services/types';
 
 type ServicesDetailsProps = {
   content: ServicesPageContent['details'];
@@ -57,39 +57,41 @@ export function ServicesDetails({ content, services }: ServicesDetailsProps) {
   const detailItems: SegmentedContentSliderItem[] = [
     {
       id: 'objectives',
-      label: 'Objectifs',
-      eyebrow: 'Ce que vise cette offre',
-      title: 'Objectifs',
+      label: content.sections.objectives.label,
+      eyebrow: content.sections.objectives.eyebrow,
+      title: content.sections.objectives.title,
       content: <BulletList items={activeService.objectives} />,
     },
     {
       id: 'includes',
-      label: 'Inclus',
-      eyebrow: 'Ce qui est prévu',
-      title: 'Inclus dans la prestation',
+      label: content.sections.includes.label,
+      eyebrow: content.sections.includes.eyebrow,
+      title: content.sections.includes.title,
       content: <BulletList items={activeService.includes} />,
     },
     {
       id: 'deliverables',
-      label: 'Livrables',
-      eyebrow: 'Ce que vous recevez',
-      title: 'Livrables',
+      label: content.sections.deliverables.label,
+      eyebrow: content.sections.deliverables.eyebrow,
+      title: content.sections.deliverables.title,
       content: <BulletList items={activeService.deliverables} />,
     },
     {
       id: 'possible-content',
-      label: 'Contenu',
-      eyebrow: 'Selon votre projet',
-      title: 'Contenu possible',
-      content: <BulletList items={activeService.possibleContent ?? ['Selon le projet']} />,
+      label: content.sections.possibleContent.label,
+      eyebrow: content.sections.possibleContent.eyebrow,
+      title: content.sections.possibleContent.title,
+      content: (
+        <BulletList items={activeService.possibleContent ?? [content.fallbackPossibleContent]} />
+      ),
     },
     ...(activeService.options?.length
       ? [
           {
             id: 'options',
-            label: 'Options',
-            eyebrow: 'Pour aller plus loin',
-            title: 'Options possibles',
+            label: content.sections.options.label,
+            eyebrow: content.sections.options.eyebrow,
+            title: content.sections.options.title,
             content: <OptionsGrid options={activeService.options} />,
           },
         ]
@@ -131,7 +133,7 @@ export function ServicesDetails({ content, services }: ServicesDetailsProps) {
               <div>
                 <div className="flex flex-wrap items-center gap-3">
                   <Badge variant={activeService.featured ? 'primary' : 'default'}>
-                    {activeService.highlightLabel ?? 'Offre'}
+                    {activeService.highlightLabel ?? content.defaultOfferBadge}
                   </Badge>
 
                   <span className="text-sm text-muted-foreground">
@@ -150,26 +152,26 @@ export function ServicesDetails({ content, services }: ServicesDetailsProps) {
 
               <aside className="rounded-3xl border border-white/10 bg-white/4 p-5">
                 <p className="text-[0.72rem] font-medium uppercase tracking-[0.16em] text-foreground/55">
-                  En bref
+                  {content.summaryTitle}
                 </p>
 
                 <div className="mt-4 space-y-4">
                   <div>
-                    <p className="text-sm text-muted-foreground">Investissement</p>
+                    <p className="text-sm text-muted-foreground">{content.investmentLabel}</p>
                     <p className="mt-1 text-lg font-semibold text-foreground">
                       À partir de {activeService.startingPrice}
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-sm text-muted-foreground">Délai habituel</p>
+                    <p className="text-sm text-muted-foreground">{content.timelineLabel}</p>
                     <p className="mt-1 text-lg font-semibold text-foreground">
                       {activeService.timeline}
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-sm text-muted-foreground">Idéal pour</p>
+                    <p className="text-sm text-muted-foreground">{content.idealForLabel}</p>
                     <p className="mt-1 text-sm leading-7 text-foreground/90">
                       {activeService.target.slice(0, 3).join(', ')}.
                     </p>
@@ -209,7 +211,7 @@ function BulletList({ items }: BulletListProps) {
 }
 
 type OptionsGridProps = {
-  options: { name: string; price: string }[];
+  options: ServiceOption[];
 };
 
 function OptionsGrid({ options }: OptionsGridProps) {

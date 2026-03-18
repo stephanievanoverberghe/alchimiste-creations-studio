@@ -1,13 +1,15 @@
 import Image from 'next/image';
 
 import { Container, Heading, Section } from '@/components/ui';
-import type { PortfolioProject } from '@/domain/portfolio/types';
+import type { PortfolioProjectPageContent } from '@/domain/portfolio/page';
+import type { PortfolioProject, PortfolioProjectImage } from '@/domain/portfolio/types';
 
 type PortfolioProjectGalleryProps = {
   project: PortfolioProject;
+  content: PortfolioProjectPageContent;
 };
 
-export function PortfolioProjectGallery({ project }: PortfolioProjectGalleryProps) {
+export function PortfolioProjectGallery({ project, content }: PortfolioProjectGalleryProps) {
   if (!project.images) return null;
 
   const { desktop, mobile } = project.images;
@@ -27,21 +29,23 @@ export function PortfolioProjectGallery({ project }: PortfolioProjectGalleryProp
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <Heading
-            eyebrow="Galerie"
-            title="Desktop et mobile, pensés comme une seule expérience."
-            description="Une lecture principale sur desktop, avec une déclinaison mobile cohérente et maîtrisée."
+            eyebrow={content.gallery.eyebrow}
+            title={content.gallery.title}
+            description={content.gallery.description}
             align="center"
           />
         </div>
 
         <div className="mx-auto mt-14 max-w-6xl">
           <div className="hidden gap-6 lg:grid lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch">
-            <DesktopGalleryColumn images={desktop} />
-            {mobile?.length ? <MobileGalleryColumn images={mobile} /> : null}
+            <DesktopGalleryColumn images={desktop} label={content.gallery.desktopLabel} />
+            {mobile?.length ? (
+              <MobileGalleryColumn images={mobile} label={content.gallery.mobileLabel} />
+            ) : null}
           </div>
 
           <div className="space-y-8 lg:hidden">
-            <MobileSectionBlock title="Desktop">
+            <MobileSectionBlock title={content.gallery.desktopLabel}>
               <div className="space-y-5">
                 {desktop.map((image, index) => (
                   <GalleryFrame
@@ -55,7 +59,7 @@ export function PortfolioProjectGallery({ project }: PortfolioProjectGalleryProp
             </MobileSectionBlock>
 
             {mobile?.length ? (
-              <MobileSectionBlock title="Mobile">
+              <MobileSectionBlock title={content.gallery.mobileLabel}>
                 <div className="grid gap-5 sm:grid-cols-2">
                   {mobile.map((image, index) => (
                     <GalleryFrame
@@ -76,19 +80,15 @@ export function PortfolioProjectGallery({ project }: PortfolioProjectGalleryProp
   );
 }
 
-type GalleryImage = {
-  src: string;
-  alt: string;
-};
-
 type DesktopGalleryColumnProps = {
-  images: GalleryImage[];
+  images: PortfolioProjectImage[];
+  label: string;
 };
 
-function DesktopGalleryColumn({ images }: DesktopGalleryColumnProps) {
+function DesktopGalleryColumn({ images, label }: DesktopGalleryColumnProps) {
   return (
     <div className="space-y-6">
-      <SectionLabel label="Desktop" />
+      <SectionLabel label={label} />
 
       {images.map((image, index) => (
         <GalleryFrame
@@ -103,13 +103,14 @@ function DesktopGalleryColumn({ images }: DesktopGalleryColumnProps) {
 }
 
 type MobileGalleryColumnProps = {
-  images: GalleryImage[];
+  images: PortfolioProjectImage[];
+  label: string;
 };
 
-function MobileGalleryColumn({ images }: MobileGalleryColumnProps) {
+function MobileGalleryColumn({ images, label }: MobileGalleryColumnProps) {
   return (
     <div className="flex h-full flex-col gap-6">
-      <SectionLabel label="Mobile" />
+      <SectionLabel label={label} />
 
       <div className="flex flex-1 flex-col justify-between gap-6">
         {images.map((image, index) => (
@@ -142,7 +143,7 @@ function MobileSectionBlock({ title, children }: MobileSectionBlockProps) {
 }
 
 type GalleryFrameProps = {
-  image: GalleryImage;
+  image: PortfolioProjectImage;
   ratioClassName: string;
   sizes: string;
   isMobileFrame?: boolean;
