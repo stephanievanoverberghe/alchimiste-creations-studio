@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { contactFormSchema } from '@/domain/contact/form';
-import { sendContactEmail } from '@/infrastructure/contact/SendContactEmail';
+import { sendContactEmail } from '@/infrastructure/contact/sendContactEmail';
 
 export async function POST(request: Request) {
   try {
