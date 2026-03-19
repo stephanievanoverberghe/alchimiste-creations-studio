@@ -1,13 +1,34 @@
-import { Container, Section } from '@/components/ui';
+'use client';
+
+import { useMemo, useState } from 'react';
+
+import { Container, Section, Tabs, type TabsItem } from '@/components/ui';
 import type { PortfolioProjectPageContent } from '@/domain/portfolio/page';
 import type { PortfolioProject } from '@/domain/portfolio/types';
+import { cn } from '@/lib/utils/cn';
 
 type PortfolioProjectNarrativeProps = {
   project: PortfolioProject;
   content: PortfolioProjectPageContent;
 };
 
+type NarrativeTabValue = 'objective' | 'problem' | 'solution' | 'result';
+
 export function PortfolioProjectNarrative({ project, content }: PortfolioProjectNarrativeProps) {
+  const [activeTab, setActiveTab] = useState<NarrativeTabValue>('objective');
+
+  const tabItems = useMemo<TabsItem<NarrativeTabValue>[]>(
+    () => [
+      { value: 'objective', label: content.objectiveLabel },
+      { value: 'problem', label: content.problemLabel },
+      { value: 'solution', label: content.solutionLabel },
+      { value: 'result', label: content.resultLabel },
+    ],
+    [content],
+  );
+
+  const activePanel = getNarrativePanelData(project, content, activeTab);
+
   return (
     <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
       <div
@@ -30,7 +51,25 @@ export function PortfolioProjectNarrative({ project, content }: PortfolioProject
               </p>
             </div>
 
-            <div className="mt-8 grid gap-4 lg:grid-cols-12">
+            <div className="mt-8 lg:hidden">
+              <Tabs items={tabItems} value={activeTab} onValueChange={setActiveTab} />
+
+              <div
+                role="tabpanel"
+                id={`panel-${activeTab}`}
+                aria-labelledby={`tab-${activeTab}`}
+                className="mt-4"
+              >
+                <NarrativePanel
+                  label={activePanel.label}
+                  value={activePanel.value}
+                  isFeatured={activePanel.isFeatured}
+                  accent={activePanel.accent}
+                />
+              </div>
+            </div>
+
+            <div className="mt-8 hidden gap-4 lg:grid lg:grid-cols-12">
               <NarrativePanel
                 label={content.objectiveLabel}
                 value={project.objective}
@@ -65,6 +104,43 @@ export function PortfolioProjectNarrative({ project, content }: PortfolioProject
   );
 }
 
+function getNarrativePanelData(
+  project: PortfolioProject,
+  content: PortfolioProjectPageContent,
+  tab: NarrativeTabValue,
+) {
+  switch (tab) {
+    case 'objective':
+      return {
+        label: content.objectiveLabel,
+        value: project.objective,
+        isFeatured: true,
+        accent: false,
+      };
+    case 'problem':
+      return {
+        label: content.problemLabel,
+        value: project.problem,
+        isFeatured: false,
+        accent: false,
+      };
+    case 'solution':
+      return {
+        label: content.solutionLabel,
+        value: project.solution,
+        isFeatured: false,
+        accent: false,
+      };
+    case 'result':
+      return {
+        label: content.resultLabel,
+        value: project.result,
+        isFeatured: true,
+        accent: true,
+      };
+  }
+}
+
 type NarrativePanelProps = {
   label: string;
   value: string;
@@ -82,7 +158,7 @@ function NarrativePanel({
 }: NarrativePanelProps) {
   return (
     <div
-      className={[
+      className={cn(
         'rounded-[1.6rem] border p-5 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur-xl sm:p-6',
         isFeatured
           ? 'bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))]'
@@ -90,28 +166,28 @@ function NarrativePanel({
         accent
           ? 'border-primary/20 bg-[linear-gradient(180deg,rgba(124,92,255,0.10),rgba(10,14,24,0.96))]'
           : 'border-white/10',
-        className ?? '',
-      ].join(' ')}
+        className,
+      )}
     >
       <div className="flex items-start justify-between gap-4">
         <p className="text-[0.72rem] uppercase tracking-[0.16em] text-foreground/45">{label}</p>
 
         <span
           aria-hidden="true"
-          className={[
+          className={cn(
             'mt-1 h-2 w-2 shrink-0 rounded-full',
             accent ? 'bg-primary' : 'bg-foreground/20',
-          ].join(' ')}
+          )}
         />
       </div>
 
       <p
-        className={[
+        className={cn(
           'mt-4 leading-8',
           isFeatured
             ? 'text-base text-foreground/92'
             : 'text-sm text-muted-foreground sm:text-base',
-        ].join(' ')}
+        )}
       >
         {value}
       </p>

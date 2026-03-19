@@ -1,4 +1,4 @@
-import { Container, Heading, Section } from '@/components/ui';
+import { Container, Heading, MobileSwipeSteps, Section } from '@/components/ui';
 import type { PortfolioPageContent } from '@/domain/portfolio/page';
 
 type PortfolioApproachStripProps = {
@@ -26,7 +26,17 @@ export function PortfolioApproachStrip({ content }: PortfolioApproachStripProps)
           />
         </div>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+        <MobileSwipeSteps
+          className="mt-14"
+          items={content.items.map((item, index) => ({
+            id: item.id,
+            number: String(index + 1).padStart(2, '0'),
+            title: item.title,
+            description: item.text,
+          }))}
+        />
+
+        <div className="mt-14 hidden gap-5 lg:grid lg:grid-cols-3">
           {content.items.map((item, index) => (
             <article
               key={item.id}

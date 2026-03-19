@@ -111,7 +111,9 @@ export function MobileCarousel<T>({
                 }}
                 className={cn(
                   'h-2 rounded-full transition-all duration-200',
-                  isActive ? 'w-8 bg-primary' : 'w-2 bg-white/20 hover:bg-white/35',
+                  isActive
+                    ? 'w-9 bg-linear-to-r from-primary to-accent'
+                    : 'w-2 bg-white/25 hover:bg-white/45',
                 )}
               />
             );

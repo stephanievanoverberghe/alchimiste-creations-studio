@@ -84,7 +84,7 @@ function BeforeAfterCard({ label, value, isAfter = false }: BeforeAfterCardProps
         <p
           className={[
             'text-[0.72rem] uppercase tracking-[0.16em]',
-            isAfter ? 'text-primary/85' : 'text-foreground/45',
+            isAfter ? 'text-primary' : 'text-foreground/45',
           ].join(' ')}
         >
           {label}

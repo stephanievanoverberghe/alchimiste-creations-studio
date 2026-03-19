@@ -61,7 +61,7 @@ export function PortfolioProjectNext({ project, content }: PortfolioProjectNextP
                   </p>
                 </div>
 
-                <div className="flex items-center justify-between gap-4 lg:block">
+                <div className="flex justify-end lg:block">
                   <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:border-primary/20 group-hover:bg-primary/12 group-hover:text-primary group-hover:shadow-[0_14px_34px_rgba(124,92,255,0.22)] sm:h-13 sm:w-13 sm:rounded-[1.15rem]">
                     <ArrowUpRight className="h-5 w-5" />
                   </span>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight, Clock3, CircleCheckBig } from 'lucide-react';
 
-import { Badge, Container, Heading, Section } from '@/components/ui';
+import { Badge, Container, Heading, MobileSwipeServiceCards, Section } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
 import type { ServicesPageContent } from '@/domain/services/page';
 import type { Service } from '@/domain/services/types';
@@ -33,7 +33,36 @@ export function ServicesCards({ content, services }: ServicesCardsProps) {
           />
         </div>
 
-        <div className="mt-16 space-y-6 sm:mt-18 lg:mt-22 lg:space-y-8">
+        <MobileSwipeServiceCards
+          className="mt-16"
+          variant="rich"
+          idealForLabel={content.idealForLabel}
+          startingFromLabel={content.startingFromLabel}
+          expectedResultLabel={content.expectedResultLabel}
+          items={services.map((item) => ({
+            id: item.slug,
+            title: item.title,
+            description: item.shortDescription,
+            href: `/services?offer=${item.slug}#services-details`,
+            ctaLabel: content.detailsLabel,
+            highlightLabel:
+              item.highlightLabel ??
+              (item.featured ? content.featuredOfferBadge : content.defaultOfferBadge),
+            idealFor: item.target.slice(0, 3).join(', ') + '.',
+            startingPrice: item.startingPrice,
+            timeline: item.timeline,
+            includes: item.includes,
+            expectedResultTitle: item.objectives[0]
+              ? item.objectives[0].charAt(0).toUpperCase() + item.objectives[0].slice(1)
+              : content.fallbackResult,
+            expectedResultDescription: content.expectedResultDescription,
+            detailsLabel: content.detailsLabel,
+            detailsDescription: content.detailsDescription,
+            featured: Boolean(item.featured),
+          }))}
+        />
+
+        <div className="mt-16 hidden space-y-6 sm:mt-18 lg:mt-22 lg:block lg:space-y-8">
           {services.map((item, index) => {
             const isFeatured = Boolean(item.featured);
             const highlightLabel =

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { AnimatePresence, motion, PanInfo } from 'motion/react';
 
 import { cn } from '@/lib/utils/cn';
@@ -76,7 +76,7 @@ export function MobileSwipeSteps({ items, className }: MobileSwipeStepsProps) {
               {activeItem.number}
             </div>
 
-            <h3 className="mt-4 text-3xl font-semibold tracking-tight text-foreground">
+            <h3 className="mt-4 text-xl font-semibold tracking-tight text-foreground">
               {activeItem.title}
             </h3>
 
@@ -92,7 +92,7 @@ export function MobileSwipeSteps({ items, className }: MobileSwipeStepsProps) {
           aria-label="Voir l'étape précédente"
           className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/12 bg-white/6 text-foreground transition hover:border-white/20 hover:bg-white/10"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ChevronLeft className="h-4 w-4" />
         </button>
 
         <div className="flex items-center gap-2">
@@ -125,7 +125,7 @@ export function MobileSwipeSteps({ items, className }: MobileSwipeStepsProps) {
           aria-label="Voir l'étape suivante"
           className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/12 bg-white/6 text-foreground transition hover:border-white/20 hover:bg-white/10"
         >
-          <ArrowRight className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4" />
         </button>
       </div>
     </div>

@@ -31,46 +31,44 @@ export function SocialProof() {
           />
 
           <div className="p-6 sm:p-8 lg:p-10 xl:p-12">
-            <div className="relative mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-              <div
-                aria-hidden="true"
-                className="absolute left-0 top-14 hidden h-[calc(100%-3.5rem)] w-px bg-[linear-gradient(180deg,rgba(255,255,255,0.16),transparent)] lg:block"
-              />
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(320px,0.88fr)] lg:gap-12">
+              <div className="relative mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+                <div
+                  aria-hidden="true"
+                  className="absolute left-0 top-14 hidden h-[calc(100%-3.5rem)] w-px bg-[linear-gradient(180deg,rgba(255,255,255,0.16),transparent)] lg:block"
+                />
 
-              <div className="lg:pl-8">
-                <Badge variant="primary">{content.eyebrow}</Badge>
+                <div className="lg:pl-8">
+                  <Badge variant="primary">{content.eyebrow}</Badge>
 
-                <blockquote className="mt-6 text-[1.3rem] font-medium leading-[1.45] tracking-[-0.04em] text-foreground sm:text-[1.55rem] lg:max-w-[20ch] lg:text-[1.9rem] lg:leading-[1.36] xl:text-[2.05rem]">
-                  <span className="text-foreground/38">“</span>
-                  {content.quote}
-                  <span className="text-foreground/38">”</span>
-                </blockquote>
+                  <blockquote className="mt-6 text-[1.3rem] font-medium leading-[1.45] tracking-[-0.04em] text-foreground sm:text-[1.55rem] lg:max-w-[20ch] lg:text-[1.9rem] lg:leading-[1.36] xl:text-[2.05rem]">
+                    <span className="text-foreground/38">“</span>
+                    {content.quote}
+                    <span className="text-foreground/38">”</span>
+                  </blockquote>
 
-                <div className="mt-8 flex items-center gap-4">
-                  <span className="h-px w-12 bg-[linear-gradient(90deg,rgba(255,255,255,0.18),transparent)]" />
-                  <div className="text-sm leading-6 text-muted-foreground">
-                    <span className="text-foreground/90">{content.author}</span>
-                    <span className="mx-2 text-foreground/28">—</span>
-                    <span>{content.role}</span>
+                  <div className="mt-8 flex items-center gap-4">
+                    <span className="h-px w-12 bg-[linear-gradient(90deg,rgba(255,255,255,0.18),transparent)]" />
+                    <div className="text-sm leading-6 text-muted-foreground">
+                      <span className="text-foreground/90">{content.author}</span>
+                      <span className="mx-2 text-foreground/28">—</span>
+                      <span>{content.role}</span>
+                    </div>
                   </div>
                 </div>
+
+                <MobileSwipeSteps
+                  className="mt-10"
+                  items={content.stats.map((stat, index) => ({
+                    id: stat.id,
+                    number: String(index + 1).padStart(2, '0'),
+                    title: stat.value,
+                    description: stat.label,
+                  }))}
+                />
               </div>
-            </div>
 
-            <MobileSwipeSteps
-              className="mt-10"
-              items={content.stats.map((stat, index) => ({
-                id: stat.id,
-                number: String(index + 1).padStart(2, '0'),
-                title: stat.value,
-                description: stat.label,
-              }))}
-            />
-
-            <div className="mt-10 hidden gap-10 lg:grid lg:grid-cols-[minmax(0,1.12fr)_minmax(320px,0.88fr)] lg:gap-12">
-              <div />
-
-              <ul className="grid gap-3 sm:gap-4">
+              <ul className="hidden gap-3 sm:gap-4 lg:grid">
                 {content.stats.map((stat, index) => (
                   <li
                     key={stat.id}

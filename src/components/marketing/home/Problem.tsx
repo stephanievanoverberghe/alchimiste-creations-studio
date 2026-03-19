@@ -50,11 +50,11 @@ export function Problem() {
                       <span className="mt-2 flex h-3.5 w-3.5 shrink-0 rounded-full bg-primary/70 shadow-[0_0_18px_rgba(122,84,255,0.42)]" />
 
                       <div className="min-w-0">
-                        <h3 className="text-[1.15rem] font-semibold tracking-tight text-foreground sm:text-[1.35rem] lg:text-[1.55rem] lg:leading-[1.08]">
+                        <h3 className="text-xl font-semibold tracking-tight text-foreground lg:leading-[1.08]">
                           {item.title}
                         </h3>
 
-                        <p className="mt-3 lg:max-w-[40ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+                        <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
                           {item.consequence}
                         </p>
                       </div>

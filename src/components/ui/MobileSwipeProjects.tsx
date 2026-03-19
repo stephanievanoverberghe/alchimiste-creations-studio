@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { AnimatePresence, motion, type PanInfo } from 'motion/react';
 
 import { Badge } from '@/components/ui';
@@ -184,12 +184,12 @@ export function MobileSwipeProjects({ items, className }: MobileSwipeProjectsPro
           <NavButton
             label="Voir le projet précédent"
             onClick={() => paginate(-1)}
-            icon={<ArrowLeft className="h-4 w-4" />}
+            icon={<ChevronLeft className="h-4 w-4" />}
           />
           <NavButton
             label="Voir le projet suivant"
             onClick={() => paginate(1)}
-            icon={<ArrowRight className="h-4 w-4" />}
+            icon={<ChevronRight className="h-4 w-4" />}
           />
         </div>
 
