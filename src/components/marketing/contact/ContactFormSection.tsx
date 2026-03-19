@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useEffect, useId, useState, type ReactNode } from 'react';
+import Script from 'next/script';
 import { CheckCircle2, Clock3, SendHorizonal, ShieldCheck } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
 
@@ -25,14 +26,33 @@ type ContactFormSectionProps = {
 
 type SubmitState = 'idle' | 'success' | 'error';
 
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement | string,
+        options: {
+          sitekey: string;
+          callback?: (token: string) => void;
+          'expired-callback'?: () => void;
+          'error-callback'?: () => void;
+        },
+      ) => string;
+    };
+  }
+}
+
 export function ContactFormSection({ content }: ContactFormSectionProps) {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const turnstileId = useId();
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   const {
     register,
     control,
     handleSubmit,
     setError,
+    setValue,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormValues>({
@@ -45,12 +65,38 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
       timeline: '',
       website: '',
       message: '',
+      turnstileToken: '',
       company: '',
     },
   });
 
+  useEffect(() => {
+    if (!turnstileSiteKey || typeof window === 'undefined' || !window.turnstile) return;
+
+    const container = document.getElementById(turnstileId);
+    if (!container || container.childElementCount > 0) return;
+
+    window.turnstile.render(container, {
+      sitekey: turnstileSiteKey,
+      callback: (token) => {
+        setValue('turnstileToken', token, { shouldValidate: true });
+      },
+      'expired-callback': () => {
+        setValue('turnstileToken', '', { shouldValidate: true });
+      },
+      'error-callback': () => {
+        setValue('turnstileToken', '', { shouldValidate: true });
+      },
+    });
+  }, [setValue, turnstileId, turnstileSiteKey]);
+
   const onSubmit = async (values: ContactFormValues) => {
     setSubmitState('idle');
+
+    if (!turnstileSiteKey) {
+      setError('turnstileToken', { message: 'Validation anti-spam indisponible.' });
+      return;
+    }
 
     const parsed = contactFormSchema.safeParse(values);
 
@@ -167,6 +213,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 aria-hidden="true"
                 {...register('company')}
               />
+              <input type="hidden" {...register('turnstileToken')} />
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <FormField label={content.fields.firstNameLabel} error={errors.firstName?.message}>
@@ -286,6 +333,19 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 </Button>
               </div>
 
+              {turnstileSiteKey ? (
+                <div className="min-h-16">
+                  <div id={turnstileId} />
+                  {errors.turnstileToken?.message ? (
+                    <p className="mt-2 text-sm text-red-300">{errors.turnstileToken.message}</p>
+                  ) : null}
+                </div>
+              ) : (
+                <p className="text-sm text-red-300">
+                  Protection anti-spam indisponible. Merci de réessayer plus tard.
+                </p>
+              )}
+
               {submitState === 'success' ? (
                 <StatusMessage variant="success" message={content.successMessage} />
               ) : null}
@@ -297,6 +357,12 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
           </div>
         </div>
       </Container>
+      {turnstileSiteKey ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+        />
+      ) : null}
     </Section>
   );
 }
