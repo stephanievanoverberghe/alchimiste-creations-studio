@@ -44,6 +44,7 @@ declare global {
 
 export function ContactFormSection({ content }: ContactFormSectionProps) {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const [isTurnstileReady, setIsTurnstileReady] = useState(false);
   const turnstileId = useId();
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
@@ -71,7 +72,22 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
   });
 
   useEffect(() => {
-    if (!turnstileSiteKey || typeof window === 'undefined' || !window.turnstile) return;
+    if (typeof window === 'undefined' || !turnstileSiteKey) return;
+
+    if (window.turnstile) {
+      setIsTurnstileReady(true);
+    }
+  }, [turnstileSiteKey]);
+
+  useEffect(() => {
+    if (
+      !turnstileSiteKey ||
+      typeof window === 'undefined' ||
+      !window.turnstile ||
+      !isTurnstileReady
+    ) {
+      return;
+    }
 
     const container = document.getElementById(turnstileId);
     if (!container || container.childElementCount > 0) return;
@@ -88,7 +104,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
         setValue('turnstileToken', '', { shouldValidate: true });
       },
     });
-  }, [setValue, turnstileId, turnstileSiteKey]);
+  }, [isTurnstileReady, setValue, turnstileId, turnstileSiteKey]);
 
   const onSubmit = async (values: ContactFormValues) => {
     setSubmitState('idle');
@@ -361,6 +377,9 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           strategy="afterInteractive"
+          onLoad={() => {
+            setIsTurnstileReady(true);
+          }}
         />
       ) : null}
     </Section>
