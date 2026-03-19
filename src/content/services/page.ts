@@ -115,7 +115,9 @@ export const servicesPageContent: ServicesPageContent = {
     title: 'Trois formats pour lancer, structurer ou améliorer votre site.',
     description:
       'Chaque offre est conçue pour répondre à un contexte précis avec un périmètre clair, une logique cohérente et un objectif concret.',
+    investmentLabel: 'Investissement',
     startingFromLabel: 'À partir de',
+    timelineLabel: 'Délai',
     idealForLabel: 'Idéal pour',
     expectedResultLabel: 'Résultat recherché',
     expectedResultDescription:

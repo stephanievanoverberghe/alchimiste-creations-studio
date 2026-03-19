@@ -45,7 +45,9 @@ export type ServicesPageContent = {
     eyebrow: string;
     title: string;
     description: string;
+    investmentLabel: string;
     startingFromLabel: string;
+    timelineLabel: string;
     idealForLabel: string;
     expectedResultLabel: string;
     expectedResultDescription: string;

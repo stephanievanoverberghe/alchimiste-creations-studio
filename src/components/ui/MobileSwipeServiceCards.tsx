@@ -37,7 +37,9 @@ export type MobileSwipeServiceCardItem = {
 type MobileSwipeServiceCardsProps = {
   items: MobileSwipeServiceCardItem[];
   idealForLabel: string;
+  investmentLabel?: string;
   startingFromLabel: string;
+  timelineLabel?: string;
   expectedResultLabel?: string;
   className?: string;
   variant?: 'compact' | 'rich';
@@ -48,7 +50,9 @@ const SWIPE_THRESHOLD = 56;
 export function MobileSwipeServiceCards({
   items,
   idealForLabel,
+  investmentLabel,
   startingFromLabel,
+  timelineLabel,
   expectedResultLabel,
   className,
   variant = 'compact',
@@ -159,11 +163,12 @@ export function MobileSwipeServiceCards({
                 <div className="mt-6 flex flex-wrap gap-3">
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground/90">
                     <Clock3 className="h-4 w-4 text-primary" />
-                    {activeItem.timeline}
+                    {timelineLabel ? `${timelineLabel} : ` : null}
                   </span>
 
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground/90">
                     <CircleCheckBig className="h-4 w-4 text-primary" />
+                    {investmentLabel ? `${investmentLabel} : ` : null}
                     {startingFromLabel} {activeItem.startingPrice}
                   </span>
                 </div>

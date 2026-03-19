@@ -37,7 +37,9 @@ export function ServicesCards({ content, services }: ServicesCardsProps) {
           className="mt-16"
           variant="rich"
           idealForLabel={content.idealForLabel}
+          investmentLabel={content.investmentLabel}
           startingFromLabel={content.startingFromLabel}
+          timelineLabel={content.timelineLabel}
           expectedResultLabel={content.expectedResultLabel}
           items={services.map((item) => ({
             id: item.slug,
