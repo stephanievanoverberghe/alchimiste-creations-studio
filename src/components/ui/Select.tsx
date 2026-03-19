@@ -11,6 +11,7 @@ export type SelectOption = {
 };
 
 type SelectProps = {
+  id?: string;
   value?: string;
   defaultValue?: string;
   onChange?: (value: string) => void;
@@ -22,10 +23,13 @@ type SelectProps = {
   className?: string;
   triggerClassName?: string;
   panelClassName?: string;
+  'aria-invalid'?: boolean;
+  'aria-describedby'?: string;
 };
 
 export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
   {
+    id,
     value,
     defaultValue = '',
     onChange,
@@ -37,6 +41,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
     className,
     triggerClassName,
     panelClassName,
+    'aria-invalid': ariaInvalid,
+    'aria-describedby': ariaDescribedBy,
   },
   ref,
 ) {
@@ -199,16 +205,22 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
 
       <button
         ref={buttonRef}
+        id={id}
         type="button"
         disabled={disabled}
+        role="combobox"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-controls={listboxId}
+        aria-invalid={ariaInvalid}
+        aria-describedby={ariaDescribedBy}
+        aria-activedescendant={isOpen ? `${listboxId}-option-${highlightedIndex}` : undefined}
         onClick={toggleSelect}
         onKeyDown={handleKeyDown}
         className={cn(
           'flex h-12 w-full items-center cursor-pointer justify-between rounded-[0.95rem] border border-white/10 bg-white/4 px-4 text-left text-sm text-foreground outline-none transition-all duration-200',
           'focus-visible:border-primary/40 focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))]',
+          'aria-invalid:border-red-300/80 aria-invalid:focus-visible:ring-red-300/50',
           'disabled:cursor-not-allowed disabled:opacity-60',
           isOpen && 'border-primary/30 bg-white/5',
           triggerClassName,
@@ -247,6 +259,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
                 type="button"
                 role="option"
                 aria-selected={isSelected}
+                id={`${listboxId}-option-${index}`}
                 data-option-index={index}
                 onMouseEnter={() => setHighlightedIndex(index)}
                 onClick={() => updateValue(option.value)}

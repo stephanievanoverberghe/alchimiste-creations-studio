@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import Script from 'next/script';
 import { CheckCircle2, Clock3, SendHorizonal, ShieldCheck } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
@@ -45,7 +45,17 @@ declare global {
 export function ContactFormSection({ content }: ContactFormSectionProps) {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [isTurnstileReady, setIsTurnstileReady] = useState(false);
-  const turnstileId = useId();
+  const turnstileId = 'contact-turnstile-widget';
+  const fieldIds = {
+    firstName: 'contact-first-name',
+    lastName: 'contact-last-name',
+    email: 'contact-email',
+    projectType: 'contact-project-type',
+    budget: 'contact-budget',
+    timeline: 'contact-timeline',
+    website: 'contact-website',
+    message: 'contact-message',
+  } as const;
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   const {
@@ -232,27 +242,48 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
               <input type="hidden" {...register('turnstileToken')} />
 
               <div className="grid gap-5 sm:grid-cols-2">
-                <FormField label={content.fields.firstNameLabel} error={errors.firstName?.message}>
+                <FormField
+                  label={content.fields.firstNameLabel}
+                  fieldId={fieldIds.firstName}
+                  error={errors.firstName?.message}
+                >
                   <Input
+                    id={fieldIds.firstName}
                     placeholder={content.placeholders.firstName}
+                    aria-invalid={Boolean(errors.firstName)}
+                    aria-describedby={errors.firstName ? `${fieldIds.firstName}-error` : undefined}
                     className="border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                     {...register('firstName')}
                   />
                 </FormField>
 
-                <FormField label={content.fields.lastNameLabel} error={errors.lastName?.message}>
+                <FormField
+                  label={content.fields.lastNameLabel}
+                  fieldId={fieldIds.lastName}
+                  error={errors.lastName?.message}
+                >
                   <Input
+                    id={fieldIds.lastName}
                     placeholder={content.placeholders.lastName}
+                    aria-invalid={Boolean(errors.lastName)}
+                    aria-describedby={errors.lastName ? `${fieldIds.lastName}-error` : undefined}
                     className="border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                     {...register('lastName')}
                   />
                 </FormField>
               </div>
 
-              <FormField label={content.fields.emailLabel} error={errors.email?.message}>
+              <FormField
+                label={content.fields.emailLabel}
+                fieldId={fieldIds.email}
+                error={errors.email?.message}
+              >
                 <Input
+                  id={fieldIds.email}
                   type="email"
                   placeholder={content.placeholders.email}
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? `${fieldIds.email}-error` : undefined}
                   className="border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                   {...register('email')}
                 />
@@ -261,6 +292,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
               <div className="grid gap-5 sm:grid-cols-2">
                 <FormField
                   label={content.fields.projectTypeLabel}
+                  fieldId={fieldIds.projectType}
                   error={errors.projectType?.message}
                 >
                   <Controller
@@ -268,29 +300,41 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                     name="projectType"
                     render={({ field }) => (
                       <Select
+                        id={fieldIds.projectType}
                         name={field.name}
                         value={field.value}
                         onChange={field.onChange}
                         onBlur={field.onBlur}
                         options={content.options.projectTypes}
                         placeholder={content.emptyOptionLabel}
+                        aria-invalid={Boolean(errors.projectType)}
+                        aria-describedby={
+                          errors.projectType ? `${fieldIds.projectType}-error` : undefined
+                        }
                       />
                     )}
                   />
                 </FormField>
 
-                <FormField label={content.fields.budgetLabel} error={errors.budget?.message}>
+                <FormField
+                  label={content.fields.budgetLabel}
+                  fieldId={fieldIds.budget}
+                  error={errors.budget?.message}
+                >
                   <Controller
                     control={control}
                     name="budget"
                     render={({ field }) => (
                       <Select
+                        id={fieldIds.budget}
                         name={field.name}
                         value={field.value}
                         onChange={field.onChange}
                         onBlur={field.onBlur}
                         options={content.options.budgets}
                         placeholder={content.emptyOptionLabel}
+                        aria-invalid={Boolean(errors.budget)}
+                        aria-describedby={errors.budget ? `${fieldIds.budget}-error` : undefined}
                       />
                     )}
                   />
@@ -298,36 +342,59 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
-                <FormField label={content.fields.timelineLabel} error={errors.timeline?.message}>
+                <FormField
+                  label={content.fields.timelineLabel}
+                  fieldId={fieldIds.timeline}
+                  error={errors.timeline?.message}
+                >
                   <Controller
                     control={control}
                     name="timeline"
                     render={({ field }) => (
                       <Select
+                        id={fieldIds.timeline}
                         name={field.name}
                         value={field.value}
                         onChange={field.onChange}
                         onBlur={field.onBlur}
                         options={content.options.timelines}
                         placeholder={content.emptyOptionLabel}
+                        aria-invalid={Boolean(errors.timeline)}
+                        aria-describedby={
+                          errors.timeline ? `${fieldIds.timeline}-error` : undefined
+                        }
                       />
                     )}
                   />
                 </FormField>
 
-                <FormField label={content.fields.websiteLabel} error={errors.website?.message}>
+                <FormField
+                  label={content.fields.websiteLabel}
+                  fieldId={fieldIds.website}
+                  error={errors.website?.message}
+                >
                   <Input
+                    id={fieldIds.website}
                     placeholder={content.placeholders.website}
+                    aria-invalid={Boolean(errors.website)}
+                    aria-describedby={errors.website ? `${fieldIds.website}-error` : undefined}
                     className="border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                     {...register('website')}
                   />
                 </FormField>
               </div>
 
-              <FormField label={content.fields.messageLabel} error={errors.message?.message}>
+              <FormField
+                label={content.fields.messageLabel}
+                fieldId={fieldIds.message}
+                error={errors.message?.message}
+              >
                 <Textarea
+                  id={fieldIds.message}
                   rows={8}
                   placeholder={content.placeholders.message}
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? `${fieldIds.message}-error` : undefined}
                   className="min-h-44 border-white/10 bg-white/4 text-foreground placeholder:text-foreground/35 focus-visible:border-primary/40"
                   {...register('message')}
                 />
@@ -353,7 +420,9 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 <div className="min-h-16">
                   <div id={turnstileId} />
                   {errors.turnstileToken?.message ? (
-                    <p className="mt-2 text-sm text-red-300">{errors.turnstileToken.message}</p>
+                    <p className="mt-2 text-sm text-red-300" role="alert" aria-live="polite">
+                      {errors.turnstileToken.message}
+                    </p>
                   ) : null}
                 </div>
               ) : (
@@ -362,13 +431,15 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                 </p>
               )}
 
-              {submitState === 'success' ? (
-                <StatusMessage variant="success" message={content.successMessage} />
-              ) : null}
+              <div aria-live="polite" aria-atomic="true">
+                {submitState === 'success' ? (
+                  <StatusMessage variant="success" message={content.successMessage} />
+                ) : null}
 
-              {submitState === 'error' ? (
-                <StatusMessage variant="error" message={content.errorMessage} />
-              ) : null}
+                {submitState === 'error' ? (
+                  <StatusMessage variant="error" message={content.errorMessage} />
+                ) : null}
+              </div>
             </form>
           </div>
         </div>
@@ -388,18 +459,26 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
 
 type FormFieldProps = {
   label: string;
+  fieldId: string;
   error?: string;
   children: ReactNode;
 };
 
-function FormField({ label, error, children }: FormFieldProps) {
+function FormField({ label, fieldId, error, children }: FormFieldProps) {
   return (
     <FormGroup className="space-y-2.5">
-      <Label className="text-[0.8rem] font-medium uppercase tracking-[0.14em] text-foreground/60">
+      <Label
+        htmlFor={fieldId}
+        className="text-[0.8rem] font-medium uppercase tracking-[0.14em] text-foreground/60"
+      >
         {label}
       </Label>
       {children}
-      {error ? <p className="text-sm text-red-300">{error}</p> : null}
+      {error ? (
+        <p id={`${fieldId}-error`} className="text-sm text-red-300" role="alert" aria-live="polite">
+          {error}
+        </p>
+      ) : null}
     </FormGroup>
   );
 }
