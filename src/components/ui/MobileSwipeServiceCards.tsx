@@ -164,6 +164,7 @@ export function MobileSwipeServiceCards({
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground/90">
                     <Clock3 className="h-4 w-4 text-primary" />
                     {timelineLabel ? `${timelineLabel} : ` : null}
+                    {activeItem.timeline}
                   </span>
 
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground/90">
