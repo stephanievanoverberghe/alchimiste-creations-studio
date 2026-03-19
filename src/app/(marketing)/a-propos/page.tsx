@@ -7,6 +7,14 @@ import {
   AboutValues,
   AboutVision,
 } from '@/components/marketing/about';
+import { getMarketingMetadata } from '@/application/seo/getMarketingMetadata';
+
+export const metadata = getMarketingMetadata({
+  title: 'À propos du studio',
+  description:
+    'Découvrez la vision, la méthode et les valeurs d’Alchimiste Créations pour construire des sites web crédibles et durables.',
+  pathname: '/a-propos',
+});
 
 export default function AboutPage() {
   const content = getAboutPageContent();

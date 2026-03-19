@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import {
@@ -14,6 +15,7 @@ import {
   PortfolioProjectNarrative,
   PortfolioProjectNext,
 } from '@/components/marketing/portfolio/project';
+import { getMarketingMetadata } from '@/application/seo/getMarketingMetadata';
 import type { PortfolioProjectSlug } from '@/domain/portfolio/types';
 
 type PortfolioProjectPageProps = {
@@ -28,6 +30,25 @@ export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export async function generateMetadata({ params }: PortfolioProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getPortfolioProjectBySlug(slug);
+
+  if (!project) {
+    return getMarketingMetadata({
+      title: 'Projet introuvable',
+      description: "La réalisation demandée n'est pas disponible dans le portfolio.",
+      pathname: '/portfolio',
+    });
+  }
+
+  return getMarketingMetadata({
+    title: `${project.title} — étude de cas web`,
+    description: project.description,
+    pathname: `/portfolio/${project.slug}`,
+  });
 }
 
 export default async function PortfolioProjectPage({ params }: PortfolioProjectPageProps) {

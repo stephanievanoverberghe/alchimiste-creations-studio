@@ -11,6 +11,14 @@ import {
   ServicesProcessMini,
   ServicesProblemStrip,
 } from '@/components/marketing/services';
+import { getMarketingMetadata } from '@/application/seo/getMarketingMetadata';
+
+export const metadata = getMarketingMetadata({
+  title: 'Services web sur mesure',
+  description:
+    'Découvrez des offres claires pour créer, structurer ou refondre votre site avec une approche orientée performance et conversion.',
+  pathname: '/services',
+});
 
 export default function ServicesPage() {
   const content = getServicesPageContent();

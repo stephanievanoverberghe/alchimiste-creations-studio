@@ -7,6 +7,14 @@ import { ValueProposition } from '@/components/marketing/home/ValueProposition';
 import { SocialProof } from '@/components/marketing/home/SocialProof';
 import { FinalCta } from '@/components/marketing/home/FinalCta';
 import { HumanSection } from '@/components/marketing/home/HumanSection';
+import { getMarketingMetadata } from '@/application/seo/getMarketingMetadata';
+
+export const metadata = getMarketingMetadata({
+  title: 'Studio web premium pour entrepreneurs',
+  description:
+    'Alchimiste Créations conçoit des sites clairs, crédibles et orientés conversion pour attirer des prospects qualifiés.',
+  pathname: '/',
+});
 
 export default function Page() {
   return (

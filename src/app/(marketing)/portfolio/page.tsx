@@ -7,6 +7,14 @@ import {
   PortfolioHero,
   PortfolioProjectsGrid,
 } from '@/components/marketing/portfolio';
+import { getMarketingMetadata } from '@/application/seo/getMarketingMetadata';
+
+export const metadata = getMarketingMetadata({
+  title: 'Portfolio sites web réalisés',
+  description:
+    'Explorez des projets concrets signés Alchimiste Créations : design premium, structure claire et objectifs business assumés.',
+  pathname: '/portfolio',
+});
 
 export default function PortfolioPage() {
   const content = getPortfolioPageContent();
