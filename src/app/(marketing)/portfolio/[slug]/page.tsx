@@ -8,6 +8,7 @@ import {
 } from '@/application/portfolio/getPortfolioProjects';
 import { getPortfolioProjectPageContent } from '@/application/portfolio/getPortfolioProjectPageContent';
 import { PageFinalCta } from '@/components/marketing/PageFinalCta';
+import { getBreadcrumbJsonLd } from '@/application/seo/structuredData';
 import {
   PortfolioProjectBeforeAfter,
   PortfolioProjectHero,
@@ -62,9 +63,18 @@ export default async function PortfolioProjectPage({ params }: PortfolioProjectP
 
   const nextProject = getNextPortfolioProject(slug);
   const content = getPortfolioProjectPageContent();
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { name: 'Accueil', path: '/' },
+    { name: 'Portfolio', path: '/portfolio' },
+    { name: project.title, path: `/portfolio/${project.slug}` },
+  ]);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <PortfolioProjectHero project={project} content={content} />
       <PortfolioProjectNarrative project={project} content={content} />
       <PortfolioProjectGallery project={project} content={content} />

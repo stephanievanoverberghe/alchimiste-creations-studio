@@ -1,18 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Minus, Plus } from 'lucide-react';
 
 import { getFaqContent } from '@/application/home/getFaqContent';
+import { getFaqJsonLd } from '@/application/seo/structuredData';
 import { Container, Heading, Section } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
 
 export function Faq() {
   const content = getFaqContent();
   const [openId, setOpenId] = useState<string | null>(content.items[0]?.id ?? null);
+  const faqJsonLd = useMemo(
+    () =>
+      getFaqJsonLd(
+        content.items.map((item) => ({
+          question: item.question,
+          answer: item.answer,
+        })),
+      ),
+    [content.items],
+  );
 
   return (
     <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
