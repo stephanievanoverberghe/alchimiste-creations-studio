@@ -1,11 +1,11 @@
 import { getProblemContent } from '@/application/home/getProblemContent';
-import { Container, Section } from '@/components/ui';
+import { Container, Section, Heading } from '@/components/ui';
 
 export function Problem() {
   const content = getProblemContent();
 
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -28,18 +28,13 @@ export function Problem() {
             />
 
             <div className="grid gap-12 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-14 lg:px-10 lg:py-12 xl:px-12 xl:py-14">
-              <div className="lg:pr-6 text-center md:text-start">
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-accent">
-                  {content.eyebrow}
-                </p>
-
-                <h2 className="mt-5 lg:max-w-[14ch] text-[2rem] font-semibold tracking-tight text-text sm:text-[2.4rem] sm:leading-[1.08] md:text-[2.8rem] lg:text-[3.1rem]">
-                  {content.title}
-                </h2>
-
-                <p className="mt-6 lg:max-w-[34ch] text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
-                  {content.description}
-                </p>
+              <div className="mx-auto max-w-3xl text-center">
+                <Heading
+                  eyebrow={content.eyebrow}
+                  title={content.title}
+                  description={content.description}
+                  align="center"
+                />
               </div>
 
               <div className="space-y-0">

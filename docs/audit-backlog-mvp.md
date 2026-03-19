@@ -9,9 +9,9 @@ Le repository actuel est **globalement aligné avec le MVP défini** : les pages
 
 ### Score de complétion estimé
 
-- **Périmètre P1 (MVP prioritaire)** : **~94%**
+- **Périmètre P1 (MVP prioritaire)** : **~97%**
 - **Périmètre P2** : **~100%** (US-019, US-020, US-024 déjà implémentées)
-- **Périmètre global US-001 → US-029** : **~91%**
+- **Périmètre global US-001 → US-029** : **~95%**
 
 ### Points forts
 
@@ -23,18 +23,22 @@ Le repository actuel est **globalement aligné avec le MVP défini** : les pages
 
 ### Gaps restants (principaux)
 
-- **US-028 Accessibilité** : bonnes bases, mais pas d’audit A11y complet ni checklist WCAG documentée.
 - **US-029 Déploiement Vercel** : pas de trace explicite d’un pipeline/documentation de déploiement production.
+- **Industrialisation QA** : formaliser une checklist versionnée (runbook release) pour sécuriser les prochains incréments.
 
-### Validation performance communiquée (19 mars 2026)
+### Validation Lighthouse communiquée (19 mars 2026)
 
-- **Performance** : 99%
-- **Structure** : 100%
+- **Performance** : 100
+- **Accessibilité** : 100
+- **Bonnes pratiques** : 100
+- **SEO** : 100
+- **FCP** : +10
 - **LCP** : 810 ms
+- **SI** : +10
 - **TBT** : 9 ms
 - **CLS** : 0
 
-Ces métriques indiquent un niveau de performance déjà excellent pour le périmètre MVP.
+Ces métriques confirment un niveau technique très solide pour le MVP (perf + a11y + SEO).
 
 ---
 
@@ -101,25 +105,25 @@ Ces métriques indiquent un niveau de performance déjà excellent pour le péri
 
 ## Épic 8 — Qualité & lancement
 
-- **US-025 (Responsive design)** : **Partiellement validé** (implémentation responsive présente, validation QA finale à systématiser)
+- **US-025 (Responsive design)** : **Partiellement validé** (implémentation responsive présente + checklist QA multi-devices documentée)
 - **US-026 (SEO de base)** : **Fait**
 - **US-027 (Performance)** : **Fait** (mesuré : LCP 810 ms, TBT 9 ms, CLS 0)
-- **US-028 (Accessibilité)** : **Partiellement validé**
+- **US-028 (Accessibilité)** : **Fait** (Lighthouse Accessibilité : 100)
 - **US-029 (Déploiement Vercel)** : **Non confirmé dans le code/documentation actuelle**
 
-**Niveau de complétion épic 8 : ~75%**
+**Niveau de complétion épic 8 : ~88%**
 
 ---
 
 ## 3) Recommandations actionnables (ordre conseillé)
 
-1. **Formaliser la phase “Quality Gate pré-prod”**
+1. **Exécuter la passe QA responsive documentée (US-025)**
+   - Utiliser `docs/responsive-qa-multi-devices-2026-03-19.md` comme grille d’exécution.
+   - Noter les écarts par page/résolution puis corriger avant release.
+
+2. **Formaliser la phase “Quality Gate pré-prod”**
    - Ajouter une checklist versionnée (responsive, A11y, perf, SEO, smoke tests formulaire).
    - Critère de sortie : “Done” réel aligné avec la définition de Done backlog.
-
-2. **Accessibilité (US-028)**
-   - Exécuter une passe WCAG (contrastes, focus visible, ordre tabulation, labels, landmarks).
-   - Ajouter des tests A11y automatisés (ex. axe) en plus des smoke tests actuels.
 
 3. **Déploiement Vercel (US-029)**
    - Documenter la procédure de déploiement (environnements, variables, rollback).
@@ -141,8 +145,8 @@ Ces métriques indiquent un niveau de performance déjà excellent pour le péri
 | Pages principales (US-015 → US-018)  | Services, Portfolio, À propos, Contact livrées                                                           |                 100% | Ajouter micro-optimisations éditoriales orientées conversion           |
 | Portfolio détaillé (US-019 → US-020) | Route dynamique `[slug]`, retour à la liste, navigation projet suivant                                   |                 100% | Ajouter éventuellement filtres/catégories en phase post-MVP            |
 | Contact (US-021 → US-024)            | Formulaire fonctionnel, validations, confirmation, anti-spam basique                                     |                 100% | Renforcer anti-spam si volume augmente (rate limit/captcha soft)       |
-| Responsive (US-025)                  | Classes responsive présentes sur les composants majeurs                                                  |                  85% | Faire une passe QA multi-devices documentée                            |
+| Responsive (US-025)                  | Classes responsive présentes sur les composants majeurs + checklist QA multi-devices créée               |                  90% | Exécuter la checklist sur Device Mode + appareils réels                |
 | SEO de base (US-026)                 | Metadata, robots, sitemap en place                                                                       |                 100% | Ajouter enrichissements (schema.org) en phase suivante                 |
-| Performance (US-027)                 | Validation communiquée : Performance 99%, LCP 810 ms, TBT 9 ms, CLS 0                                    |                 100% | Maintenir un suivi régulier post-déploiement                           |
-| Accessibilité (US-028)               | Premiers éléments A11y (labels ARIA, structure) et tests smoke                                           |                  70% | Lancer audit WCAG + tests automatisés dédiés                           |
+| Performance (US-027)                 | Validation communiquée : Performance 100, LCP 810 ms, TBT 9 ms, CLS 0                                    |                 100% | Maintenir un suivi régulier post-déploiement                           |
+| Accessibilité (US-028)               | Lighthouse Accessibilité : 100, skip-link + landmark + tests smoke en place                              |                 100% | Maintenir des vérifications manuelles sur les parcours critiques       |
 | Déploiement Vercel (US-029)          | Non démontré explicitement dans le repo audité                                                           |                  40% | Documenter et sécuriser le runbook de déploiement                      |

@@ -1,5 +1,5 @@
 import { getValuePropositionContent } from '@/application/home/getValuePropositionContent';
-import { Card, Container, Heading, Section } from '@/components/ui';
+import { Card, Container, Heading, MobileSwipeSteps, Section } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
 
 export function ValueProposition() {
@@ -26,7 +26,17 @@ export function ValueProposition() {
           />
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <MobileSwipeSteps
+          className="mt-14"
+          items={content.items.map((item, index) => ({
+            id: item.id,
+            number: String(index + 1).padStart(2, '0'),
+            title: item.title,
+            description: item.description,
+          }))}
+        />
+
+        <div className="mt-14 hidden gap-5 lg:grid lg:grid-cols-3 lg:gap-6">
           {content.items.map((item, index) => {
             const Icon = item.icon;
             const isMiddle = index === 1;

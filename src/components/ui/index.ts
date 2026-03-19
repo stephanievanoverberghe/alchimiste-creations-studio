@@ -13,3 +13,6 @@ export * from './Tabs';
 export * from './SegmentedContentSlider';
 export * from './MobileCarousel';
 export * from './Select';
+export * from './MobileSwipeSteps';
+export * from './MobileSwipeServiceCards';
+export * from './MobileSwipeProjects';

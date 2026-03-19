@@ -1,15 +1,17 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 import { getServicesPreviewContent } from '@/application/home/getServicesPreviewContent';
-import { Badge, Container, Heading, Section } from '@/components/ui';
+import { Badge, Container, Heading, MobileSwipeServiceCards, Section } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
 
 export function ServicesPreview() {
   const content = getServicesPreviewContent();
 
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -29,7 +31,35 @@ export function ServicesPreview() {
           />
         </div>
 
-        <div className="mt-16 space-y-6 sm:mt-18 lg:mt-22 lg:space-y-8">
+        <MobileSwipeServiceCards
+          className="mt-14"
+          idealForLabel={content.idealForLabel}
+          investmentLabel={content.investmentLabel}
+          startingFromLabel={content.startingFromLabel}
+          timelineLabel={content.timelineLabel}
+          items={content.items.map((item, index) => {
+            const isFeatured = index === 1;
+            const highlightLabel =
+              item.highlightLabel ??
+              (isFeatured ? content.featuredOfferBadge : content.defaultOfferBadge);
+
+            return {
+              id: item.id,
+              title: item.title,
+              description: item.description,
+              href: item.href,
+              ctaLabel: item.ctaLabel,
+              highlightLabel,
+              idealFor: item.idealFor,
+              startingPrice: item.startingPrice,
+              timeline: item.timeline,
+              icon: item.icon,
+              featured: isFeatured,
+            };
+          })}
+        />
+
+        <div className="mt-16 hidden space-y-6 sm:mt-18 lg:mt-22 lg:block lg:space-y-8">
           {content.items.map((item, index) => {
             const isFeatured = index === 1;
             const highlightLabel =
@@ -77,11 +107,11 @@ export function ServicesPreview() {
                         </Badge>
                       </div>
 
-                      <h3 className="mt-5 lg:max-w-[12ch] text-[2rem] font-semibold tracking-tight text-foreground sm:text-[2.3rem] lg:text-[2.7rem] lg:leading-[1.02]">
+                      <h3 className="mt-5 text-[2rem] font-semibold tracking-tight text-foreground sm:text-[2.3rem] lg:max-w-[12ch] lg:text-[2.7rem] lg:leading-[1.02]">
                         {item.title}
                       </h3>
 
-                      <p className="mt-5 lg:max-w-[34ch] text-base leading-8 text-muted-foreground transition-colors duration-300 md:group-hover:text-text sm:text-lg">
+                      <p className="mt-5 text-base leading-8 text-muted-foreground transition-colors duration-300 md:group-hover:text-text sm:text-lg lg:max-w-[34ch]">
                         {item.description}
                       </p>
                     </div>

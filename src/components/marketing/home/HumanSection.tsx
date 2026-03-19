@@ -5,7 +5,7 @@ export function HumanSection() {
   const content = getHumanSectionContent();
 
   return (
-    <Section className="relative overflow-hidden py-18 sm:py-22 lg:py-26">
+    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
