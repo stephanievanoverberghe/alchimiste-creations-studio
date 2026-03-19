@@ -73,12 +73,6 @@ export function PortfolioFeaturedProject({ content, project }: PortfolioFeatured
             <div className="flex flex-col p-6 sm:p-8 lg:p-10">
               <div className="flex flex-wrap items-center gap-3">
                 <Badge variant="primary">{project.category}</Badge>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-foreground/70">
-                  {project.beforeLabel}
-                </span>
-                <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs text-primary">
-                  {project.afterLabel}
-                </span>
               </div>
 
               <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
