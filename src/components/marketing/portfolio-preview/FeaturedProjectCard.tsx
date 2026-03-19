@@ -34,7 +34,7 @@ export function FeaturedProjectCard({ project, uiLabels }: FeaturedProjectCardPr
         <div className="relative h-72.5 overflow-hidden sm:h-85">
           <Image
             src={project.image.src}
-            alt={project.image.alt}
+            alt=""
             width={1400}
             height={1000}
             className="h-full w-full object-cover object-top transition-transform duration-700 ease-out md:group-hover:scale-[1.04]"

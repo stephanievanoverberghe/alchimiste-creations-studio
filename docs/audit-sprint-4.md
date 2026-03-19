@@ -1,118 +1,143 @@
-# Audit style
+# Audit backlog MVP — Alchimiste Créations
 
-## Points forts
+Date d’audit : 18 mars 2026  
+Référence comparée : `docs/alchimiste-creations-product-spec.md` + backlog MVP fourni.
 
-- Direction visuelle cohérente avec le positionnement premium (fond sombre, glow violet/cyan, surfaces glassmorphism).
-- Le design system de base (tokens + primitives UI) est bien posé et réutilisé (`Button`, `Card`, `Section`, `Heading`, `Container`).
-- Les sections clés de la home sont présentes et alignées avec la logique de conversion du product spec.
+## 1) Synthèse exécutive
 
-## Incohérences
+Le repository actuel est **globalement aligné avec le MVP défini** : les pages clés, la structure de navigation, le design system, la logique de contact, les routes portfolio dynamiques et les bases SEO sont en place.
 
-- Quelques variations de styles “hardcodées” dans les sections marketing (gradients, bordures, ombres, radius) qui ne passent pas toujours par les tokens.
-- L’intensité des ornements (blur / glow / gradients) varie fortement selon les sections, ce qui peut donner une perception légèrement hétérogène.
-- Les pages principales (services/portfolio avant correction) étaient visuellement en retrait vs home (écart de niveau perçu).
+### Score de complétion estimé
 
-## Répétitions
+- **Périmètre P1 (MVP prioritaire)** : **~94%**
+- **Périmètre P2** : **~100%** (US-019, US-020, US-024 déjà implémentées)
+- **Périmètre global US-001 → US-029** : **~91%**
 
-- Motifs visuels proches répétés avec des classes Tailwind longues dans plusieurs sections marketing.
-- Contenus services/portfolio dupliqués indirectement entre logique “preview home” et futur besoin des pages dédiées.
+### Points forts
 
-## Recommandations
+- Architecture modulaire cohérente avec séparation `app / components / content / domain / application / infrastructure`.
+- Pages marketing principales livrées et cohérentes (Accueil, Services, Portfolio, À propos, Contact).
+- Formulaire contact avec validation, feedback utilisateur et route API serveur.
+- SEO technique de base activé (metadata, `robots.ts`, `sitemap.ts`).
+- Portfolio détaillé dynamique déjà en avance par rapport à la priorisation MVP stricte.
 
-- Continuer à pousser progressivement les patterns visuels fréquents vers des conventions partagées (sans sur-abstraction).
-- Garder l’identité actuelle, mais réduire les variations inutiles (shadows/radius/overlay) pour améliorer la cohérence inter-sections.
-- Centraliser les contenus métiers services/portfolio pour éviter la divergence entre home et pages dédiées.
+### Gaps restants (principaux)
 
-# Audit architecture
+- **US-027 Performance** : optimisations présentes, mais pas de preuve formelle de budget/perf cible (Lighthouse/Web Vitals) dans le repo.
+- **US-028 Accessibilité** : bonnes bases, mais pas d’audit A11y complet ni checklist WCAG documentée.
+- **US-029 Déploiement Vercel** : pas de trace explicite d’un pipeline/documentation de déploiement production.
 
-## Points forts
+---
 
-- Séparation globale saine (`app`, `components`, `content`, `domain`, `application`, `styles`, `tests`) et conforme au spec.
-- Couche application simple et lisible (use cases de lecture de contenu).
-- UI primitives réutilisables, ce qui limite la duplication bas niveau.
+## 2) Évaluation détaillée par épic
 
-## Faiblesses
+## Épic 1 — Fondations du projet
 
-- Le domaine “home” mélange des données qui appartiennent aussi aux futures pages “services” et “portfolio”.
-- Certaines pages marketing étaient encore placeholders, créant un décalage de maturité produit.
-- La cohérence de nommage orientée “preview” peut devenir limitante si tout le contenu métier reste sous `content/home`.
+- **US-001 (Initialisation Next.js/TS/Tailwind)** : **Fait**
+- **US-002 (Structure de dossiers modulaire)** : **Fait**
+- **US-003 (Layout global cohérent)** : **Fait**
 
-## Dossiers / fichiers à améliorer
+**Niveau de complétion épic 1 : 100%**
 
-- Mieux isoler les contenus transverses marketing (catalogue services et projets portfolio) hors `content/home`.
-- Garder `content/home` pour la composition home, pas pour la source unique de vérité de tous les textes métiers.
+## Épic 2 — Design system
 
-## Recommandations
+- **US-004 (Button réutilisable)** : **Fait**
+- **US-005 (Container/Section/Heading)** : **Fait**
+- **US-006 (Input/Textarea)** : **Fait**
 
-- Introduire une source de vérité unique pour services/portfolio.
-- Mapper cette source vers home preview et pages dédiées.
-- Maintenir une granularité simple (peu de fichiers, mais bien nommés).
+**Niveau de complétion épic 2 : 100%**
 
-# Audit sprint 4
+## Épic 3 — Structure du site
 
-## Terminé
+- **US-007 (Navigation principale)** : **Fait**
+- **US-008 (Footer)** : **Fait**
+- **US-009 (CTA global)** : **Fait**
 
-- Home structurée avec Hero, problème, proposition de valeur (solution), services preview, portfolio preview, méthode, CTA final.
-- Ajout de sections de confiance supplémentaires (social proof, FAQ) qui renforcent la conversion.
-- Responsive et base de qualité cohérente (tests unitaires structurels en place).
+**Niveau de complétion épic 3 : 100%**
 
-## Partiellement terminé
+## Épic 4 — Page d’accueil
 
-- Uniformisation fine de certains patterns visuels entre sections (différences encore perceptibles sur certaines surfaces).
+- **US-010 (Proposition de valeur)** : **Fait**
+- **US-011 (Présentation services)** : **Fait**
+- **US-012 (Présentation projets)** : **Fait**
+- **US-013 (Présentation méthode)** : **Fait**
+- **US-014 (CTA accueil)** : **Fait**
 
-## À corriger
+**Niveau de complétion épic 4 : 100%**
 
-- Continuer la rationalisation des styles section-level pour éviter les dérives visuelles à mesure des prochains sprints.
+## Épic 5 — Pages principales
 
-## Verdict sprint 4
+- **US-015 (Page Services)** : **Fait**
+- **US-016 (Page Portfolio)** : **Fait**
+- **US-017 (Page À propos)** : **Fait**
+- **US-018 (Page Contact)** : **Fait**
 
-- **Validé**, avec réserve de polishing visuel continu (non bloquant pour l’avancement).
+**Niveau de complétion épic 5 : 100%**
 
-## Passage sprint 5 : oui / non + justification
+## Épic 6 — Portfolio détaillé
 
-- **Oui.** Les objectifs fonctionnels sprint 4 sont couverts; la priorité logique est d’industrialiser les pages principales tout en gardant la cohérence premium.
+- **US-019 (Page projet dynamique)** : **Fait**
+- **US-020 (Navigation entre projets / retour liste)** : **Fait**
 
-# Audit contenu services / portfolio
+**Niveau de complétion épic 6 : 100%**
 
-## État actuel
+## Épic 7 — Contact
 
-- Le contenu home preview existe et est riche.
-- Les pages services/portfolio utilisaient auparavant un contenu minimal non relié à une source métier commune.
+- **US-021 (Formulaire de contact)** : **Fait**
+- **US-022 (Validation des champs)** : **Fait**
+- **US-023 (Confirmation d’envoi)** : **Fait**
+- **US-024 (Protection anti-spam)** : **Fait** (honeypot côté client + garde côté API)
 
-## Problèmes
+**Niveau de complétion épic 7 : 100%**
 
-- Risque de duplication de textes entre preview home et pages dédiées.
-- Risque de divergence future si les offres/projets évoluent.
+## Épic 8 — Qualité & lancement
 
-## Structure proposée
+- **US-025 (Responsive design)** : **Partiellement validé** (implémentation responsive présente, validation QA finale à systématiser)
+- **US-026 (SEO de base)** : **Fait**
+- **US-027 (Performance)** : **Partiellement validé**
+- **US-028 (Accessibilité)** : **Partiellement validé**
+- **US-029 (Déploiement Vercel)** : **Non confirmé dans le code/documentation actuelle**
 
-- `src/domain/marketing/showcase.ts` : types métier services + portfolio.
-- `src/content/marketing/showcase.ts` : source de vérité contenus services + portfolio.
-- `src/content/home/*-preview.ts` : simple mapping vers le format attendu par les composants home.
+**Niveau de complétion épic 8 : ~60%**
 
-## Changements appliqués
+---
 
-- Centralisation des contenus services/portfolio dans un module unique.
-- Mapping preview conservé pour ne pas casser la home.
-- Pages `/services` et `/portfolio` branchées sur la même source de vérité.
+## 3) Recommandations actionnables (ordre conseillé)
 
-# Refactors appliqués
+1. **Formaliser la phase “Quality Gate pré-prod”**
+   - Ajouter une checklist versionnée (responsive, A11y, perf, SEO, smoke tests formulaire).
+   - Critère de sortie : “Done” réel aligné avec la définition de Done backlog.
 
-- Création d’un modèle métier commun services/portfolio.
-  - Pourquoi : éviter dispersion et duplication.
-  - Bénéfice : meilleure maintenabilité, cohérence cross-pages.
+2. **Performance (US-027)**
+   - Définir des budgets Lighthouse/Web Vitals (LCP, CLS, INP).
+   - Ajouter un script d’audit réplicable (CI ou procédure locale documentée).
 
-- Centralisation des contenus dans `content/marketing/showcase.ts`.
-  - Pourquoi : un seul endroit pour éditer les offres/projets.
-  - Bénéfice : évolution plus simple et moins risquée.
+3. **Accessibilité (US-028)**
+   - Exécuter une passe WCAG (contrastes, focus visible, ordre tabulation, labels, landmarks).
+   - Ajouter des tests A11y automatisés (ex. axe) en plus des smoke tests actuels.
 
-- Refonte utile des pages Services et Portfolio (plus placeholders).
-  - Pourquoi : aligner le niveau perçu des pages principales avec la home.
-  - Bénéfice : crédibilité produit accrue avant sprint 5.
+4. **Déploiement Vercel (US-029)**
+   - Documenter la procédure de déploiement (environnements, variables, rollback).
+   - Ajouter un `README` “runbook prod” minimal.
 
-# Niveau réel du site
+5. **Stabilisation post-MVP**
+   - Garder US-024 anti-spam en amélioration continue (rate-limit/captcha invisible si abus réel).
 
-- **Avis honnête :** base très solide, direction premium crédible, mais encore inégale hors home sans correction (désormais améliorée).
-- **Niveau estimé :** bon niveau freelance premium en progression, avec une architecture saine.
-- **Crédibilité commerciale :** bonne, surtout après renforcement des pages services/portfolio.
-- **Verdict final :** projet professionnel, maintenable, cohérent avec le spec; sprint 4 validé et sprint 5 possible immédiatement.
+---
+
+## 4) Tableau récapitulatif
+
+| Élément                              | État actuel                                                                                              | Niveau de complétion | Action recommandée                                                     |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------- | -------------------: | ---------------------------------------------------------------------- |
+| Fondations projet (US-001 → US-003)  | Socle Next.js + TS + Tailwind, architecture modulaire, layout global en place                            |                 100% | Maintenir la discipline d’architecture actuelle                        |
+| Design system (US-004 → US-006)      | Primitives UI réutilisables présentes (`Button`, `Container`, `Section`, `Heading`, `Input`, `Textarea`) |                 100% | Continuer l’extension via primitives plutôt que styles ad hoc          |
+| Structure site (US-007 → US-009)     | Header, footer, navigation mobile et CTA globaux implémentés                                             |                 100% | Vérifier régulièrement la cohérence CTA/navigation sur nouvelles pages |
+| Home conversion (US-010 → US-014)    | Sections de conversion clés en place (valeur, services, portfolio, méthode, CTA)                         |                 100% | Mesurer conversion (clic CTA / contact) après mise en prod             |
+| Pages principales (US-015 → US-018)  | Services, Portfolio, À propos, Contact livrées                                                           |                 100% | Ajouter micro-optimisations éditoriales orientées conversion           |
+| Portfolio détaillé (US-019 → US-020) | Route dynamique `[slug]`, retour à la liste, navigation projet suivant                                   |                 100% | Ajouter éventuellement filtres/catégories en phase post-MVP            |
+| Contact (US-021 → US-024)            | Formulaire fonctionnel, validations, confirmation, anti-spam basique                                     |                 100% | Renforcer anti-spam si volume augmente (rate limit/captcha soft)       |
+| Responsive (US-025)                  | Classes responsive présentes sur les composants majeurs                                                  |                  85% | Faire une passe QA multi-devices documentée                            |
+| SEO de base (US-026)                 | Metadata, robots, sitemap en place                                                                       |                 100% | Ajouter enrichissements (schema.org) en phase suivante                 |
+| Performance (US-027)                 | Bonnes pratiques présentes mais sans baseline mesurée documentée                                         |                  70% | Définir budgets Lighthouse/Web Vitals + suivi                          |
+| Accessibilité (US-028)               | Premiers éléments A11y (labels ARIA, structure) et tests smoke                                           |                  70% | Lancer audit WCAG + tests automatisés dédiés                           |
+| Déploiement Vercel (US-029)          | Non démontré explicitement dans le repo audité                                                           |                  40% | Documenter et sécuriser le runbook de déploiement                      |

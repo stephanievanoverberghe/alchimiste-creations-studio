@@ -1,7 +1,0 @@
-- [ ] Uniformiser les overlays / ombres des sections marketing vers 2-3 patterns maximum.
-- [ ] Ajouter les sections de comparaison d’offres sur la page Services (scope sprint 5).
-- [ ] Ajouter filtres/catégories et structure de grille avancée pour Portfolio (scope sprint 5).
-- [ ] Créer les pages portfolio détaillées dynamiques `[slug]` (scope sprint 6).
-- [ ] Brancher la page Contact sur un vrai workflow (validation + envoi + anti-spam) (scope sprint 7).
-- [ ] Faire une passe responsive polishing complète mobile/tablette sur Services/Portfolio.
-- [ ] Ajouter tests ciblés pour vérifier la synchro entre contenu centralisé et pages marketing.

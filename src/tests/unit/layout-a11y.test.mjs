@@ -6,6 +6,12 @@ function read(path) {
 }
 
 describe('layout accessibility smoke checks', () => {
+    it('marketing layout exposes a skip link and main landmark', () => {
+        const source = read('src/app/(marketing)/layout.tsx');
+        expect(source).toMatch(/href="#main-content"/);
+        expect(source).toMatch(/<main id="main-content"/);
+    });
+
     it('header exposes a main navigation aria label', () => {
         const source = read('src/components/layout/Header.tsx');
         expect(source).toMatch(/aria-label="Navigation principale"/);

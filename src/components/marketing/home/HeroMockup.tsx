@@ -24,19 +24,11 @@ export function HeroMockup({ mockup }: HeroMockupProps) {
       <div className="relative mx-auto w-full">
         <div className="relative aspect-16/11 w-full">
           <div className="absolute inset-x-0 top-0 z-10">
-            <DesktopFrame
-              browserLabel={mockup.browserLabel}
-              imageSrc={mockup.desktop.src}
-              alt={mockup.desktop.alt}
-            />
+            <DesktopFrame browserLabel={mockup.browserLabel} imageSrc={mockup.desktop.src} alt="" />
           </div>
 
           <div className="absolute bottom-[-3%] right-[3%] z-20 w-[34%] min-w-28 max-w-215 sm:bottom-[-4%] sm:w-[28%] sm:max-w-215 md:bottom-[-5%] md:w-[24%] lg:right-[4%] lg:w-[26%] lg:scale-[1.05] xl:w-[24%]">
-            <MobileFrame
-              imageSrc={mockup.mobile.src}
-              alt={mockup.mobile.alt}
-              className="hero-float-mobile"
-            />
+            <MobileFrame imageSrc={mockup.mobile.src} alt="" className="hero-float-mobile" />
           </div>
 
           <div

@@ -33,7 +33,7 @@ export function SecondaryProjectCard({ project, uiLabels }: SecondaryProjectCard
         <div className="relative h-55 overflow-hidden sm:h-62.5">
           <Image
             src={project.image.src}
-            alt={project.image.alt}
+            alt=""
             width={1200}
             height={900}
             className="h-full w-full object-cover object-top transition-transform duration-700 ease-out md:group-hover:scale-[1.04]"

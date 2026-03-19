@@ -9,7 +9,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="fr">
+    <html lang="fr" dir="ltr">
       <body>{children}</body>
     </html>
   );
