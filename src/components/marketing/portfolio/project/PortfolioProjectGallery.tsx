@@ -22,8 +22,9 @@ export function PortfolioProjectGallery({ project, content }: PortfolioProjectGa
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute left-[10%] top-[16%] h-40 w-40 rounded-full bg-primary/8 blur-3xl" />
-        <div className="absolute right-[8%] bottom-[12%] h-44 w-44 rounded-full bg-accent/8 blur-3xl" />
+        <div className="absolute left-[10%] top-[10%] h-36 w-36 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute right-[8%] top-[18%] h-32 w-32 rounded-full bg-accent/7 blur-3xl" />
+        <div className="absolute left-1/2 bottom-0 h-40 w-40 -translate-x-1/2 rounded-full bg-primary/6 blur-3xl" />
       </div>
 
       <Container>

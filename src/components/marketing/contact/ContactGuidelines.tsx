@@ -30,7 +30,14 @@ export function ContactGuidelines({ content }: ContactGuidelinesProps) {
   if (!activeCard) return null;
 
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-30">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute left-[8%] top-[18%] h-44 w-44 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute right-[8%] top-[24%] h-36 w-36 rounded-full bg-accent/7 blur-3xl" />
+      </div>
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <Heading

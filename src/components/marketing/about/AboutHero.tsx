@@ -8,24 +8,22 @@ type AboutHeroProps = {
 };
 
 export function AboutHero({ content }: AboutHeroProps) {
-  const featuredHighlights = content.highlights.slice(0, 2);
   const remainingHighlights = content.highlights.slice(2);
 
   return (
-    <Section className="relative overflow-hidden pt-10 sm:pt-12 md:pt-16 lg:pt-20">
+    <Section className="relative overflow-hidden pt-10 sm:pt-12 md:pt-16 lg:pt-18">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(124,92,255,0.14),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(66,214,255,0.08),transparent_20%)]" />
-        <div className="absolute left-[12%] top-[10%] h-40 w-40 rounded-full bg-primary/8 blur-3xl" />
-        <div className="absolute right-[10%] top-[18%] h-36 w-36 rounded-full bg-accent/7 blur-3xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(124,92,255,0.14),transparent_34%),radial-gradient(circle_at_80%_20%,rgba(66,214,255,0.10),transparent_22%)]" />
+        <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl sm:h-96 sm:w-96" />
+        <div className="absolute right-0 top-24 h-44 w-44 rounded-full bg-accent/10 blur-3xl sm:h-64 sm:w-64" />
       </div>
 
       <Container>
-        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)] lg:gap-12 xl:gap-16">
-          <div className="order-2 lg:order-1">
+        <div className="grid items-center gap-10 md:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(360px,1fr)] lg:gap-14 xl:gap-18">
+          <div className="order-2 max-w-2xl text-center md:order-1 md:text-start">
             <Badge variant="primary">{content.eyebrow}</Badge>
 
             <h1 className="mt-5 max-w-4xl text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[4rem] lg:leading-[0.98]">
@@ -35,17 +33,6 @@ export function AboutHero({ content }: AboutHeroProps) {
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
               {content.description}
             </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              {featuredHighlights.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground/88 backdrop-blur-xl"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
 
             {remainingHighlights.length ? (
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">

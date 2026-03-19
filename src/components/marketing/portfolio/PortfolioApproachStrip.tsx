@@ -7,7 +7,7 @@ type PortfolioApproachStripProps = {
 
 export function PortfolioApproachStrip({ content }: PortfolioApproachStripProps) {
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"

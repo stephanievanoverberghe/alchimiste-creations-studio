@@ -13,15 +13,14 @@ type PortfolioProjectHeroProps = {
 
 export function PortfolioProjectHero({ project, content }: PortfolioProjectHeroProps) {
   return (
-    <Section className="relative overflow-hidden pt-10 sm:pt-12 md:pt-16 lg:pt-20">
+    <Section className="relative overflow-hidden pt-10 sm:pt-12 md:pt-16 lg:pt-18">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(124,92,255,0.14),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(66,214,255,0.08),transparent_20%)]" />
-        <div className="absolute left-[10%] top-[20%] h-40 w-40 rounded-full bg-primary/8 blur-3xl" />
-        <div className="absolute right-[8%] bottom-[10%] h-44 w-44 rounded-full bg-accent/8 blur-3xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(124,92,255,0.14),transparent_34%),radial-gradient(circle_at_80%_20%,rgba(66,214,255,0.10),transparent_22%)]" />
+        <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl sm:h-96 sm:w-96" />
+        <div className="absolute right-0 top-24 h-44 w-44 rounded-full bg-accent/10 blur-3xl sm:h-64 sm:w-64" />
       </div>
 
       <Container>
@@ -41,10 +40,6 @@ export function PortfolioProjectHero({ project, content }: PortfolioProjectHeroP
 
                 <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-foreground/70">
                   {content.caseStudyLabel}
-                </span>
-
-                <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs text-primary">
-                  {project.afterLabel}
                 </span>
               </div>
 

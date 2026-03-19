@@ -7,7 +7,7 @@ type ContactAltProps = {
 
 export function ContactAlt({ content }: ContactAltProps) {
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24">
+    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
       <Container>
         <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.85fr)]">
           <div className="rounded-3xl border border-white/8 bg-[linear-gradient(180deg,rgba(17,24,39,0.74),rgba(9,14,28,0.86))] p-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)] backdrop-blur-xl sm:p-8">

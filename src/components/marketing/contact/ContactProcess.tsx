@@ -1,4 +1,4 @@
-import { Container, Heading, Section } from '@/components/ui';
+import { Container, Heading, MobileSwipeSteps, Section } from '@/components/ui';
 import type { ContactPageContent } from '@/domain/contact/page';
 
 type ContactProcessProps = {
@@ -7,7 +7,14 @@ type ContactProcessProps = {
 
 export function ContactProcess({ content }: ContactProcessProps) {
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute left-[8%] top-[18%] h-44 w-44 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute right-[8%] top-[24%] h-36 w-36 rounded-full bg-accent/7 blur-3xl" />
+      </div>
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <Heading
@@ -18,7 +25,17 @@ export function ContactProcess({ content }: ContactProcessProps) {
           />
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <MobileSwipeSteps
+          className="mx-auto mt-12 max-w-xl"
+          items={content.steps.map((step, index) => ({
+            id: step.id,
+            number: `0${index + 1}`,
+            title: step.title,
+            description: step.description,
+          }))}
+        />
+
+        <div className="mx-auto mt-14 hidden max-w-5xl gap-5 md:grid-cols-2 xl:grid-cols-4 lg:grid">
           {content.steps.map((step, index) => (
             <article
               key={step.id}

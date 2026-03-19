@@ -1,4 +1,4 @@
-import { Container, Heading, Section } from '@/components/ui';
+import { Container, Heading, MobileSwipeSteps, Section } from '@/components/ui';
 import type { ServicesPageContent } from '@/domain/services/page';
 
 type ServicesProcessMiniProps = {
@@ -7,7 +7,7 @@ type ServicesProcessMiniProps = {
 
 export function ServicesProcessMini({ content }: ServicesProcessMiniProps) {
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <Heading
@@ -18,7 +18,17 @@ export function ServicesProcessMini({ content }: ServicesProcessMiniProps) {
           />
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <MobileSwipeSteps
+          className="mx-auto mt-12 max-w-xl"
+          items={content.steps.map((step) => ({
+            id: step.number,
+            number: step.number,
+            title: step.title,
+            description: step.text,
+          }))}
+        />
+
+        <div className="mt-14 hidden gap-5 md:grid-cols-2 xl:grid-cols-4 lg:grid">
           {content.steps.map((step) => (
             <div
               key={step.number}

@@ -9,17 +9,17 @@ type PortfolioProjectNarrativeProps = {
 
 export function PortfolioProjectNarrative({ project, content }: PortfolioProjectNarrativeProps) {
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute left-[10%] top-[14%] h-40 w-40 rounded-full bg-primary/8 blur-3xl" />
-        <div className="absolute right-[8%] bottom-[10%] h-44 w-44 rounded-full bg-accent/8 blur-3xl" />
+        <div className="absolute left-[8%] top-[18%] h-44 w-44 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute right-[8%] top-[24%] h-36 w-36 rounded-full bg-accent/7 blur-3xl" />
       </div>
 
       <Container>
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto mt-6 max-w-6xl">
           <div className="rounded-4xl border border-white/10 bg-[linear-gradient(180deg,rgba(18,24,38,0.82),rgba(10,14,24,0.96))] p-6 shadow-[0_22px_60px_rgba(0,0,0,0.2)] backdrop-blur-xl sm:p-8 lg:p-10">
             <div className="max-w-3xl">
               <p className="text-[0.72rem] uppercase tracking-[0.16em] text-foreground/45">

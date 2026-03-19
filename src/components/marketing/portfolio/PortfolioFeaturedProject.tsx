@@ -18,8 +18,8 @@ export function PortfolioFeaturedProject({ content, project }: PortfolioFeatured
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute left-[12%] top-[18%] h-44 w-44 rounded-full bg-primary/8 blur-3xl" />
-        <div className="absolute right-[8%] bottom-[10%] h-40 w-40 rounded-full bg-accent/8 blur-3xl" />
+        <div className="absolute left-[8%] top-[18%] h-44 w-44 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute right-[8%] top-[24%] h-36 w-36 rounded-full bg-accent/7 blur-3xl" />
       </div>
 
       <Container>

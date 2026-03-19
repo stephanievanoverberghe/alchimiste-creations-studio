@@ -7,7 +7,7 @@ type AboutIntroProps = {
 
 export function AboutIntro({ content }: AboutIntroProps) {
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
       <Container>
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">

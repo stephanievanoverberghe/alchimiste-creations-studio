@@ -18,7 +18,7 @@ export function ServicesComparison({ content, services }: ServicesComparisonProp
   const comparisonModel = getServicesComparisonModel(content);
 
   return (
-    <Section className="relative overflow-hidden py-20 sm:py-24">
+    <Section className="relative overflow-hidden py-6 sm:py-10 lg:py-28">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <Heading

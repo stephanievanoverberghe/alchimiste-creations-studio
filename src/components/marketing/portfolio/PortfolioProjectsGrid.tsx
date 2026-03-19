@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
-import { Badge, Container, Heading, Section } from '@/components/ui';
+import { Badge, Container, Heading, MobileSwipeProjects, Section } from '@/components/ui';
 import { cn } from '@/lib/utils/cn';
 import type { PortfolioPageContent } from '@/domain/portfolio/page';
 import type { PortfolioProject } from '@/domain/portfolio/types';
@@ -25,7 +25,22 @@ export function PortfolioProjectsGrid({ content, projects }: PortfolioProjectsGr
           />
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        <MobileSwipeProjects
+          className="mt-10"
+          items={projects.map((project, index) => ({
+            id: project.slug,
+            slug: project.slug,
+            title: project.title,
+            description: project.description,
+            href: `/portfolio/${project.slug}`,
+            image: project.image,
+            badge: project.category,
+            meta: project.afterLabel,
+            featured: index === 0,
+          }))}
+        />
+
+        <div className="mt-14 hidden gap-6 lg:grid-cols-2 lg:grid">
           {projects.map((project, index) => {
             const isLarge = index === 0 || index % 3 === 0;
 
