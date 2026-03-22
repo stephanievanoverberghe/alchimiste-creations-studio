@@ -4,40 +4,40 @@ import { secondaryContactCtaLabel, trustCallMeta } from '@/content/site/messagin
 export const aboutPageContent: AboutPageContent = {
   hero: {
     eyebrow: 'À propos',
-    title: 'Créer des sites qui rendent une activité plus claire, plus crédible et plus désirable.',
+    title: 'Rendre votre activité plus lisible, plus crédible et plus facile à choisir.',
     description:
-      'Alchimiste Créations est un studio web indépendant pensé pour les entrepreneurs, créateurs et indépendants qui veulent une présence en ligne plus juste, plus structurée et plus convaincante.',
+      'Alchimiste Créations accompagne les entrepreneurs, créateurs et indépendants qui veulent une présence en ligne alignée avec la qualité réelle de leur travail.',
     highlights: [
-      'Design premium',
-      'Clarté du message',
-      'Approche orientée conversion',
-      'Développement moderne',
+      'Design soigné',
+      'Message clarifié',
+      'Expérience fluide',
+      'Approche orientée contact',
     ],
     aside: {
       eyebrow: 'Studio indépendant',
-      title: 'Une approche pensée pour mieux traduire la qualité réelle d’une activité.',
+      title: 'Une approche complète, avec un seul interlocuteur.',
       description:
-        'Chaque projet cherche un point d’équilibre entre perception, lisibilité, structure et expérience utilisateur.',
+        'Chaque projet combine cadrage, design et développement pour produire un site cohérent dans le fond comme dans la forme.',
       items: [
         {
           id: 'design',
           label: 'Design',
-          value: 'Premium et lisible',
+          value: 'Sobre, élégant, rassurant',
         },
         {
           id: 'message',
           label: 'Message',
-          value: 'Plus clair et plus juste',
+          value: 'Clair et orienté client',
         },
         {
           id: 'experience',
           label: 'Expérience',
-          value: 'Fluide et cohérente',
+          value: 'Fluide sur tous les écrans',
         },
         {
           id: 'goal',
-          label: 'Finalité',
-          value: 'Mieux convaincre',
+          label: 'Objectif',
+          value: 'Obtenir plus de demandes qualifiées',
         },
       ],
     },
@@ -45,106 +45,97 @@ export const aboutPageContent: AboutPageContent = {
 
   intro: {
     eyebrow: 'Présentation',
-    title: 'Une approche à la croisée du design, du message et de l’expérience.',
+    title: 'Une vision simple : un site doit aider à décider.',
     paragraphs: [
-      'Je conçois des sites web pour les activités qui ont besoin d’être mieux perçues, mieux comprises et mieux présentées.',
-      'Mon travail ne consiste pas seulement à produire une interface esthétique. Il consiste à clarifier une offre, structurer une expérience et construire une présence digitale cohérente avec le niveau réel de l’activité.',
-      'Chaque projet est pensé comme un outil de perception, de crédibilité et de développement.',
+      'Je crée des sites pour les activités qui ont besoin d’être mieux comprises et mieux perçues.',
+      'Le travail ne se limite pas à “faire joli” : il s’agit d’organiser le message, de structurer l’expérience et de donner un cadre clair à la décision.',
+      'Chaque projet est pensé comme un outil commercial : crédible, utile et durable.',
     ],
   },
 
   vision: {
     eyebrow: 'Vision',
-    title: 'Un site web ne devrait pas seulement exister. Il devrait soutenir l’activité.',
+    title: 'Un site n’est pas une simple vitrine : c’est un levier de confiance.',
     description:
-      'Un site n’est pas une vitrine figée. C’est un point de contact stratégique. Il influence la manière dont une activité est perçue, comprise et jugée dès les premières secondes.',
+      'En quelques secondes, vos visiteurs jugent votre sérieux, la clarté de votre offre et la facilité à travailler avec vous. Le site doit servir cette première décision.',
     points: [
       {
         id: 'clarity',
-        title: 'Clarifier avant de décorer',
-        description:
-          'Un beau site qui reste flou ne sert pas l’activité. La clarté du message passe avant l’effet visuel.',
+        title: 'Clarifier avant de styliser',
+        description: 'Sans message clair, même un beau design ne suffit pas à convaincre.',
       },
       {
         id: 'perception',
-        title: 'Travailler la valeur perçue',
+        title: 'Soigner la perception',
         description:
-          'Le design, la structure et le rythme visuel doivent renforcer immédiatement la sensation de qualité.',
+          'Le détail visuel, la hiérarchie et le ton construisent la sensation de qualité.',
       },
       {
         id: 'utility',
-        title: 'Créer un outil utile',
+        title: 'Rester utile et concret',
         description:
-          'L’objectif final n’est pas d’avoir un site “joli”, mais un site qui accompagne une vraie intention business.',
+          'Le vrai objectif est d’aider vos prospects à comprendre, vous faire confiance et vous contacter.',
       },
     ],
   },
 
   values: {
     eyebrow: 'Valeurs',
-    title: 'Une manière de travailler exigeante, lisible et cohérente.',
+    title: 'Une manière de travailler claire et exigeante.',
     description:
-      'Chaque projet repose sur des principes simples : ne pas surcharger, ne pas compliquer inutilement, et toujours chercher le point juste entre élégance et efficacité.',
+      'Chaque projet suit les mêmes principes : pertinence, lisibilité et cohérence, sans complexité inutile.',
     items: [
       {
         id: 'coherence',
         title: 'Cohérence',
-        description:
-          'L’image, le message et la structure doivent raconter la même chose sans contradiction.',
+        description: 'Le fond, la forme et le parcours doivent raconter la même chose.',
       },
       {
         id: 'clarity',
         title: 'Clarté',
-        description:
-          'Une activité bien présentée se comprend plus vite, rassure davantage et convertit mieux.',
+        description: 'Un site compréhensible inspire confiance et accélère la décision.',
       },
       {
         id: 'quality',
         title: 'Exigence',
-        description:
-          'Le détail compte. La perception d’un site se joue souvent dans ce qui semble presque invisible.',
+        description: 'La qualité perçue se joue dans les détails visibles et invisibles.',
       },
       {
         id: 'simplicity',
         title: 'Simplicité utile',
-        description:
-          'Le but n’est pas d’en faire plus. Le but est de faire ce qu’il faut, au bon endroit, avec justesse.',
+        description: 'Éviter le superflu pour renforcer ce qui compte vraiment.',
       },
     ],
   },
 
   journey: {
     eyebrow: 'Parcours',
-    title: 'Une évolution construite autour du regard, de la structure et du numérique.',
+    title: 'Du regard créatif à une méthode orientée résultats.',
     description:
-      'Mon parcours m’a amenée à développer une sensibilité forte à la fois pour l’esthétique, l’organisation de l’information et la qualité d’exécution.',
+      'Le studio s’est construit autour d’un même fil conducteur : mieux présenter les activités qui apportent une vraie valeur.',
     steps: [
       {
         id: 'observe',
         title: 'Observer',
-        description:
-          'Comprendre ce qui bloque la perception d’une activité, ce qui crée du doute et ce qui freine la prise de contact.',
+        description: 'Identifier ce qui crée du doute et ce qui freine la prise de contact.',
       },
       {
         id: 'design',
         title: 'Concevoir',
-        description:
-          'Imaginer des interfaces plus lisibles, plus cohérentes et plus alignées avec le niveau réel de l’offre.',
+        description: 'Créer une expérience lisible, cohérente et alignée avec votre niveau.',
       },
       {
         id: 'build',
         title: 'Développer',
-        description:
-          'Transformer cette intention en un site moderne, responsive et durable, capable de soutenir l’activité dans le temps.',
+        description: 'Livrer un site fiable, performant et prêt à soutenir votre activité.',
       },
     ],
   },
 
   finalCta: {
     eyebrow: 'Démarrer un projet',
-    title: 'Vous souhaitez une présence en ligne plus claire et plus crédible ?',
-    description:
-      'Nous pouvons construire un site pensé pour mieux traduire la qualité de votre activité.',
+    title: 'Vous voulez une présence en ligne plus juste et plus convaincante ?',
+    description: 'Discutons de votre contexte et de la meilleure façon d’avancer.',
     buttonLabel: secondaryContactCtaLabel,
     buttonHref: '/contact',
     meta: trustCallMeta,

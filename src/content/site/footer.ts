@@ -5,17 +5,17 @@ import { coreValuePromise } from './messaging';
 
 export const siteBrand = 'Alchimiste Créations';
 
-export const siteValueProposition = `J’aide les entrepreneurs et créateurs à transformer leur activité en ${coreValuePromise.toLowerCase()}`;
+export const siteValueProposition = coreValuePromise;
 
 export const footerContent = {
   intro: 'Discutons de votre projet',
-  title: 'Un site plus clair, plus crédible, plus juste.',
+  title: 'Un site qui donne confiance et donne envie de vous contacter.',
   description:
-    'Chaque projet est conçu pour valoriser votre activité, inspirer confiance et donner envie de vous contacter.',
+    'Alchimiste Créations conçoit des sites clairs, élégants et structurés pour mieux présenter votre activité et soutenir votre développement.',
   highlights: [
-    { label: 'Clarté du message', icon: Sparkles },
-    { label: 'Design moderne et crédible', icon: Gem },
-    { label: 'Performance & conversion', icon: ShieldCheck },
+    { label: 'Message clair', icon: Sparkles },
+    { label: 'Image professionnelle', icon: Gem },
+    { label: 'Parcours orienté contact', icon: ShieldCheck },
   ],
   contact: {
     email: 'bonjour@alchimiste-creations.fr',
@@ -29,5 +29,5 @@ export const footerContent = {
   legalNavigation,
   socialLinks,
   cta: primaryCta,
-  bottomText: 'Studio web indépendant · Clarté · Crédibilité · Performance',
+  bottomText: 'Studio web indépendant · Clarté · Exigence · Conversion',
 };

@@ -27,7 +27,7 @@ export function Footer() {
               </Badge>
 
               <div className="space-y-4">
-                <p className="lg:max-w-[16ch] text-3xl font-semibold tracking-tight text-text sm:text-4xl lg:text-5xl">
+                <p className="lg:max-w-[20ch] text-3xl font-semibold tracking-tight text-text sm:text-4xl lg:text-5xl">
                   {footerContent.title}
                 </p>
 

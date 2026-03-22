@@ -403,10 +403,6 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
               <div className="flex flex-col gap-4 border-t border-white/8 pt-5 sm:flex-row sm:items-center sm:justify-between">
                 <div className="max-w-2xl space-y-2">
                   <p className="text-sm leading-7 text-muted-foreground">{content.helper}</p>
-                  <p className="text-xs leading-6 text-foreground/60">
-                    Urgence projet (moins de 2 semaines) : précisez-le dans votre message pour une
-                    orientation prioritaire si un créneau est disponible.
-                  </p>
                 </div>
 
                 <Button

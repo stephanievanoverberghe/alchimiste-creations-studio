@@ -8,9 +8,9 @@ import type {
 
 export const servicesPreviewSectionContent: ServicePreviewSectionContent = {
   eyebrow: 'Offres',
-  title: 'Trois offres pour lancer, structurer ou accélérer votre présence en ligne.',
+  title: 'Trois formats pour avancer avec un cadre clair.',
   description:
-    'Chaque format répond à un besoin précis. Vous choisissez l’offre la plus adaptée à votre niveau de maturité, à votre objectif et à votre priorité business.',
+    'Vous choisissez selon votre priorité : lancer rapidement, structurer votre présence ou corriger un site qui ne reflète plus votre niveau.',
   idealForLabel: 'Idéal pour',
   investmentLabel: 'Investissement',
   startingFromLabel: 'À partir de',
@@ -24,20 +24,20 @@ export const servicesPreviewOrder: ServiceSlug[] = ['landing-page', 'site-vitrin
 export const servicesPreviewOverrides: Record<ServiceSlug, ServicePreviewOverrides> = {
   'landing-page': {
     idealFor:
-      'Idéale si vous lancez une offre, une campagne ou un service précis et que vous avez besoin d’une page claire à activer rapidement.',
+      'Lancer une offre précise avec une page claire, rapide à produire et orientée prise de contact.',
     icon: Layers3,
     ctaLabel: "Découvrir l'offre",
   },
   'site-vitrine': {
     idealFor:
-      'Idéal si votre activité est déjà installée et que vous avez besoin d’un site plus solide pour rassurer, convaincre et convertir.',
+      'Présenter votre activité dans son ensemble avec une structure solide et une image professionnelle.',
     icon: MonitorSmartphone,
     ctaLabel: 'Voir le détail',
     highlightLabel: 'Le plus demandé',
   },
   'refonte-site': {
     idealFor:
-      'Idéale si votre site existe déjà mais ne reflète plus votre niveau de qualité ou ne génère pas assez de demandes pertinentes.',
+      'Repartir sur de bonnes bases sans repartir de zéro : message clarifié, image modernisée, parcours amélioré.',
     icon: RefreshCcw,
     ctaLabel: 'Explorer la refonte',
   },

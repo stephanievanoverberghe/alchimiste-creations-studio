@@ -9,9 +9,9 @@ export const servicesPageContent: ServicesPageContent = {
   hero: {
     eyebrow: 'Services',
     title:
-      'Des offres cadrées pour savoir exactement quoi lancer, quoi exclure et quel résultat viser.',
+      'Des offres cadrées pour choisir vite, lancer sereinement et obtenir un résultat concret.',
     description:
-      'Chaque format annonce un périmètre concret, des exclusions explicites et un résultat mesurable pour décider rapidement sans zone floue.',
+      'Chaque offre précise ce qui est inclus, ce qui ne l’est pas et le résultat visé. Vous avancez sans ambiguïté sur le budget, le délai et la priorité.',
     primaryCta: {
       label: secondaryContactCtaLabel,
       href: '/contact',
@@ -21,16 +21,16 @@ export const servicesPageContent: ServicesPageContent = {
       href: '/portfolio',
     },
     highlights: [
+      'Périmètre explicite',
       'Design sur mesure',
-      'Développement responsive',
-      'Performance optimisée',
-      'Approche orientée conversion',
+      'Production responsive',
+      'Objectif contact',
     ],
     featuredCard: {
       badge: 'Offre la plus demandée',
       title: 'Site vitrine',
       description:
-        'Pour présenter votre activité avec une structure claire, un design crédible et une base suffisamment solide pour évoluer.',
+        'Pour présenter votre activité avec une structure claire, une image professionnelle et une base solide pour évoluer ensuite.',
       priceLabel: 'Investissement',
       priceValue: 'À partir de 1 800 €',
       timeline: 'Délai habituel : 3 à 5 semaines',
@@ -40,20 +40,20 @@ export const servicesPageContent: ServicesPageContent = {
         {
           id: 'scope',
           icon: 'layers3',
-          label: 'Offres cadrées',
-          value: 'Périmètre clair',
+          label: 'Périmètre',
+          value: 'Clair dès le départ',
         },
         {
           id: 'timeline',
           icon: 'timer',
-          label: 'Délais réalistes',
-          value: '2 à 6 semaines',
+          label: 'Délais',
+          value: 'Réalisme et visibilité',
         },
         {
           id: 'goal',
           icon: 'shieldCheck',
-          label: 'Objectif',
-          value: 'Clarté + crédibilité',
+          label: 'Finalité',
+          value: 'Mieux convaincre en ligne',
         },
       ],
     },
@@ -64,77 +64,77 @@ export const servicesPageContent: ServicesPageContent = {
       {
         id: 'launch',
         icon: 'rocket',
-        title: 'Lancer une présence crédible',
-        text: 'Quand il faut présenter une offre clairement sans partir sur un site trop lourd.',
+        title: 'Lancer rapidement une offre',
+        text: 'Quand vous avez besoin d’une présence propre et efficace, sans projet trop lourd à démarrer.',
       },
       {
         id: 'structure',
         icon: 'compass',
-        title: 'Structurer une activité durable',
-        text: 'Quand votre activité mérite un site complet, cohérent et professionnel.',
+        title: 'Structurer une activité installée',
+        text: 'Quand il faut clarifier votre positionnement et présenter vos services avec plus de cohérence.',
       },
       {
         id: 'refresh',
         icon: 'refreshCcw',
-        title: 'Moderniser un existant',
-        text: 'Quand votre site ne reflète plus votre niveau, votre image ou votre ambition.',
+        title: 'Remettre à niveau un site existant',
+        text: 'Quand votre site ne reflète plus la qualité réelle de votre travail ni vos ambitions.',
       },
     ],
   },
 
   process: {
     eyebrow: 'Méthode',
-    title: 'Un cadre clair, du premier échange à la mise en ligne.',
+    title: 'Un cadre simple, sans complexité inutile.',
     description:
-      'L’objectif n’est pas de vous noyer dans un process complexe, mais de rendre la collaboration simple, lisible et rassurante.',
+      'Le process est là pour fluidifier les décisions : vous savez ce que nous faisons, pourquoi et dans quel ordre.',
     steps: [
       {
         number: '01',
         title: 'Échange initial',
-        text: 'Comprendre votre activité, votre priorité et le format le plus adapté.',
+        text: 'Nous clarifions votre besoin, votre priorité et le format le plus pertinent.',
       },
       {
         number: '02',
         title: 'Structure & direction',
-        text: 'Définir une base claire, crédible et alignée avec votre objectif.',
+        text: 'Nous posons une base claire pour votre message, vos pages et votre objectif de conversion.',
       },
       {
         number: '03',
         title: 'Design & développement',
-        text: 'Créer un site moderne, responsive et cohérent dans les détails.',
+        text: 'Je produis un site lisible, élégant et fiable sur tous les écrans.',
       },
       {
         number: '04',
         title: 'Livraison & mise en ligne',
-        text: 'Finaliser, vérifier et mettre en ligne une version prête à être utilisée.',
+        text: 'Vous recevez un site prêt à être utilisé, avec une mise en ligne propre et contrôlée.',
       },
     ],
   },
 
   offers: {
     eyebrow: 'Les offres',
-    title: 'Trois formats pour lancer, structurer ou améliorer votre site.',
+    title: 'Trois formats, trois objectifs clairs.',
     description:
-      'Chaque offre répond à un cas précis avec un cadre de production, des limites assumées et un objectif business observable.',
+      'Chaque offre correspond à une situation précise pour éviter les prestations trop floues ou surdimensionnées.',
     investmentLabel: 'Investissement',
     startingFromLabel: 'À partir de',
     timelineLabel: 'Délai',
     idealForLabel: 'Idéal pour',
     expectedResultLabel: 'Résultat recherché',
     expectedResultDescription:
-      'Une offre cadrée pour aller à l’essentiel sans sacrifier la qualité perçue.',
+      'Une présence en ligne plus lisible, plus crédible et plus orientée prise de contact.',
     detailsLabel: 'Voir le détail complet',
     detailsDescription: 'inclus, livrables, options et périmètre',
-    fallbackResult: 'Créer une présence claire et crédible',
+    fallbackResult: 'Mieux présenter votre activité et convertir plus facilement',
     defaultOfferBadge: 'Offre',
     featuredOfferBadge: 'Offre signature',
   },
 
   comparison: {
     eyebrow: 'Comparaison',
-    title: 'Comparer les offres en un coup d’œil.',
+    title: 'Le bon format en un coup d’œil.',
     description:
-      'Ce comparatif permet d’identifier rapidement le bon format selon votre besoin, votre niveau de maturité et votre budget de départ.',
+      'Comparez les offres selon votre besoin, votre timing et votre budget pour décider plus sereinement.',
     defaultOfferBadge: 'Offre',
     startingFromLabel: 'À partir de',
     timelineLabel: 'Délai',
@@ -201,9 +201,9 @@ export const servicesPageContent: ServicesPageContent = {
 
   details: {
     eyebrow: 'Détail des offres',
-    title: 'Un cadre précis pour décider en confiance.',
+    title: 'Un niveau de précision qui aide à décider.',
     description:
-      'Pour chaque offre : périmètre de production, exclusions explicites, livrables et résultat attendu pour piloter la décision.',
+      'Pour chaque offre : objectifs, inclusions, livrables, options et limites pour avancer en confiance.',
     defaultOfferBadge: 'Offre',
     featuredOfferBadge: 'Populaire',
     summaryTitle: 'En bref',
@@ -245,9 +245,9 @@ export const servicesPageContent: ServicesPageContent = {
 
   finalCta: {
     eyebrow: 'Démarrer un projet',
-    title: 'Vous hésitez entre plusieurs formats ?',
+    title: 'Vous hésitez entre plusieurs offres ?',
     description:
-      'Nous pouvons clarifier ensemble la solution la plus adaptée à votre activité, votre priorité et votre budget.',
+      'Un appel découverte permet d’identifier rapidement le format adapté à votre activité, votre priorité et votre budget.',
     buttonLabel: primaryContactCtaLabel,
     buttonHref: '/contact',
     meta: trustCallMeta,

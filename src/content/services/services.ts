@@ -6,30 +6,29 @@ const servicesData: Service[] = [
     title: 'Landing Page',
 
     shortDescription:
-      'Une page stratégique pour présenter une offre unique, capter l’attention rapidement et diriger l’utilisateur vers une action claire.',
+      'Une page stratégique pour présenter une offre clairement et amener vos visiteurs vers une action précise.',
 
     description:
-      'La landing page permet de créer rapidement une présence en ligne professionnelle pour présenter une activité ou une offre spécifique.',
+      'Un format ciblé pour lancer une offre, une campagne ou un service avec un message clair et une conversion directe.',
 
     target: [
-      'entrepreneurs qui lancent une activité',
+      'entrepreneurs qui lancent une offre',
       'coachs et thérapeutes',
-      'créateurs',
-      'indépendants',
-      'projets ayant besoin d’une page claire',
+      'créateurs et indépendants',
+      'projets qui ont besoin d’une page unique efficace',
     ],
 
     objectives: [
-      'présenter une activité',
-      'expliquer une offre',
-      'inspirer confiance',
+      'présenter une offre sans dispersion',
+      'expliquer rapidement la valeur proposée',
+      'rassurer avec les éléments clés',
       'encourager la prise de contact',
     ],
 
     includes: [
       '1 page complète',
-      'design personnalisé',
-      'structure optimisée',
+      'structure éditoriale',
+      'design sur mesure',
       'développement responsive',
       'formulaire de contact',
       'optimisation performance',
@@ -37,20 +36,20 @@ const servicesData: Service[] = [
     ],
 
     possibleContent: [
-      'hero',
-      'présentation de l’activité',
-      'explication de l’offre',
-      'éléments de confiance',
-      'présentation du créateur',
-      'appel à l’action',
+      'hero orienté promesse',
+      'présentation de l’offre',
+      'points de différenciation',
+      'preuves de confiance',
+      'présentation du porteur de projet',
+      'appel à l’action principal',
       'formulaire de contact',
     ],
 
     deliverables: [
-      'structure de la page',
-      'design moderne et responsive',
-      'développement du site',
-      'optimisation des performances',
+      'structure de page validée',
+      'maquette finale',
+      'développement intégré',
+      'optimisations de base',
       'mise en ligne',
     ],
 
@@ -73,24 +72,24 @@ const servicesData: Service[] = [
     title: 'Site vitrine',
 
     shortDescription:
-      'Un site complet pour présenter votre activité, vos services et votre différence avec une structure claire, crédible et pensée pour durer.',
+      'Un site complet pour présenter votre activité, vos services et votre différence avec une image professionnelle.',
 
     description:
-      'Le site vitrine constitue la base d’une présence en ligne professionnelle et permet de présenter clairement une activité.',
+      'Le format recommandé pour structurer durablement votre présence en ligne et soutenir votre développement commercial.',
 
     target: ['entrepreneurs', 'coachs', 'thérapeutes', 'artistes', 'photographes', 'indépendants'],
 
     objectives: [
-      'présenter une activité',
-      'expliquer les services',
-      'montrer des réalisations',
-      'inspirer confiance',
-      'attirer des clients',
+      'présenter clairement votre activité',
+      'rendre vos services faciles à comprendre',
+      'renforcer la confiance grâce à une image cohérente',
+      'faciliter la prise de contact',
     ],
 
     includes: [
       'jusqu’à 5 pages',
-      'design personnalisé',
+      'structure du site',
+      'design sur mesure',
       'développement responsive',
       'optimisation performance',
       'formulaire de contact',
@@ -99,9 +98,9 @@ const servicesData: Service[] = [
     ],
 
     deliverables: [
-      'structure du site',
-      'design personnalisé',
-      'développement responsive',
+      'arborescence validée',
+      'maquettes des pages clés',
+      'développement complet',
       'optimisation SEO de base',
       'mise en ligne',
     ],
@@ -127,36 +126,36 @@ const servicesData: Service[] = [
     title: 'Refonte de site',
 
     shortDescription:
-      'Une refonte ciblée pour clarifier le message, moderniser l’image et améliorer les performances de conversion sans repartir de zéro inutilement.',
+      'Une refonte ciblée pour moderniser l’image, clarifier le message et retrouver un site qui soutient vraiment votre activité.',
 
     description:
-      'La refonte consiste à transformer un site existant afin de le rendre plus moderne, clair et performant.',
+      'Nous conservons ce qui mérite de l’être et améliorons le reste pour obtenir un site plus cohérent, plus lisible et plus convaincant.',
 
     target: [
-      'entrepreneurs ayant déjà un site',
-      'sites dépassés',
-      'sites qui ne reflètent plus l’activité',
+      'entrepreneurs qui ont déjà un site',
+      'sites devenus datés',
+      'projets dont le site ne reflète plus le niveau réel',
     ],
 
     objectives: [
-      'améliorer le design',
-      'clarifier le contenu',
-      'moderniser la technologie',
+      'remettre à niveau la perception globale',
+      'clarifier les contenus stratégiques',
       'améliorer l’expérience utilisateur',
+      'renforcer la conversion',
     ],
 
     includes: [
       'audit du site existant',
-      'nouvelle structure',
-      'redesign',
+      'nouvelle structure priorisée',
+      'redesign ciblé',
       'développement moderne',
       'optimisation performance',
       'mise en ligne',
     ],
 
     deliverables: [
-      'audit et analyse du site',
-      'nouvelle structure',
+      'audit et recommandations',
+      'nouveau plan de pages',
       'design modernisé',
       'développement performant',
       'mise en ligne',

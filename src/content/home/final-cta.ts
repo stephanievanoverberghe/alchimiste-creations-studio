@@ -4,10 +4,10 @@ import { primaryContactCtaLabel, trustCallMeta } from '@/content/site/messaging'
 export const finalCtaContent: FinalCtaContent = {
   eyebrow: 'Démarrer un projet',
 
-  title: 'Prêt à transformer votre site en levier de crédibilité et de conversion ?',
+  title: 'Vous voulez un site qui donne confiance et génère de vrais contacts ?',
 
   description:
-    'En 30 minutes, nous cadrons vos objectifs, votre priorité business et la meilleure approche pour créer un site clair, crédible et efficace.',
+    'En 30 minutes, nous clarifions vos priorités et la meilleure approche pour lancer un site utile, lisible et convaincant.',
 
   buttonLabel: primaryContactCtaLabel,
 

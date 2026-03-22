@@ -3,35 +3,35 @@ import type { ContactPageContent } from '@/domain/contact/page';
 export const contactPageContent: ContactPageContent = {
   hero: {
     eyebrow: 'Premier échange',
-    title: 'Parlons de votre projet et de la meilleure prochaine étape, sans perdre de temps.',
+    title: 'Parlons de votre projet simplement, avec des réponses claires dès le départ.',
     description:
-      'Vous recevez un premier retour sous 24 à 48h ouvrées avec : niveau de fit, proposition de suite et délai réaliste selon votre priorité.',
+      'Sous 24 à 48h ouvrées, vous recevez un retour concret : niveau de fit, prochaine étape et délai réaliste selon votre priorité.',
     highlights: [
       'Réponse sous 24 à 48h',
       'Échange sans engagement',
-      'Approche claire et structurée',
+      'Retour clair et structuré',
       'Projets sélectionnés avec attention',
     ],
   },
 
   guidelines: {
     eyebrow: 'Avant de me contacter',
-    title: 'Quelques repères pour cadrer le projet dès le départ.',
+    title: 'Quelques repères pour gagner du temps des deux côtés.',
     description:
-      'Le but n’est pas de compliquer la prise de contact, mais de créer un premier échange plus utile, plus fluide et mieux qualifié.',
+      'Ces éléments ne sont pas là pour compliquer le contact, mais pour vous donner une réponse plus juste dès le premier échange.',
     cards: [
       {
         id: 'projects',
-        title: 'Types de projets accompagnés',
+        title: 'Projets accompagnés',
         description:
-          'J’accompagne principalement les entrepreneurs, indépendants et créateurs qui ont besoin d’une présence en ligne plus claire et plus crédible.',
+          'Le studio travaille surtout avec des entrepreneurs, créateurs et indépendants qui veulent une présence en ligne plus crédible et plus efficace.',
         points: ['Landing page', 'Site vitrine', 'Refonte de site existant'],
       },
       {
         id: 'budget',
         title: 'Budget de départ',
         description:
-          'Les projets sont cadrés selon le niveau d’accompagnement, le format du site et la complexité du besoin.',
+          'Le budget dépend du format, du niveau d’accompagnement et de la complexité du projet.',
         points: [
           'Landing page : à partir de 900 €',
           'Site vitrine : à partir de 1 800 €',
@@ -42,22 +42,22 @@ export const contactPageContent: ContactPageContent = {
         id: 'readiness',
         title: 'Ce qu’il est utile d’avoir',
         description:
-          'Votre projet n’a pas besoin d’être parfaitement défini, mais certains éléments rendent l’échange plus pertinent.',
+          'Votre projet n’a pas besoin d’être finalisé. Quelques informations clés suffisent pour bien cadrer le premier retour.',
         points: [
-          'Une activité déjà posée',
-          'Un besoin identifié',
-          'Quelques idées, contenus ou références',
+          'Une activité ou une offre identifiée',
+          'Un besoin prioritaire',
+          'Des références ou contenus déjà disponibles (même partiels)',
         ],
       },
       {
         id: 'fit',
         title: 'Ce qui fait un bon fit',
         description:
-          'Je peux vraiment vous aider si votre priorité est business : mieux vous positionner, rassurer plus vite et augmenter les demandes qualifiées.',
+          'La collaboration fonctionne le mieux quand l’objectif est clair : mieux présenter votre valeur et obtenir plus de demandes qualifiées.',
         points: [
-          'Vous cherchez un site utile, pas juste esthétique',
-          'Vous êtes prêt à valider des décisions rapidement',
-          'Vous visez un impact mesurable (contacts, rendez-vous, ventes)',
+          'Vous cherchez un site utile, pas seulement esthétique',
+          'Vous êtes prêt à prendre des décisions au fil du projet',
+          'Vous voulez un résultat concret (contacts, rendez-vous, opportunités)',
         ],
       },
     ],
@@ -67,39 +67,39 @@ export const contactPageContent: ContactPageContent = {
     eyebrow: 'Formulaire',
     title: 'Décrivez votre projet',
     description:
-      'Quelques informations suffisent pour obtenir un retour utile : faisabilité, fit, ordre de grandeur et prochaine étape recommandée.',
+      'Quelques informations suffisent pour recevoir un premier diagnostic utile et une recommandation de prochaine étape.',
     aside: {
-      eyebrow: 'Premier échange',
-      title: 'Ce que vous obtenez après envoi.',
+      eyebrow: 'Après envoi',
+      title: 'Ce que vous recevez concrètement.',
       description:
-        'Le formulaire sert à vous répondre concrètement, pas à rallonger le process. Vous savez rapidement si l’on peut avancer ensemble, et comment.',
+        'Le formulaire sert à vous orienter rapidement, pas à rallonger le process. Vous savez vite si nous pouvons avancer ensemble.',
       cards: [
         {
           id: 'qualification',
           title: '1) Vérification de fit',
-          text: 'Je vérifie si le projet correspond au périmètre du studio (type de besoin, budget, délai, niveau d’urgence).',
+          text: 'Je vérifie l’alignement avec le périmètre du studio : besoin, budget, délai et niveau d’urgence.',
         },
         {
           id: 'response-time',
           title: '2) Retour sous 24–48h',
-          text: 'Vous recevez un retour clair : faisabilité, niveau de priorité et proposition de suite (appel, cadrage ou orientation).',
+          text: 'Vous recevez une réponse claire : faisabilité, priorité et proposition de suite.',
         },
         {
           id: 'frictionless',
           title: '3) Option urgence',
-          text: 'Si votre besoin est urgent, indiquez-le : je propose une alternative rapide (créneau court ou réponse email priorisée) selon disponibilités.',
+          text: 'En cas de contrainte forte, indiquez-le : je propose une option de réponse accélérée selon disponibilités.',
         },
       ],
       noteLabel: 'Bon à savoir',
-      note: 'Un message précis sur votre contexte, votre objectif et votre échéance permet un diagnostic plus fiable dès le premier retour.',
+      note: 'Plus votre message est concret (contexte, objectif, échéance), plus le retour sera précis.',
     },
     helper:
-      'Votre demande est lue personnellement. Si ce n’est pas un bon fit, vous repartez quand même avec une recommandation utile.',
-    submitLabel: 'Recevoir mon premier retour',
+      'Chaque demande est lue personnellement. Si le projet n’est pas un bon fit, vous repartez avec une orientation utile.',
+    submitLabel: 'Envoyer',
     successMessage:
-      'Demande envoyée. Vous recevrez un retour sous 24 à 48h ouvrées avec la meilleure suite possible pour votre projet.',
+      'Demande envoyée. Vous recevrez un retour sous 24 à 48h ouvrées avec la suite recommandée pour votre projet.',
     errorMessage:
-      'Une erreur est survenue pendant l’envoi. Vous pouvez réessayer ou m’écrire directement.',
+      'Une erreur est survenue pendant l’envoi. Vous pouvez réessayer ou écrire directement par email.',
     fields: {
       firstNameLabel: 'Prénom',
       lastNameLabel: 'Nom',
@@ -116,7 +116,7 @@ export const contactPageContent: ContactPageContent = {
       email: 'vous@exemple.com',
       website: 'www.votresite.fr',
       message:
-        'Expliquez votre activité, votre besoin, votre échéance, vos contraintes et le résultat attendu.',
+        'Présentez votre activité, votre objectif principal, votre échéance et ce que vous attendez du futur site.',
     },
     options: {
       projectTypes: [],
@@ -140,47 +140,45 @@ export const contactPageContent: ContactPageContent = {
 
   alternativeContact: {
     eyebrow: 'Autre possibilité',
-    title: 'Vous préférez un contact plus direct ?',
+    title: 'Vous préférez un contact direct ?',
     description:
-      'Si vous avez déjà un brief clair ou une question rapide, vous pouvez aussi me contacter directement par email.',
+      'Si vous avez déjà un brief ou une question ciblée, vous pouvez aussi écrire directement par email.',
     emailLabel: 'Email direct',
     email: 'bonjour@alchimiste-creations.fr',
     responseTimeLabel: 'Délai de réponse',
     responseTime: 'En général sous 24 à 48h ouvrées',
     availabilityLabel: 'Disponibilité',
     availability: 'Nouveaux projets sélectionnés avec attention',
-    note: 'Même si tout n’est pas encore parfaitement cadré, vous pouvez écrire. L’important est d’expliquer votre contexte et votre besoin.',
+    note: 'Même si votre besoin n’est pas parfaitement cadré, décrivez votre contexte : je vous aiderai à clarifier la suite.',
   },
 
   process: {
     eyebrow: 'Comment ça se passe',
-    title: 'Un processus simple, fluide et rassurant.',
+    title: 'Un premier contact simple et sans friction.',
     description:
-      'Le premier contact sert à comprendre votre besoin, clarifier les priorités et identifier la meilleure suite possible.',
+      'L’objectif est de clarifier votre situation rapidement pour décider de la suite la plus pertinente.',
     steps: [
       {
         id: 'message',
         title: 'Vous envoyez votre demande',
-        description:
-          'Vous partagez les éléments essentiels sur votre activité, votre besoin et le contexte du projet.',
+        description: 'Vous partagez l’essentiel : activité, besoin, contexte et priorité.',
       },
       {
         id: 'review',
-        title: 'Je fais une première lecture',
-        description:
-          'J’analyse la demande pour comprendre les enjeux, la maturité du projet et le niveau d’accompagnement attendu.',
+        title: 'Je l’analyse',
+        description: 'Je vérifie les enjeux du projet et le niveau d’accompagnement nécessaire.',
       },
       {
         id: 'call',
         title: 'Nous échangeons si le fit est bon',
         description:
-          'Si le projet correspond bien au cadre du studio, je vous propose un échange pour approfondir.',
+          'Si le projet correspond au cadre du studio, je vous propose un appel pour cadrer la suite.',
       },
       {
         id: 'next-step',
-        title: 'Vous avancez avec clarté',
+        title: 'Vous avancez avec visibilité',
         description:
-          'Vous repartez avec une direction claire, qu’il s’agisse d’une proposition ou d’une prochaine étape.',
+          'Vous repartez avec une direction claire : proposition, plan d’action ou recommandation utile.',
       },
     ],
   },

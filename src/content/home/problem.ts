@@ -1,28 +1,28 @@
 import type { ProblemContent } from '@/domain/home/problem';
 
 export const problemContent: ProblemContent = {
-  eyebrow: 'Ce qui freine souvent la conversion',
-  title: 'Un site peut desservir une activité au lieu de la valoriser.',
+  eyebrow: 'Pourquoi certains sites ne convertissent pas',
+  title: 'Avoir un site ne suffit pas : encore faut-il qu’il rassure et qu’il guide.',
   description:
-    'Quand le message manque de clarté, que l’image semble datée ou que la structure n’accompagne pas la décision, le visiteur doute avant même de vous contacter.',
+    'Quand tout semble “à peu près correct” mais que rien n’est vraiment clair, le visiteur hésite… puis part sans vous contacter.',
   items: [
     {
       id: 'credibility-gap',
-      title: 'Crédibilité fragile',
+      title: 'La première impression n’est pas au niveau',
       consequence:
-        'Un site daté ou peu soigné crée du doute, même lorsque votre expertise est réelle.',
+        'Un design daté ou approximatif peut affaiblir votre crédibilité, même si votre expertise est solide.',
     },
     {
       id: 'message-confusion',
-      title: 'Message difficile à comprendre',
+      title: 'L’offre se comprend trop lentement',
       consequence:
-        'Vos visiteurs ne comprennent pas assez vite ce que vous faites, pour qui vous travaillez et pourquoi vous choisir.',
+        'Si le visiteur ne voit pas rapidement ce que vous faites et pour qui, il ne se projette pas.',
     },
     {
       id: 'conversion-friction',
-      title: 'Peu de demandes qualifiées',
+      title: 'Le passage à l’action est flou',
       consequence:
-        'Sans parcours clair ni CTA stratégiques, le trafic ne se transforme pas en opportunités concrètes.',
+        'Sans parcours clair ni CTA pertinents, les visites ne deviennent pas des demandes qualifiées.',
     },
   ],
 };

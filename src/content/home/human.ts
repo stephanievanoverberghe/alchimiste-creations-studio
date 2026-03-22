@@ -2,12 +2,12 @@ import type { HomeHumanSectionContent } from '@/domain/home/human';
 
 export const homeHumanSectionContent: HomeHumanSectionContent = {
   eyebrow: 'La personne derrière le studio',
-  title: 'Une approche humaine, exigeante et orientée résultat.',
+  title: 'Un accompagnement direct, du premier échange à la mise en ligne.',
   description:
-    'Je pilote chaque projet de A à Z pour garder une direction claire, un haut niveau d’exigence et une exécution cohérente.',
+    'Vous avancez avec un interlocuteur unique, une méthode claire et des décisions guidées à chaque étape.',
   paragraphs: [
-    'Alchimiste Créations est un studio indépendant : vous échangez directement avec la personne qui conçoit, structure et développe votre site.',
-    'Mon objectif est simple : traduire la qualité réelle de votre activité en une présence en ligne claire, crédible et convaincante.',
+    'Alchimiste Créations est un studio indépendant : vous échangez avec la personne qui cadre, conçoit et développe votre site.',
+    'Cette proximité permet d’aller à l’essentiel, de garder le cap et de livrer un site aligné avec vos enjeux réels.',
   ],
   metrics: [
     {
@@ -22,8 +22,8 @@ export const homeHumanSectionContent: HomeHumanSectionContent = {
     },
     {
       id: 'approach',
-      label: 'Méthode',
-      value: 'Clarté • Design • Conversion',
+      label: 'Fil conducteur',
+      value: 'Clarté • Crédibilité • Conversion',
     },
   ],
 };

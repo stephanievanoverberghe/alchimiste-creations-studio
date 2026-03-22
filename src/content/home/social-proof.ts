@@ -1,29 +1,29 @@
 import type { SocialProofContent } from '@/domain/home/social-proof';
 
 export const socialProofContent: SocialProofContent = {
-  eyebrow: 'Standards de conception',
+  eyebrow: 'Standard de qualité',
 
   quote:
-    'Un site premium ne doit pas seulement être esthétique. Il doit clarifier votre positionnement, renforcer votre valeur perçue et rendre la prise de contact plus naturelle.',
+    'Un site utile ne cherche pas à impressionner pour impressionner. Il aide les bonnes personnes à comprendre votre valeur, à vous faire confiance et à passer à l’action.',
 
   author: 'Alchimiste Créations',
-  role: 'Méthode de conception',
+  role: 'Approche du studio',
 
   stats: [
     {
       id: 'timeline',
       value: '2 à 6 semaines',
-      label: 'Cadrage, production et mise en ligne inclus',
+      label: 'Du cadrage à la livraison',
     },
     {
       id: 'method',
-      value: 'Méthode en 4 étapes',
-      label: 'Brief guidé, structure des pages, design, itérations',
+      value: 'Méthode en 4 axes',
+      label: 'Message, structure, design, conversion',
     },
     {
       id: 'business-focus',
-      value: 'Piloté business',
-      label: 'Objectifs de contact, lisibilité mobile et vitesse',
+      value: 'Objectif contact',
+      label: 'Une présence pensée pour générer des demandes qualifiées',
     },
   ],
 };

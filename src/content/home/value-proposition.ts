@@ -3,31 +3,31 @@ import { Gauge, Palette, Sparkles } from 'lucide-react';
 import type { ValuePropositionContent } from '@/domain/home/value-proposition';
 
 export const valuePropositionContent: ValuePropositionContent = {
-  eyebrow: 'Méthode Alchimiste',
-  title: 'Un site conçu comme un levier de crédibilité et de développement.',
+  eyebrow: 'Ce qui fait la différence',
+  title: 'Pas seulement “un site en ligne” : un site qui travaille pour votre activité.',
   description:
-    'Chaque projet combine direction créative, structure UX et implémentation technique pour transformer votre présence en ligne en un véritable outil au service de votre activité.',
+    'Chaque décision sert un objectif concret : mieux expliquer votre offre, rassurer plus vite et faciliter la prise de contact.',
 
   items: [
     {
       id: 'branding-digital',
-      title: 'Direction visuelle crédible',
+      title: 'Une image qui reflète votre niveau',
       description:
-        'Un univers digital cohérent, élégant et professionnel qui valorise votre activité et renforce immédiatement la confiance de vos visiteurs.',
+        'Un design soigné et cohérent pour donner une impression de sérieux dès la première visite.',
       icon: Palette,
     },
     {
       id: 'nextjs-performance',
-      title: 'Technologie moderne et performante',
+      title: 'Une base fiable et rapide',
       description:
-        'Un site rapide, stable et optimisé construit avec Next.js pour offrir une expérience fluide et fiable sur mobile comme sur desktop.',
+        'Un site fluide sur mobile comme sur desktop pour éviter la frustration et garder l’attention.',
       icon: Gauge,
     },
     {
       id: 'conversion-optimization',
-      title: 'Structure pensée pour convertir',
+      title: 'Un parcours pensé pour décider',
       description:
-        'Une hiérarchie claire, un message lisible et des appels à l’action bien placés pour transformer plus de visiteurs en prospects.',
+        'Un message clair, des preuves bien placées et des appels à l’action visibles pour générer de meilleurs contacts.',
       icon: Sparkles,
     },
   ],
