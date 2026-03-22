@@ -2,25 +2,25 @@ import type { HeroContent } from '@/domain/home/hero';
 import { primaryContactCtaLabel } from '@/content/site/messaging';
 
 export const heroContent: HeroContent = {
-  eyebrow: 'Studio web indépendant — design, clarté, conversion',
-  title: 'Un site clair, crédible et orienté conversion pour attirer plus de prospects qualifiés.',
+  eyebrow: 'Studio web indépendant — stratégie, design, résultats mesurables',
+  title: 'Un site pensé pour décrocher plus de demandes qualifiées en 2 à 6 semaines.',
   description:
-    'Je conçois des sites premium pour entrepreneurs et indépendants qui veulent mieux présenter leur valeur, rassurer plus vite et générer davantage de prises de contact utiles.',
+    'Chaque projet suit une méthode en 4 étapes (positionnement, maquettes, développement, optimisation) pour transformer votre expertise en pages qui répondent aux objections et poussent à l’action.',
   trustIndicators: [
     {
       id: 'timeline',
       value: '2 à 6 semaines',
-      label: 'De la stratégie au déploiement',
+      label: 'Cadrage, production et mise en ligne inclus',
     },
     {
-      id: 'mobile-first',
-      value: 'Mobile-first',
-      label: 'Pensé pour convertir sur tous les écrans',
+      id: 'method',
+      value: 'Méthode en 4 étapes',
+      label: 'Brief guidé, structure des pages, design, itérations',
     },
     {
-      id: 'nextjs-stack',
-      value: 'Next.js & perf',
-      label: 'Base technique rapide, propre et évolutive',
+      id: 'business-focus',
+      value: 'Piloté business',
+      label: 'Objectifs de contact, lisibilité mobile et vitesse',
     },
   ],
   primaryCta: {

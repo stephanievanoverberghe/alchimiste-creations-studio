@@ -11,21 +11,19 @@ export const socialProofContent: SocialProofContent = {
 
   stats: [
     {
-      id: 'delivery',
-      value: '2–6 semaines',
-      label:
-        'Un rythme de production clair et structuré pour avancer efficacement sans sacrifier la qualité.',
+      id: 'timeline',
+      value: '2 à 6 semaines',
+      label: 'Cadrage, production et mise en ligne inclus',
     },
     {
-      id: 'mobile',
-      value: 'Mobile-first',
-      label: 'Une expérience pensée d’abord pour la lisibilité et la fluidité sur tous les écrans.',
+      id: 'method',
+      value: 'Méthode en 4 étapes',
+      label: 'Brief guidé, structure des pages, design, itérations',
     },
     {
-      id: 'core-web',
-      value: 'Next.js',
-      label:
-        'Une base technique moderne, performante et évolutive pour construire des sites rapides et durables.',
+      id: 'business-focus',
+      value: 'Piloté business',
+      label: 'Objectifs de contact, lisibilité mobile et vitesse',
     },
   ],
 };

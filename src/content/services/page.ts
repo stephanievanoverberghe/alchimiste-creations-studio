@@ -8,9 +8,10 @@ import {
 export const servicesPageContent: ServicesPageContent = {
   hero: {
     eyebrow: 'Services',
-    title: 'Des offres pensées pour clarifier votre présence en ligne et mieux convertir.',
+    title:
+      'Des offres cadrées pour savoir exactement quoi lancer, quoi exclure et quel résultat viser.',
     description:
-      'Chaque offre répond à un besoin précis : lancer une présence crédible, structurer un site durable ou refondre un existant devenu moins efficace.',
+      'Chaque format annonce un périmètre concret, des exclusions explicites et un résultat mesurable pour décider rapidement sans zone floue.',
     primaryCta: {
       label: secondaryContactCtaLabel,
       href: '/contact',
@@ -114,7 +115,7 @@ export const servicesPageContent: ServicesPageContent = {
     eyebrow: 'Les offres',
     title: 'Trois formats pour lancer, structurer ou améliorer votre site.',
     description:
-      'Chaque offre est conçue pour répondre à un contexte précis avec un périmètre clair, une logique cohérente et un objectif concret.',
+      'Chaque offre répond à un cas précis avec un cadre de production, des limites assumées et un objectif business observable.',
     investmentLabel: 'Investissement',
     startingFromLabel: 'À partir de',
     timelineLabel: 'Délai',
@@ -200,9 +201,9 @@ export const servicesPageContent: ServicesPageContent = {
 
   details: {
     eyebrow: 'Détail des offres',
-    title: 'Un cadre clair pour savoir ce que vous achetez réellement.',
+    title: 'Un cadre précis pour décider en confiance.',
     description:
-      'Chaque offre est présentée de manière transparente : objectifs, inclusions, livrables, contenu possible et options selon votre besoin.',
+      'Pour chaque offre : périmètre de production, exclusions explicites, livrables et résultat attendu pour piloter la décision.',
     defaultOfferBadge: 'Offre',
     featuredOfferBadge: 'Populaire',
     summaryTitle: 'En bref',

@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import {
+  Accordion,
   Badge,
   Container,
   Heading,
@@ -96,7 +97,34 @@ export function ServicesDetails({ content, services }: ServicesDetailsProps) {
           },
         ]
       : []),
+    {
+      id: 'exclusions',
+      label: 'Exclusions',
+      eyebrow: 'Ce qui n’est pas inclus',
+      title: 'Exclusions explicites',
+      content: <BulletList items={EXCLUSIONS_BY_SERVICE[activeService.slug]} />,
+    },
+    {
+      id: 'expected-result',
+      label: 'Résultat',
+      eyebrow: 'Ce que vous pouvez mesurer',
+      title: 'Résultat attendu',
+      content: <BulletList items={EXPECTED_RESULTS_BY_SERVICE[activeService.slug]} />,
+    },
   ];
+
+  const decisionFaqItems = DECISION_FAQ_ITEMS.map((item) => ({
+    id: item.id,
+    title: item.question,
+    content: (
+      <div>
+        <p>{item.answer}</p>
+        <p className="mt-3 text-foreground/80">
+          <strong>Offre recommandée :</strong> {item.recommendedOffer}
+        </p>
+      </div>
+    ),
+  }));
 
   return (
     <Section
@@ -185,12 +213,82 @@ export function ServicesDetails({ content, services }: ServicesDetailsProps) {
             <div className="mt-8">
               <SegmentedContentSlider items={detailItems} />
             </div>
+
+            <div className="mt-10 border-t border-white/10 pt-8">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-foreground/55">
+                Mini-FAQ décisionnelle
+              </p>
+              <h4 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">
+                Quand choisir telle offre ?
+              </h4>
+              <Accordion items={decisionFaqItems} className="mt-6" />
+            </div>
           </section>
         </div>
       </Container>
     </Section>
   );
 }
+
+const EXCLUSIONS_BY_SERVICE: Record<ServiceSlug, string[]> = {
+  'landing-page': [
+    'Pas de blog multi-pages ni d’espace membre.',
+    'Pas de stratégie SEO avancée (netlinking, cocon sémantique).',
+    'Pas d’automatisation CRM complexe ou tunnel e-mail complet.',
+  ],
+  'site-vitrine': [
+    'Pas de boutique e-commerce avec paiement en ligne.',
+    'Pas de développement d’app métier sur mesure.',
+    'Pas de rédaction longue de tous les contenus à votre place.',
+  ],
+  'refonte-site': [
+    'Pas de migration massive sans audit technique préalable.',
+    'Pas de refonte complète de branding sans direction artistique dédiée.',
+    'Pas de maintenance mensuelle illimitée incluse d’office.',
+  ],
+};
+
+const EXPECTED_RESULTS_BY_SERVICE: Record<ServiceSlug, string[]> = {
+  'landing-page': [
+    'Message principal compris en moins de 10 secondes.',
+    '1 objectif unique de conversion mesurable (clic, formulaire ou appel).',
+    'Mise en ligne rapide pour tester une offre en 30 jours maximum.',
+  ],
+  'site-vitrine': [
+    'Parcours clair pour présenter vos services sans friction.',
+    'Hausse mesurable des demandes qualifiées via formulaires et appels.',
+    'Base stable pour publier de nouvelles pages sans repartir de zéro.',
+  ],
+  'refonte-site': [
+    'Amélioration mesurable du taux de conversion des pages clés.',
+    'Réduction des points de friction identifiés pendant l’audit.',
+    'Site plus rapide et plus lisible pour soutenir votre croissance commerciale.',
+  ],
+};
+
+const DECISION_FAQ_ITEMS = [
+  {
+    id: 'faq-landing',
+    question: 'Vous lancez une offre ou une campagne unique ?',
+    answer:
+      'Choisissez une landing page si vous avez une seule promesse à valider et un seul objectif de conversion prioritaire.',
+    recommendedOffer: 'Landing page',
+  },
+  {
+    id: 'faq-vitrine',
+    question: 'Vous avez plusieurs services à présenter de façon structurée ?',
+    answer:
+      'Prenez le site vitrine si votre priorité est d’expliquer votre offre en profondeur et de générer des prises de contact régulières.',
+    recommendedOffer: 'Site vitrine',
+  },
+  {
+    id: 'faq-refonte',
+    question: 'Votre site existe déjà mais ne soutient plus vos objectifs ?',
+    answer:
+      'Optez pour la refonte si vous devez corriger un positionnement flou, des frictions UX ou un déficit de performance.',
+    recommendedOffer: 'Refonte de site',
+  },
+];
 
 type BulletListProps = {
   items: string[];

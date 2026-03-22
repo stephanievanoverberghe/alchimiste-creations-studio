@@ -3,9 +3,9 @@ import type { ContactPageContent } from '@/domain/contact/page';
 export const contactPageContent: ContactPageContent = {
   hero: {
     eyebrow: 'Premier échange',
-    title: 'Parlons d’un projet clair, sérieux et pensé pour convertir.',
+    title: 'Parlons de votre projet et de la meilleure prochaine étape, sans perdre de temps.',
     description:
-      'Décrivez votre activité, votre besoin et votre contexte. Je vous réponds avec un premier retour clair pour voir si une collaboration a du sens.',
+      'Vous recevez un premier retour sous 24 à 48h ouvrées avec : niveau de fit, proposition de suite et délai réaliste selon votre priorité.',
     highlights: [
       'Réponse sous 24 à 48h',
       'Échange sans engagement',
@@ -53,11 +53,11 @@ export const contactPageContent: ContactPageContent = {
         id: 'fit',
         title: 'Ce qui fait un bon fit',
         description:
-          'Les meilleures collaborations commencent quand la clarté, la perception et la qualité du site sont de vraies priorités.',
+          'Je peux vraiment vous aider si votre priorité est business : mieux vous positionner, rassurer plus vite et augmenter les demandes qualifiées.',
         points: [
-          'Vous cherchez plus qu’un site “joli”',
-          'Vous voulez mieux présenter votre offre',
-          'Vous accordez de l’importance au détail',
+          'Vous cherchez un site utile, pas juste esthétique',
+          'Vous êtes prêt à valider des décisions rapidement',
+          'Vous visez un impact mesurable (contacts, rendez-vous, ventes)',
         ],
       },
     ],
@@ -67,37 +67,37 @@ export const contactPageContent: ContactPageContent = {
     eyebrow: 'Formulaire',
     title: 'Décrivez votre projet',
     description:
-      'Quelques informations bien choisies suffisent pour préparer un premier échange utile. Vous pouvez rester simple et direct.',
+      'Quelques informations suffisent pour obtenir un retour utile : faisabilité, fit, ordre de grandeur et prochaine étape recommandée.',
     aside: {
       eyebrow: 'Premier échange',
-      title: 'Un cadre simple, clair et sérieux.',
+      title: 'Ce que vous obtenez après envoi.',
       description:
-        'Quelques informations bien choisies suffisent pour préparer un échange utile. Le but n’est pas de vous faire remplir un long dossier, mais de comprendre le projet avec justesse.',
+        'Le formulaire sert à vous répondre concrètement, pas à rallonger le process. Vous savez rapidement si l’on peut avancer ensemble, et comment.',
       cards: [
         {
           id: 'qualification',
-          title: 'Demande qualifiée',
-          text: 'Le formulaire aide à cadrer le besoin, le budget et le niveau de maturité du projet.',
+          title: '1) Vérification de fit',
+          text: 'Je vérifie si le projet correspond au périmètre du studio (type de besoin, budget, délai, niveau d’urgence).',
         },
         {
           id: 'response-time',
-          title: 'Réponse rapide',
-          text: 'Je reviens généralement vers vous sous 24 à 48h ouvrées avec une première lecture claire.',
+          title: '2) Retour sous 24–48h',
+          text: 'Vous recevez un retour clair : faisabilité, niveau de priorité et proposition de suite (appel, cadrage ou orientation).',
         },
         {
           id: 'frictionless',
-          title: 'Échange sans friction',
-          text: 'Vous pouvez rester simple. L’important est surtout d’expliquer votre contexte et votre objectif.',
+          title: '3) Option urgence',
+          text: 'Si votre besoin est urgent, indiquez-le : je propose une alternative rapide (créneau court ou réponse email priorisée) selon disponibilités.',
         },
       ],
       noteLabel: 'Bon à savoir',
-      note: 'Plus votre message est précis sur votre activité, votre besoin actuel et ce que vous cherchez à améliorer, plus ma réponse pourra être utile dès le premier retour.',
+      note: 'Un message précis sur votre contexte, votre objectif et votre échéance permet un diagnostic plus fiable dès le premier retour.',
     },
     helper:
-      'Pas de spam, pas de pression. Juste un premier échange clair pour voir si votre projet entre dans le bon cadre.',
-    submitLabel: 'Envoyer ma demande',
+      'Votre demande est lue personnellement. Si ce n’est pas un bon fit, vous repartez quand même avec une recommandation utile.',
+    submitLabel: 'Recevoir mon premier retour',
     successMessage:
-      'Votre demande a bien été envoyée. Je reviens vers vous rapidement avec une première lecture du projet.',
+      'Demande envoyée. Vous recevrez un retour sous 24 à 48h ouvrées avec la meilleure suite possible pour votre projet.',
     errorMessage:
       'Une erreur est survenue pendant l’envoi. Vous pouvez réessayer ou m’écrire directement.',
     fields: {
@@ -116,7 +116,7 @@ export const contactPageContent: ContactPageContent = {
       email: 'vous@exemple.com',
       website: 'www.votresite.fr',
       message:
-        'Expliquez votre activité, votre besoin actuel, votre objectif et ce que vous attendez du projet.',
+        'Expliquez votre activité, votre besoin, votre échéance, vos contraintes et le résultat attendu.',
     },
     options: {
       projectTypes: [],

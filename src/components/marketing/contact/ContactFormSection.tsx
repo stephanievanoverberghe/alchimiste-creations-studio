@@ -401,9 +401,13 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
               </FormField>
 
               <div className="flex flex-col gap-4 border-t border-white/8 pt-5 sm:flex-row sm:items-center sm:justify-between">
-                <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                  {content.helper}
-                </p>
+                <div className="max-w-2xl space-y-2">
+                  <p className="text-sm leading-7 text-muted-foreground">{content.helper}</p>
+                  <p className="text-xs leading-6 text-foreground/60">
+                    Urgence projet (moins de 2 semaines) : précisez-le dans votre message pour une
+                    orientation prioritaire si un créneau est disponible.
+                  </p>
+                </div>
 
                 <Button
                   variant="primary"
@@ -412,7 +416,7 @@ export function ContactFormSection({ content }: ContactFormSectionProps) {
                   disabled={isSubmitting}
                   className="min-w-56 rounded-2xl px-6 text-[0.95rem] font-semibold tracking-wide shadow-[0_18px_40px_rgba(124,92,255,0.22)]"
                 >
-                  {isSubmitting ? 'Envoi en cours...' : content.submitLabel}
+                  {isSubmitting ? 'Analyse de votre demande...' : content.submitLabel}
                 </Button>
               </div>
 
