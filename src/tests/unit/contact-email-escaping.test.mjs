@@ -17,6 +17,7 @@ describe('sendContactEmail html escaping', () => {
 
         const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
         vi.stubGlobal('fetch', fetchMock);
+        vi.spyOn(console, 'info').mockImplementation(() => undefined);
 
         const result = await sendContactEmail({
             firstName: '<script>alert(1)</script>',
