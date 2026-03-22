@@ -20,7 +20,12 @@ function getClientIp(request: Request): string {
     return forwarded.split(',')[0]?.trim() ?? 'unknown';
   }
 
-  return request.headers.get('x-real-ip') ?? 'unknown';
+  return (
+    request.headers.get('cf-connecting-ip') ??
+    request.headers.get('x-real-ip') ??
+    request.headers.get('x-client-ip') ??
+    'unknown'
+  );
 }
 
 function isRateLimited(ip: string) {
@@ -52,6 +57,10 @@ function errorResponse(status: number) {
   return NextResponse.json({ message: 'Impossible de traiter la demande.' }, { status });
 }
 
+export function __resetRateLimitStoreForTests() {
+  rateLimitStore.clear();
+}
+
 export async function POST(request: Request) {
   const clientIp = getClientIp(request);
   const rateLimit = isRateLimited(clientIp);
@@ -79,6 +88,11 @@ export async function POST(request: Request) {
     }
 
     const challenge = await verifyTurnstileToken(parsed.data.turnstileToken, clientIp);
+
+    if (!challenge.ok && challenge.reason === 'missing_secret') {
+      return errorResponse(503);
+    }
+
     if (!challenge.ok) {
       return errorResponse(400);
     }
@@ -94,7 +108,11 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ message: 'Message reçu.' }, { status: 200 });
-  } catch {
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      return errorResponse(400);
+    }
+
     return errorResponse(500);
   }
 }

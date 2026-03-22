@@ -25,7 +25,7 @@ export const contactFormSchema = z
       }, 'Veuillez saisir une URL valide.'),
     message: z.string().trim().min(30, 'Votre message doit contenir au moins 30 caractères.'),
     turnstileToken: z.string().trim().min(1, 'Validation anti-spam requise.'),
-    company: z.string().max(0).optional(), // honeypot
+    company: z.string().trim().max(200).optional(), // honeypot
   })
   .strict();
 
